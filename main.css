@@ -26,6 +26,36 @@
     text-align: right;
 }
 
+#btn-cta-override:before {
+    content: 'Connect with me'
+}
+
+@media screen and (max-width: 1200px) and (min-width: 992px) {
+    #btn-cta-override:before {
+        content: 'Contact';
+    }
+    .nav-item {
+        padding-left: 3em;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #btn-cta-override {
+        padding: 5px 20px !important;
+        margin-left: 65% !important;
+    }
+
+    .nav-item {
+        border-bottom: 1.5px solid rgb(193, 193, 193);
+        width: 100%;
+        padding: 0px;
+    }
+
+    #ul-override {
+        width: 100% !important;
+    }
+}
+
 #btn-cta-override {
     position: relative;
     top: 0.5em;
@@ -48,3 +78,4 @@
 .btn-outline-primary.disabled,.btn-outline-primary:disabled{color:#005eff;background-color:transparent}
 .btn-outline-primary:not(:disabled):not(.disabled):active,.btn-outline-primary:not(:disabled):not(.disabled).active,.show>.btn-outline-primary.dropdown-toggle{color:#fff;background-color:#005eff;border-color:#005eff}
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,.btn-outline-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem #024ed2}
+
