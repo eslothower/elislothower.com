@@ -79,3 +79,44 @@
 .btn-outline-primary:not(:disabled):not(.disabled):active,.btn-outline-primary:not(:disabled):not(.disabled).active,.show>.btn-outline-primary.dropdown-toggle{color:#fff;background-color:#005eff;border-color:#005eff}
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,.btn-outline-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-primary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem #024ed2}
 
+#home-container {
+    padding: 0px 80px;
+    padding-top: 100px;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 500;
+}
+
+#home-container-p {
+    padding-top: 40px;
+    padding-right: 15%;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none !important;
+    -webkit-transition: color .2s linear !important;
+    -moz-transition: color .2s linear !important;
+    -ms-transition: color .2s linear !important;
+    -o-transition: color .2s linear !important;
+    transition: color .2s linear !important;
+}
+
+a:hover {
+    color: #005eff !important;
+    text-decoration: underline !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+a{
+    text-decoration:none !important;
+}
+
+#cmuLink {
+    color: black;
+    font-weight: 500;
+}
