@@ -112,11 +112,16 @@ a:hover {
     text-decoration: none !important;
 }
 
-a{
-    text-decoration:none !important;
+a,
+a:link,
+a:visited,
+a:hover,
+a:active{
+    text-decoration: none !important;
 }
 
 #cmuLink {
     color: black;
     font-weight: 500;
+    text-decoration: none !important;
 }
