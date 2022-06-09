@@ -30,48 +30,6 @@
     content: 'Connect with me'
 }
 
-@media screen and (max-width: 1200px) and (min-width: 992px) {
-    #btn-cta-override:before {
-        content: 'Contact';
-    }
-    .nav-item {
-        padding-left: 3em;
-    }
-}
-
-@media screen and (max-width: 992px) {
-    #btn-cta-override {
-        padding: 5px 20px !important;
-        margin-left: 60% !important;
-    }
-
-    .nav-item {
-        border-bottom: 1.5px solid rgb(193, 193, 193);
-        width: 100%;
-        padding: 0px;
-    }
-
-    #ul-override {
-        width: 100% !important;
-    }
-
-}
-
-@media screen and (min-width: 767px) and (max-width: 992px) {
-    #second-fact-col {
-        float: left;
-        padding-left: 0.9rem;
-    }
-}
-
-@media screen and (max-width: 767px){
-    #second-fact-col {
-        float: left;
-        padding-left: 0rem;
-    }
-}
-
-
 #btn-cta-override {
     position: relative;
     top: 0.5em;
@@ -156,8 +114,6 @@ a:active{
     margin-top: 30px;
     font-size: 1em;
 }
-
-
 
 #school {
     margin: 0px;
@@ -251,4 +207,190 @@ a:active{
 .attention:hover {
     color: #80a8eb !important;
     text-decoration: none !important;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media screen and (max-width: 600px) {
+    .logo {
+        font-size: 16px;
+    }
+
+    #heading-phrase {
+        font-size: 25px;
+    }
+
+    #home-container-p {
+        font-size: 14px;
+    }
+    
+    #btn-cta-override {
+        padding: 5px 20px;
+    }
+
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+}
+
+
+@media screen and (max-width: 768px){
+    #second-fact-col {
+        float: left;
+        padding-left: 0rem;
+    }
+
+    #home-container {
+        padding: 0px 40px;
+        padding-top: 80px;
+    }
+
+    #home-container-p {
+        padding-top: 20px;
+        padding-right: 0%;
+    }
+    
+    #facts {
+        font-size: 0.9em;
+        margin-top: 20px;
+    }
+    
+    #school {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/graduationCap.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 17px;
+    }
+    
+    #location {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/location.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 16px;
+    }
+    
+    #languages {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/codingLogo.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 18px;
+    }
+    
+    #job-search {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/wavingHand.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 16px;
+    }
+    
+    #email {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/envelope.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 16px;
+    }
+    
+    #linkedin {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/linkedIn.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 16px;
+    }
+    
+    #github {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/github.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 16px;
+    }
+    
+    #resume {
+        margin: 0px;
+    	padding: 0px 0px 0px 35px;
+    	list-style: none;
+    	background-image: url("assets/icons/document.png");
+    	background-repeat: no-repeat;
+    	background-position: left center;
+    	background-size: 15px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 992px) {
+    #second-fact-col {
+        float: left;
+        padding-left: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 992px) {
+       #btn-cta-override {
+        padding: 5px 20px;
+        margin-left: 60%;
+    } 
+}
+
+@media screen and (max-width: 992px) {
+    .nav-item {
+        border-bottom: 1.5px solid rgb(193, 193, 193);
+        width: 100%;
+        padding: 0px;
+    }
+
+    #ul-override {
+        width: 100% !important;
+    }
+    
+    .nav-link, #btn-cta-override {
+        font-size: 1em;
+    }
+
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    #btn-cta-override:before {
+        content: 'Contact';
+    }
+    .nav-item {
+        padding-left: 3em;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 991px) {
+    #btn-cta-override:before {
+        content: 'Contact';
+    }
+
 }
