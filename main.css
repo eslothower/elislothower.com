@@ -54,7 +54,23 @@
     #ul-override {
         width: 100% !important;
     }
+
 }
+
+@media screen and (min-width: 767px) and (max-width: 992px) {
+    #second-fact-col {
+        float: left;
+        padding-left: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #second-fact-col {
+        float: left;
+        padding-left: 0rem;
+    }
+}
+
 
 #btn-cta-override {
     position: relative;
@@ -82,6 +98,9 @@
 #home-container {
     padding: 0px 80px;
     padding-top: 100px;
+}
+
+#heading-phrase {
     font-family: 'Rubik', sans-serif;
     font-weight: 500;
 }
@@ -104,12 +123,8 @@ a {
 }
 
 a:hover {
-    color: #005eff !important;
-    text-decoration: underline !important;
-}
-
-a:hover {
     text-decoration: none !important;
+    color: #005eff !important;
 }
 
 a,
@@ -123,5 +138,117 @@ a:active{
 #cmuLink {
     color: black;
     font-weight: 500;
+    text-decoration: none !important;
+}
+
+#first-fact-col {
+    float: left;
+    padding-left: 0rem;
+}
+
+#second-fact-col {
+    float: left;
+}
+
+#facts {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400 !important;
+    margin-top: 30px;
+    font-size: 1em;
+}
+
+
+
+#school {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/graduationCap.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 23px;
+}
+
+#location {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/location.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 21px;
+}
+
+#languages {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/codingLogo.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 23px;
+}
+
+#job-search {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/wavingHand.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 20px;
+}
+
+#email {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/envelope.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 21px;
+}
+
+#linkedin {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/linkedIn.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 21px;
+}
+
+#github {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/github.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 22px;
+}
+
+#resume {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/document.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 19px;
+}
+
+#second-fact-col a {
+    color: black;
+}
+
+.attention {
+    font-weight: 500;
+    color: #005eff !important;
+}
+
+.attention:hover {
+    color: #80a8eb !important;
     text-decoration: none !important;
 }
