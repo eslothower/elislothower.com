@@ -209,6 +209,65 @@ a:active{
     text-decoration: none !important;
 }
 
+#bio {
+    margin-top: 30px;
+}
+
+#about-header {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 100px;
+}
+
+#about-words {
+    float: left;
+    width: 50%;
+    padding-left: 150px;
+}
+
+.about-p{
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+}
+
+#about-learning-left, #about-learning-right {
+    float: left;
+}
+
+#about-learning-left {
+    padding-left: 0px;
+}
+
+.bullet {
+    margin: 0px;
+	padding: 0px 0px 0px 35px;
+	list-style: none;
+	background-image: url("assets/icons/triangle.png");
+	background-repeat: no-repeat;
+	background-position: left center;
+	background-size: 10px;    
+}
+
+#bioPicContainer {
+    width: 50%;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 100px;
+}
+
+#bioPic {
+    width: 270px;
+    height: 270px;
+    
+}
+
+
+
+/* MEDIA QUERIES */
+
 /* Extra small devices (phones, 600px and down) */
 @media screen and (max-width: 600px) {
     .logo {
@@ -219,12 +278,18 @@ a:active{
         font-size: 25px;
     }
 
-    #home-container-p {
+    #home-container-p, .about-p, .bullet {
         font-size: 14px;
+        background-size: 7px;
     }
     
     #btn-cta-override {
         padding: 5px 20px;
+    }
+
+    #bioPic {
+        width: 200px;
+        height: 200px;
     }
 
 }
@@ -245,8 +310,24 @@ a:active{
 
 }
 
+@media screen and (min-width: 0px) and (max-width: 542px) {
+    #about-learning-right {
+        padding-left: 0rem;
+    }
+}
+
+@media screen and (min-width: 579px) and (max-width: 768px) {
+    #about-learning-right {
+        padding-left: 1rem;
+    }
+}
+
 
 @media screen and (max-width: 768px){
+    #first-fact-col {
+        margin-bottom: 0px;
+    }
+
     #second-fact-col {
         float: left;
         padding-left: 0rem;
@@ -346,6 +427,10 @@ a:active{
     	background-position: left center;
     	background-size: 15px;
     }
+
+    #about-learning-left {
+        margin-bottom: 0px;
+    }    
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -353,6 +438,7 @@ a:active{
         float: left;
         padding-left: 0.9rem;
     }
+
 }
 
 @media screen and (min-width: 601px) and (max-width: 992px) {
@@ -377,6 +463,22 @@ a:active{
         font-size: 1em;
     }
 
+    #about-words {
+        padding-left: 40px;
+        float: right;
+        width:100%;
+    }
+
+    #bioPicContainer {
+        float:left;
+        height: 270px;
+        width: 100%;
+        padding: 0px;
+        margin-top:10px;
+    }
+
+    #
+
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
@@ -393,4 +495,10 @@ a:active{
         content: 'Contact';
     }
 
+}
+
+@media screen and (min-width: 991px) and (max-width: 1400px) {
+    #about-learning-right {
+        padding-left: 0px;
+    }
 }
