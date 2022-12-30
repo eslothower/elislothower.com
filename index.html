@@ -1,160 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <link rel='shortcut icon' href='favicon.png' type='image/x-icon' />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eli Slothower</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com"> 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
-  </head>
+    <head>
+        <meta charset="utf-8">
+        <link rel='shortcut icon' href='favicon.png' type='image/x-icon' />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Eli Slothower</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="main.css">
+    </head>
 
-  <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-  
-  
-    <nav class="navbar navbar-expand-lg ">
-      <div class="container">
-        <a class="navbar-brand logo" href="http://www.elislothower.com">Eli Slothower</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto right" id="ul-override">
-            <li class="nav-item">
-              <a class="nav-link" href="#about-header">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#experience-header">Experience</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="resume.pdf" target="_blank">Resume</a>
-            </li>
-            <button type="button" class="btn btn-primary" id="btn-cta-override"></button>
-          </ul>
-          
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+
+
+        <nav class="navbar navbar-expand-lg ">
+            <div class="container">
+                <a class="navbar-brand logo" href="http://www.elislothower.com">Eli Slothower</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto right" id="ul-override">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about-header">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#experience-header">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Projects</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="resume.pdf" target="_blank">Resume</a>
+                        </li>
+                        <button type="button" class="btn btn-primary" id="btn-cta-override"></button>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+        <div class="container" id="home-container">
+            <div class="row">
+                <h1 id="heading-phrase">Hi, I'm Eli. I create things.</h1>
+            </div>
+            <div class="row">
+                <p id="home-container-p">I’m currently a student at <a id="cmuLink" href="https://csd.cmu.edu/news/five-scs-specialties-ranked-no-1-us-news-and-world-report" target="_blank">Carnegie Mellon University</a> earning a Bachelor of Science degree in Computer Science with a concentration in Software Engineering. I hope to use my skills to fight for societal improvement, such as for equal rights, climate change, mental health, access to health care and education, and much more. No matter what work I do, I hope it positively impacts the lives of others.</p>
+            </div>
+            <div class="row">
+                <div id="facts">
+                    <ul id="first-fact-col">
+                        <li id="school">
+                            <p>Carnegie Mellon University</p>
+                        </li>
+                        <li id="location">
+                            <p>Pittsburgh, Pennsylvania</p>
+                        </li>
+                        <li id="languages">
+                            <p>Python, HTML, CSS, SML, and more</p>
+                        </li>
+                        <li id="job-search">
+                            <p class="attention"><a class="attention" href="https://www.playspaces.co" target="_blank">Software Engineer at Playspaces</a></p>
+                        </li>
+                    </ul>
+                    <ul id="second-fact-col">
+                        <li id="email">
+                            <p><a href="mailto:contact@elislothower.com">eslothow@andrew.cmu.edu</a></p>
+                        </li>
+                        <li id="linkedin">
+                            <p><a href="https://www.linkedin.com/in/eli-slothower" target="_blank">eli-slothower</a></p>
+                        </li>
+                        <li id="github">
+                            <p><a href="https://github.com/eslothower" target="_blank">GitHub</a></p>
+                        </li>
+                        <li id="resume">
+                            <p><a href="resume.pdf" target="_blank">Resume</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
 
-    <div class="container" id="home-container">
-      <div class="row">
-        <h1 id="heading-phrase">Hi, I'm Eli. I create things.</h1>
-      </div>
-      <div class="row">
-        <p id="home-container-p">I’m currently a student at <a id="cmuLink" href="https://csd.cmu.edu/news/five-scs-specialties-ranked-no-1-us-news-and-world-report" target="_blank">Carnegie Mellon University</a> earning a Bachelor of Science degree in Computer Science with a concentration in Software Engineering. I hope to use my skills to fight for societal improvement, such as for equal rights, climate change, mental health, access to health care and education, and much more. No matter what work I do, I hope it positively impacts the lives of others.</p>
-      </div>
-      <div class="row">
-        <div id="facts">
-          <ul id="first-fact-col">
-            <li id="school">
-              <p>Carnegie Mellon University</p>
-            </li>
-            <li id="location">
-              <p>Pittsburgh, Pennsylvania</p>
-            </li>
-            <li id="languages">
-              <p>Python, C, Swift, and more</p>
-            </li>
-            <li id="job-search">
-              <p class="attention"><a class="attention" href="https://www.playspaces.co" target="_blank">Creative Technologist at Playspaces</a></p>
-            </li>
-          </ul>
-          <ul id="second-fact-col">
-            <li id="email">
-              <p><a href="mailto:contact@elislothower.com">contact@elislothower.com</a></p>
-            </li>
-            <li id="linkedin">
-              <p><a href="https://www.linkedin.com/in/eli-slothower" target="_blank">eli-slothower</a></p>
-            </li>
-            <li id="github">
-              <p><a href="https://github.com/eslothower" target="_blank">GitHub</a></p>
-            </li>
-            <li id="resume">
-              <p><a href="resume.pdf" target="_blank">Resume</a></p>
-            </li>
-          </ul>
+        <div class="container" id="about-container">
+            <div class="row">
+                <h3 id="about-header">About</h3>
+            </div>
+            <div class="row" id="bio">
+                <div id="about-words">
+                    <p class="about-p">Hello! My name is Eli and I love learning about and creating software. I’ve been passionate about computer science ever since an early age. I still remember the day I booted up the old Windows 95 PC and drew a red rectangle on the screen with JavaScript - my “Hello world” moment. This passion has driven me to create software for school districts, manage student interns for a summer internship program, tutor students in mathematics, and has even lead me to creating this website!</p>
+                    <p class="about-p">Fast forward to today and I am now at Carnegie Mellon University learning the skills I need to become a computer scientist, mathematician, and software engineer. I am currently expanding my skillset and learning things I never could have imagined. My time at CMU also includes continuing my 11-year jouney with music by learning how to play the piano, being an executive on the board of Habitat for Humanity, as well as on the board of Technovation, working on projects with Students Using Data for Social Good, being a member of Tartan Scholars, and much more.</p>
+                    <p class="about-p">I’m also currently a Software Engineer at Playspaces, a startup that allows children’s imaginations to flourish. Here I am helping to rebuild the product from the ground up using Unity C#, and Python, as well as help define the goals of the company by working closely with company executives.</p>
+                    <p class="about-p">Here’s some topics that I’m currently learning:</p>
+                    <ul id="about-learning-left">
+                        <li class="bullet">Computer Systems</li>
+                        <li class="bullet">Calculus in Three Dimensions</li>
+                        <li class="bullet">Probability and Statistics</li>
+                    </ul>
+                    <ul id="about-learning-right">
+                        <li class="bullet">Advanced Python Skills</li>
+                        <li class="bullet">Unity</li>
+                        <li class="bullet">C#</li>
+                    </ul>
+                </div>
+                <div id="bioPicContainer">
+                    <img src="assets/images/bioPictureRounded.jpg" alt="Biography picture of Eli Slothower in a button down shirt and glasses, standing up against a stone wall." id="bioPic">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="container" id="about-container">
-      <div class="row">
-        <h3 id="about-header">About</h3>
-      </div>
-      <div class="row" id="bio">
-        <div id="about-words">
-          <p class="about-p">Hello! My name is Eli and I love learning about and creating software. I’ve been passionate about computer science ever since an early age. I still remember the day I booted up the old Windows 95 PC and drew a red rectangle on the screen with JavaScript - my “Hello World!” moment. This passion has driven me to create software for school districts, manage student interns for a summer internship program, tutor students in mathematics, and has even lead me to creating this website!</p>
-          <p class="about-p">Fast forward to today and I am now at Carnegie Mellon University learning the skills I need to become a software engineer. I am currently expanding my skillset and learning things I never could have imagined.</p>
-          <p class="about-p">I’m also currently the Creative Technologist at Playspaces, a startup that allows children’s imaginations to flourish.</p>
-          <p class="about-p">Here’s some topics that I’m currently learning:</p>
-          <ul id="about-learning-left">
-            <li class="bullet">Algorithms and Data Structures</li>
-            <li class="bullet">Advanced Python Skills</li>
-            <li class="bullet">Discrete Mathematics</li>
-          </ul>
-          <ul id="about-learning-right">
-            <li class="bullet">Teaching Skills</li>
-            <li class="bullet">HTML/CSS/JavaScript</li>
-            <li class="bullet">C</li>
-          </ul>
+        <div class="container" id="experience-container">
+            <div class="row">
+                <h3 id="experience-header">Relevant Experience</h3>
+            </div>
+            <div class="row" id="jobs-container">
+                <ul id="jobs">
+                    <div class="job">
+                        <p class="employer">Playspaces</p>
+                        <div class="job-details-container">
+                            <p class="job-position">Software Engineer / Creative Technologist  </p>
+                            <p class="job-dates">Aug. 2022 - Present</p>
+                        </div>
+                        <li class="bullet">Reengineering entire codebase in Unity/C# and quality assurance</li>
+                        <li class="bullet">Leading small group of developers during this rebuild</li>
+                        <li class="bullet">Creating STEM-based lessons, puzzles, and activities</li>
+                        <li class="bullet">Exploring more advanced physics engines</li>
+                        <li class="bullet">Collaborating closely with company executives to shape the company</li>
+
+                        <div class="job-details-container second">
+                            <p class="job-position">Creative Technologist Intern</p>
+                            <p class="job-dates">Jun. - Aug. 2022</p>
+                        </div>
+                        <li class="bullet">Sole engineer, independently built web application prototype for testing and funding using Vue.JS, JavaScript, HTML, and CSS</li>
+                        <li class="bullet">Prototyped numerous physics engines</li>
+                    </div>
+
+                    <div class="job">
+                        <p class="employer">Independent</p>
+                        <div class="job-details-container">
+                            <p class="job-position">Freelance Software Engineer (Part-Time)</p>
+                            <p class="job-dates">Sep. 2020 - May 2021</p>
+                        </div>
+                        <li class="bullet">Designed, developed, and managed an iPadOS app, Dover PROUD, for Dover Area School 	District (see Projects)</li>
+
+                        <div class="job-details-container second">
+                            <p class="job-position">Freelance Web Developer/Designer (Part-Time)</p>
+                            <p class="job-dates">Nov. 2016 - Feb. 2017</p>
+                        </div>
+                        <li class="bullet">Designed, developed, and managed a portfolio website for a vehical salesman</li>
+                    </div>
+
+                    <div class="job">
+                        <p class="employer">Dover Area School District</p>
+                        <div class="job-details-container">
+                            <p class="job-position">Head Student Technician (Full-Time)</p>
+                            <p class="job-dates">Jun. - Sep. 2020</p>
+                        </div>
+                        <li class="bullet">Oversaw a group of seven student interns</li>
+                        <li class="bullet">Helped design, manage, and implement network plans, computer setup plans, and 	project organization plans for the brand-new high school that was being built at the time</li>
+                        <li class="bullet">Continued to improve the DHS Help Desk System (see Projects)</li>
+                        <li class="bullet">Held leadership meetings with administration and staff</li>
+
+                        <div class="job-details-container second">
+                            <p class="job-position">I.T. Technician Intern (Part-Time)</p>
+                            <p class="job-dates">Jun. - Aug. 2019</p>
+                        </div>
+                        <li class="bullet">Responded to help desk tickets and summer school device requests</li>
+                    </div>
+                </ul>
+            </div>
         </div>
-        <div id="bioPicContainer">
-          <img src="assets/images/bioPictureRounded.jpg" alt="Biography picture of Eli Slothower in a button down shirt and glasses, standing up against a stone wall." id="bioPic">
-        </div>
-      </div>
-    </div>
 
-    <div class="container" id="experience-container">
-      <div class="row">
-        <h3 id="experience-header">Relevant Experience</h3>
-      </div>
-      <div class="row" id="jobs-container">
-        <ul id="jobs">
-          <div class="job">
-            <h5 class="job-position">Creative Technologist - <span class="employer">Playspaces</span></h5>
-            <p class="job-dates">June 2022 - Present</p>
-            <li class="bullet">Designed, developed, and managed an iPadOS app, Dover PROUD, for Dover Area School District (see Projects)</li>
-          </div>
 
-          <div class="job">
-            <h5 class="job-position">Freelance Software Engineer - <span class="employer">Self-employed</span></h5>
-            <p class="job-dates">September 2020 - May 2021</p>
-            <li class="bullet">Designed, developed, and managed an iPadOS app, Dover PROUD, for Dover Area School District (see Projects)</li>
-          </div>
-          <div class="job">
-            <h5 class="job-position">Head Student Technician - <span class="employer">Dover Area School District</span></h5>
-            <p class="job-dates">June - Spetember 2020</p>
-            <li class="bullet">Oversaw a group of seven student interns</li>
-            <li class="bullet">Helped design, manage, and implement network plans, computer setup plans, and 	project organization plans for the brand-new high school that was being built at the time</li>
-            <li class="bullet">Continued to improve the DHS Help Desk System (see Projects)</li>
-            <li class="bullet">Held leadership meetings with administration and staff</li>
-          </div>
-          <div class="job">
-            <h5 class="job-position">I.T. Technician Intern - <span class="employer">Dover Area School District</span></h5>
-            <p class="job-dates">June - August 2019</p>
-            <li class="bullet">Responded to help desk tickets and summer school device requests</li>
-          </div>
-          <div class="job">
-            <h5 class="job-position">Freelance Web Developer/Designer - <span class="employer">Self-employed</span></h5>
-            <p class="job-dates">November 2016 - February 2017</p>
-            <li class="bullet">Designed, developed, and managed a portfolio website for a client working at a car dealership</li>
-          </div>
-        </ul>
-      </div>
-    </div>
-  
-    
-  </body>
+    </body>
 
 </html>

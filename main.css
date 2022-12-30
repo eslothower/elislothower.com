@@ -224,6 +224,7 @@ a:active{
     float: left;
     width: 50%;
     padding-left: 150px;
+    font-family: 'Rubik', sans-serif;
 }
 
 .about-p{
@@ -233,6 +234,7 @@ a:active{
 
 #about-learning-left, #about-learning-right {
     float: left;
+    font-weight: 300;
 }
 
 #about-learning-left {
@@ -241,13 +243,15 @@ a:active{
 
 .bullet {
     margin: 0px;
-	padding: 0px 0px 0px 35px;
+	padding: 5px 0px 5px 35px;
 	list-style: none;
 	background-image: url("assets/icons/triangle.png");
 	background-repeat: no-repeat;
 	background-position: left center;
 	background-size: 10px;    
+    font-family: 'Rubik', sans-serif;
 }
+
 
 #bioPicContainer {
     width: 50%;
@@ -264,6 +268,55 @@ a:active{
     
 }
 
+#experience-header {
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    margin-top: 100px;
+    text-align: center;
+}
+
+#experience-container {
+    padding: 0px 300px;
+}
+
+#jobs {
+    font-family: 'Rubik', sans-serif;
+}
+
+.job {
+    margin: 30px 0px;
+}
+
+.employer {
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.job-position {
+    font-weight: 300;
+    float: left;
+    width: fit-content;
+    margin-top: 2px;
+}
+
+.job-dates {
+    font-style: italic;
+    color: #4B4B4B;
+    font-weight: 300;
+    float: right;
+    width: fit-content;
+}
+
+.job-details-container {
+    width: 100%;
+    padding-bottom: 50px;
+    padding-top: 5px;
+}
+
+.second{
+    margin-top: 25px;
+    margin-bottom: 0px;
+}
 
 
 /* MEDIA QUERIES */
@@ -281,6 +334,7 @@ a:active{
     #home-container-p, .about-p, .bullet {
         font-size: 14px;
         background-size: 7px;
+        font-family: 'Rubik', sans-serif;
     }
     
     #btn-cta-override {
@@ -431,6 +485,25 @@ a:active{
     #about-learning-left {
         margin-bottom: 0px;
     }    
+    
+    #experience-container {
+        padding: 0px 50px;
+    }
+    
+    .job-details-container {
+    width: 100%;
+    padding-bottom: 80px;
+    padding-top: 5px;
+    }
+    
+    .job-dates {
+        float: left;
+        width: 100%;
+    }
+    
+    .job-position {
+        width: 100%;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -438,6 +511,12 @@ a:active{
         float: left;
         padding-left: 0.9rem;
     }
+    
+    #experience-container {
+        padding: 0px 100px;
+    }
+    
+    
 
 }
 
@@ -467,7 +546,9 @@ a:active{
         padding-left: 40px;
         float: right;
         width:100%;
+        font-family: 'Rubik', sans-serif;
     }
+    
 
     #bioPicContainer {
         float:left;
@@ -477,8 +558,6 @@ a:active{
         margin-top:10px;
     }
 
-    #
-
 }
 
 @media screen and (min-width: 992px) and (max-width: 1200px) {
@@ -487,6 +566,25 @@ a:active{
     }
     .nav-item {
         padding-left: 3em;
+    }
+    
+    .job-details-container {
+    width: 100%;
+    padding-bottom: 80px;
+    padding-top: 5px;
+    }
+    
+    .job-dates {
+        float: left;
+        width: 100%;
+    }
+    
+    .job-position {
+        width: 100%;
+    }
+    
+    #experience-container {
+        padding: 0px 200px;
     }
 }
 
@@ -500,5 +598,11 @@ a:active{
 @media screen and (min-width: 991px) and (max-width: 1400px) {
     #about-learning-right {
         padding-left: 0px;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1400px) {
+    #experience-container {
+        max-width: 1320px;
     }
 }
