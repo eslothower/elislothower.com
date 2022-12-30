@@ -605,11 +605,7 @@ a:active{
 
 }
 
-@media screen and (min-width: 0px) and (max-width: 542px) {
-    #about-learning-right {
-        padding-left: 0rem;
-    }
-}
+
 
 @media screen and (min-width: 579px) and (max-width: 768px) {
     #about-learning-right {
@@ -955,5 +951,28 @@ a:active{
     
     #projects-tiles{
         padding: 0px 200px;
+    }
+}
+
+@media screen (max-width: 390) {
+    #experience-container {
+        max-width: 1320px;
+    }
+    
+    .right-tile{
+        margin-left: 80px;
+    }
+    
+    #projects-tiles{
+        padding: 0px 200px;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 542px) {
+    #about-learning-right {
+        padding-left: 0rem;
+    }
+    #projects-tiles {
+        padding: 0px 100px 0 30px !important;
     }
 }
