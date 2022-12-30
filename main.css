@@ -322,6 +322,11 @@ a:active{
     text-align: center;
     font-family: 'Rubik', sans-serif;
     margin-top: 10px;
+    margin-bottom: 70px;
+}
+
+#projects-tiles{
+    padding: 0px 300px;
 }
 
 .tile {
@@ -329,8 +334,9 @@ a:active{
     height: 300px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    border: 1px solid #979797;
+    border: 1px solid #CFCFCF;
     border-radius: 5px;
+    padding: 0px 10px 0px 10px;
 }
 
 .tile:hover {
@@ -359,6 +365,54 @@ a:active{
 .tile-details{
     width: 100%;
     height: 70px;
+}
+
+.tile-link{
+    width: fit-content;
+    color: black;
+    margin-bottom: 70px;
+}
+
+.tile-link:hover{
+    color: black !important;
+}
+
+
+.right-tile {
+    margin-left: 70px;
+}
+
+#btn-github-override:before {
+    content: 'View my GitHub'
+}
+
+#btn-github-override {
+    position: relative;
+    top: 0.5em;
+    margin-left: 3em;
+    font-size: 1.1em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 0px 30px;
+    height: 50px;
+
+}
+
+/* The following lines of code referring to buttons have been adapted from https://stackoverflow.com/questions/49184471/how-to-change-bootstrap-version-4-button-color */
+.btn-nonprimary{color:#005eff;background-color:#ffffff;border-color:#005eff}
+.btn-nonprimary:hover{color:#fff;background-color:#024ed2;border-color:#024ed2}
+.btn-nonprimary:focus,.btn-nonprimary.focus{box-shadow:0 0 0 .2rem #024ed2}
+.btn-nonprimary.disabled,.btn-nonprimary:disabled{color:#fff;background-color:#005eff;border-color:#024ed2}
+.btn-nonprimary:not(:disabled):not(.disabled):active,.btn-nonprimary:not(:disabled):not(.disabled).active,.show>.btn-nonprimary.dropdown-toggle{color:#fff;background-color:#1e6bf1;border-color:#000}
+.btn-nonprimary:not(:disabled):not(.disabled):active:focus,.btn-nonprimary:not(:disabled):not(.disabled).active:focus,.show>.btn-nonprimary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem rgba(0,90,90,0.5)}
+.btn-outline-nonprimary{color:#005eff;background-color:transparent;background-image:none;border-color:#005eff}.btn-outline-nonprimary:hover{color:#222;background-color:#005eff;border-color:#005eff}
+.btn-outline-nonprimary:focus,.btn-outline-nonprimary.focus{box-shadow:0 0 0 .2rem #024ed2}
+.btn-outline-nonprimary.disabled,.btn-outline-nonprimary:disabled{color:#005eff;background-color:transparent}
+.btn-outline-nonprimary:not(:disabled):not(.disabled):active,.btn-outline-nonprimary:not(:disabled):not(.disabled).active,.show>.btn-outline-nonprimary.dropdown-toggle{color:#fff;background-color:#005eff;border-color:#005eff}
+.btn-outline-nonprimary:not(:disabled):not(.disabled):active:focus,.btn-outline-nonprimary:not(:disabled):not(.disabled).active:focus,.show>.btn-outline-nonprimary.dropdown-toggle:focus{box-shadow:0 0 0 .2rem #024ed2}
+
+.center-button {
+    text-align: center;
 }
 
 
@@ -547,6 +601,20 @@ a:active{
     .job-position {
         width: 100%;
     }
+
+    #projects-tiles{
+        padding: 0px 100px;
+    }
+    
+    .right-tile {
+    margin-left: 0px;
+    }
+    
+    .center-button {
+    text-align: center;
+    position: relative !important;
+    right: 40px;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -559,7 +627,9 @@ a:active{
         padding: 0px 100px;
     }
     
-    
+    #projects-tiles{
+        padding: 0px 0px;
+    }
 
 }
 
@@ -629,6 +699,14 @@ a:active{
     #experience-container {
         padding: 0px 200px;
     }
+    
+     .right-tile{
+        margin-left: 110px;
+    }
+    
+    #projects-tiles{
+        padding: 0px 100px; 
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 991px) {
@@ -647,5 +725,13 @@ a:active{
 @media screen and (min-width: 1200px) and (max-width: 1400px) {
     #experience-container {
         max-width: 1320px;
+    }
+    
+    .right-tile{
+        margin-left: 80px;
+    }
+    
+    #projects-tiles{
+        padding: 0px 200px;
     }
 }
