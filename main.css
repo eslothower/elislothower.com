@@ -38,6 +38,7 @@
     font-family: 'Nunito', sans-serif;
     font-weight: 600;
     padding: 0px 30px;
+    height: 50px;
 }
 
 /* The following lines of code referring to buttons have been adapted from https://stackoverflow.com/questions/49184471/how-to-change-bootstrap-version-4-button-color */
@@ -386,6 +387,14 @@ a:active{
     content: 'View my GitHub'
 }
 
+#btn-resume-override:before {
+    content: 'View my resume'
+}
+
+#btn-email-override:before {
+    content: 'Email me'
+}
+
 #btn-github-override {
     position: relative;
     top: 0.5em;
@@ -396,6 +405,31 @@ a:active{
     padding: 0px 30px;
     height: 50px;
 
+}
+
+#btn-resume-override {
+    position: relative;
+    top: 0.5em;
+    margin-left: 3em;
+    font-size: 1.1em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 0px 30px;
+    height: 50px;
+    float: left;
+}
+
+#btn-email-override {
+    position: relative;
+    top: 0.5em;
+    margin-right: 2.5em;
+    font-size: 1.1em;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    padding: 0px 30px;
+    height: 50px;
+    width: 195px;
+    float: right;
 }
 
 /* The following lines of code referring to buttons have been adapted from https://stackoverflow.com/questions/49184471/how-to-change-bootstrap-version-4-button-color */
@@ -470,6 +504,59 @@ a:active{
 
 #piano-img {
     margin: 30px 40px 0 0;
+}
+
+#footer-container {
+    margin-top: 80px;
+}
+
+#footer-header {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 600;
+    font-size: 1.5em
+}
+
+#footer-p {
+    text-align: center;
+    font-family: 'Rubik', sans-serif;
+    font-weight: 400;
+    font-size: 1.2em;
+}
+
+#footer-buttons-container{
+    justify-content: center;
+    margin-top: 40px;
+}
+
+#source-code-p {
+    color: #676565;
+    font-family: 'Rubik', sans-serif;
+    text-align: center
+}
+
+#source-code-link {
+    color: #676565;
+    text-decoration: underline !important;
+}
+
+#source-code-link:hover {
+    color: #676565 !important;
+}
+
+#socials {
+    justify-content: center;
+    margin: 80px 0 15px 0;
+}
+
+.fit-content {
+    margin-right: 70px !important;
+    width: fit-content;
+    
+}
+
+.black {
+    color: black;
 }
 
 
@@ -660,7 +747,7 @@ a:active{
     }
 
     #projects-tiles{
-        padding: 0px 100px;
+        padding: 0px 100px 0 120px
     }
     
     .right-tile {
@@ -683,6 +770,11 @@ a:active{
         padding: 0px 10px 0px 30px;
         margin: auto;
         text-align: center;
+        margin-top: 50px;
+    }
+    
+    .community-tile-header{
+        margin-top: 10px;
     }
     
     .community-tile-description {
@@ -700,8 +792,42 @@ a:active{
     }
     
     #piano-img {
-        margin: 0;
+        margin: 20px 10px 0 0;
     }
+    
+    #projects-p {
+        margin-bottom: 50px;
+    }
+    
+    #btn-resume-override {
+        position: relative;
+        top: 0.5em;
+        margin-left: 3em;
+        font-size: 1.1em;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        padding: 0px 30px;
+        height: 50px;
+        float: none;
+        margin: auto;
+        margin-left: 30px;
+    }
+    
+    #btn-email-override {
+        position: relative;
+        top: 0.5em;
+        font-size: 1.1em;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        padding: 0px 30px;
+        height: 50px;
+        width: 195px;
+        float: none;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+    
+    
 }
 
 @media screen and (min-width: 768px) and (max-width: 992px) {
@@ -794,6 +920,11 @@ a:active{
     #projects-tiles{
         padding: 0px 100px; 
     }
+    
+    .fit-content {
+        margin-right: 3% !important;
+        width: fit-content;
+    }
 }
 
 @media screen and (min-width: 0px) and (max-width: 991px) {
@@ -806,6 +937,10 @@ a:active{
 @media screen and (min-width: 991px) and (max-width: 1400px) {
     #about-learning-right {
         padding-left: 0px;
+    }
+    
+    #btn-cta-override:before {
+        content: 'Contact';
     }
 }
 
