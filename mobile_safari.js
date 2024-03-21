@@ -19,12 +19,12 @@ document.addEventListener("DOMContentLoaded", function() {
     
     var footerIframe = document.getElementById('footer-container');
     if (footerIframe) {
-      footerIframe.style.height = '480px';
+      footerIframe.style.height = '550px';
     }
       
     var sidepageFooter = document.getElementById('msafari-sidepage-footer');
     if (sidepageFooter) {
-      sidepageFooter.style.height = '480px';
+      sidepageFooter.style.height = '550px';
       sidepageFooter.style.marginTop = '0px';
     }
   }
