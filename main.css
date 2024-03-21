@@ -589,6 +589,9 @@ a:active {
 	text-align: center;
 }
 
+#community-container {
+    margin-bottom: 80px;
+}
 
 .community-tile {
 	width: 700px;
@@ -636,6 +639,7 @@ a:active {
 	float: left;
 	width: 55%;
 	font-size: 0.96em;
+    height: auto;
 }
 
 .community-img {
@@ -647,7 +651,8 @@ a:active {
 }
 
 #footer-container {
-	margin-top: 80px;
+    height: 320px;
+    overflow: hidden;
 }
 
 #footer-header {
@@ -828,6 +833,7 @@ body,
 html {
 	overflow-x: hidden;
 }
+
 
 
 /* MEDIA QUERIES */
@@ -1053,6 +1059,18 @@ html {
 	.community-img {
 		float: none;
 	}
+    
+    #spain-img{
+        height: 120px;
+        margin: 0px !important;
+        width: 200px;
+    }
+    
+    #habitat-img{
+        height: 180px;
+        margin: 0px !important;
+        width: 180px;
+    }
 
 	#piano-img {
 		margin: 20px 10px 0 0;
@@ -1089,6 +1107,10 @@ html {
 		margin-left: 30px;
 		margin-top: 30px;
 	}
+    
+    #footer-container {
+        height: 460px;
+    }
 
 
 }

@@ -13,9 +13,17 @@
       <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
       <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
       <link href="main.css" rel="stylesheet"/>
+<!--       <meta http-equiv="refresh" content="0;url=maintenance.html">-->
    </head>
    <body>
       <script crossorigin="anonymous" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<!--
+       <script>
+        setTimeout(function() {
+          window.location.href = "maintenance.html";
+        }, 0); 
+      </script>
+-->
        <nav class="navbar navbar-expand-lg">
          <div class="container">
             <a class="navbar-brand logo" href="http://www.elislothower.com">Eli Slothower</a>
@@ -64,7 +72,7 @@
                      <p>Python, C, JavaScript, SML, HTML, more</p>
                   </li>
                   <li id="job-search">
-                     <p class="attention"><a class="attention" href="https://www.lockheedmartin.com/" target="_blank">Incoming Software Engineer Intern <br>at Lockheed Martin Space (Summer 2024)</a></p>
+                     <p class="attention"><a class="attention" href="https://www.lockheedmartin.com/en-us/capabilities/space.html" target="_blank">Incoming Software Engineer Intern <br>at Lockheed Martin Space (Summer 2024)</a></p>
                   </li>
                </ul>
                <ul id="second-fact-col">
@@ -90,12 +98,12 @@
          </div>
          <div class="row" id="bio">
             <div id="about-words">
-               <p class="about-p">I'm deeply invested in computer science and software development, a journey that began in my early years and has grown alongside my academic and personal development. Now at Carnegie Mellon University, I'm not only advancing my technical skills but also engaging in initiatives that reflect my dedication to societal betterment, through roles with Habitat for Humanity, the Carnegie Mellon Planetary Research Laboratory working on a rover for the moon (PitMAGIC), and more.</p>
-               <p class="about-p">Beyond academics, my upcoming internship with Lockheed Martin Space in Summer 2024 is not just a professional milestone for me; it represents my commitment to contribute meaningfully to pressing global issues through technology. I am also actively contributing to CMU’s Planetary Robotics Lab research by acting as an Embedded Systems Researcher/Engineer for their upcoming rover that will be sent to the moon, PitMAGIC. This is groudbreaking technology that will help scientists and researchers in the future analyze craters on the moon.</p>
+               <p class="about-p">I'm deeply invested in computer science and software development, a journey that began in my early years and has grown alongside my academic and personal development. Now at Carnegie Mellon University, I'm not only advancing my technical skills, but also engaging in initiatives that reflect my dedication to societal betterment. This is shown through my roles with Habitat for Humanity, my experience as a Teaching Assistant at CMU, my previous work experience in the fields of education and saftey/security, and more.</p>
+               <p class="about-p">Beyond academics, my upcoming internship with Lockheed Martin Space in Summer 2024 is not just a professional milestone for me; it represents my commitment to contribute meaningfully to pressing global issues through technology. I also occasionally contribute to CMU’s Planetary Robotics Lab research by acting as an Embedded Systems Researcher/Engineer for their upcoming rover that will be sent to the moon, PitMAGIC. This is groudbreaking technology that will help scientists and researchers in the future analyze craters on the moon.</p>
                <p class="about-p">In all my endeavors, from education to career, I aim to not only gain an advanced understanding of the technical aspects of things, but to also make a real difference in important areas of society. Advancements in outer space, equality, the environment, and more, are all very important areas of society that I hope to make a positive difference in. I mean it when I say that these goals are my first priority, and I hope my work shows this.</p>
                <p class="about-p">Here’s some things that I'm currently spending time on:</p>
                <ul id="about-learning-left">
-                  <li class="bullet">Embedded Systems on PitMAGIC</li>
+                  <li class="bullet">ROS (Robot Operating System)</li>
                   <li class="bullet">Advanced Computation</li>
                   <li class="bullet">Calculus in Three Dimensions</li>
                </ul>
@@ -282,9 +290,9 @@
             <a class="community-tile-link" href="spain.html"  >
                <div class="community-tile" id="spain-tile">
                   <div class="community-tile-details">
-                     <p class="community-tile-header">International Adventurer - Study Abroad</p>
+                     <p class="community-tile-header">Study Abroad Student - Madrid, Spain</p>
                      <p class="community-tile-description">In the Summer of 2023, I had the amazing opportunity to study abroad in Madrid, Spain for one month. During this trip I was fortunate enough to immerse myself in the culture, meet amazing new people, travel to new places, and learn the Spanish language. I believe that for there to be equity for all, it is crucial to learn about others' cultures. This is especially important in Computer Science, and I am committed to helping create a fair, unbiased future that we all benefit from. </p>
-                     <img class="community-img" height="160px" src="/assets/images/spain_flag.png" style="margin: 30px 20px 0px 0px;" width="225px"/>
+                     <img class="community-img" id="spain-img" height="160px" src="/assets/images/spain_flag.png" style="margin: 30px 20px 0px 0px;" width="225px"/>
                   </div>
                </div>
             </a>
@@ -295,7 +303,7 @@
                   <div class="community-tile-details">
                      <p class="community-tile-header">Secretary and Texas Trip Leader</p>
                      <p class="community-tile-description">Habitat for Humanity partners with people in your community, and all over the world, to help them build or improve a place they can call home. Habitat homeowners help build their own homes alongside volunteers and pay an affordable mortgage. As Secretary for Carnegie Mellon University’s chapter of Habitat for Humanity, I help run our local chapter, as well as have the privlidge of building homes for people all over the world.<br><br></p>
-                     <img class="community-img" height="225px" src="/assets/images/habitat.jpg" style="padding-bottom: 15px;" width="225px"/>
+                     <img class="community-img" id="habitat-img" height="225px" src="/assets/images/habitat.jpg" style="padding-bottom: 15px;" width="225px"/>
                   </div>
                </div>
             </a>
@@ -305,7 +313,7 @@
                <div class="community-tile" id="habitat-tile">
                   <div class="community-tile-details">
                      <p class="community-tile-header">Data Project Member</p>
-                     <p class="community-tile-description">Students Using Data for Social Good is a student group that brings together the vast array of disciplines that contribute to the conversation of how cities are adapting new methods of “big data” collection and analysis to improve their service delivery.<br><br><br><br><br></p>
+                     <p class="community-tile-description">Students Using Data for Social Good (SUDS) is a student group that brings together the vast array of disciplines that contribute to the conversation on how cities are adapting new methods of “big data” collection and analysis to improve society. SUDS focuses on tackling societal issues such as predicting fire risk, revolutioning education, improving access to fresh food for those downtown, visualizing water treatment data, and much more.</p>
                      <img class="community-img" height="100px" src="/assets/images/suds.png" style="margin-top: 60px;" width="250px"/>
                   </div>
                </div>
@@ -327,13 +335,14 @@
                <div class="community-tile" id="habitat-tile">
                   <div class="community-tile-details">
                      <p class="community-tile-header">Musician in Training</p>
-                     <p class="community-tile-description">Music is an essential part of my life. I have been playing instruments since the fourth grade where I first learned how to play the snare drum. Since then, I have learned how to play a large array of percussion instruments, notably the bass drum, snare drum, and more. Today I continue my journey with music by learning how to play the piano via private lessons at Carnegie Mellon University once a week.</p>
+                     <p class="community-tile-description">Music is an essential part of my life. I have been playing instruments since the fourth grade where I first learned how to play the snare drum. Since then, I have learned how to play a large array of percussion instruments, notably the bass drum, snare drum, and more. Today I continue my journey with music by learning how to play the piano via private lessons at Carnegie Mellon University.</p>
                      <img class="community-img" height="150px" id="piano-img" src="/assets/images/piano.png" width="150px"/>
                   </div>
                </div>
             </a>
          </div>
       </div>
-        <iframe src="footer.html" id="footer-container" frameborder="0" scrolling="no" width="100%" height="450vh"></iframe>
-   </body>
+        <iframe src="footer.html" id="footer-container" frameborder="0" scrolling="no" width="100%"></iframe>
+    <script src="mobile_safari.js"></script>
+    </body>
 </html>
