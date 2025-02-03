@@ -1256,7 +1256,7 @@ html {
 	}
 }
 
-@media screen (max-width: 390) {
+@media screen and (max-width: 390px) {
 	#experience-container {
 		max-width: 1320px;
 	}
@@ -1299,4 +1299,33 @@ html {
 		position: relative;
 		left: 55px;
 	}
+}
+
+/* CSS for the announcement banner */
+#announcement-banner {
+  background-color: #007bff !important;
+  color: white !important;
+  text-align: center !important;
+  padding: 10px 20px !important;
+  font-size: 1.2em !important;
+  font-family: 'Nunito', sans-serif, Arial, sans-serif !important; /* Added fallback fonts */
+  position: sticky !important;
+  position: -webkit-sticky !important; /* Added Safari-specific sticky positioning */
+  top: 0 !important;
+  z-index: 1000 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1) !important;
+  line-height: 1.5 !important; /* Improve text alignment */
+}
+
+#announcement-banner a {
+  color: white !important;
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+@media (max-width: 768px) {
+  #announcement-banner {
+    font-size: 1em !important;
+    padding: 8px 15px !important;
+  }
 }

@@ -1,0 +1,100 @@
+/* Global Styling */
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Karla", sans-serif;
+  background-color: #0e100f;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* Navbar */
+.navbar {
+  background-color: transparent; /* So it shows the #0e100f behind it */
+  font-family: "Montserrat", sans-serif;
+  padding: 1rem 0;
+}
+
+/* Hero Section */
+#hero {
+  min-height: 100vh; /* Full screen height */
+  display: flex;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/* Hero Title & Subtitle */
+.hero-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+/* Colored Text Accents */
+.blue-text {
+  color: #4397f7;
+}
+
+.green-text {
+  color: #82df64; /* Green */
+}
+
+/* The user gave the same hex for "cyan," so using #82df64 again */
+.cyan-text {
+  color: #82df64;
+}
+
+/* Paragraph styling */
+.hero-description {
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Highlight text in paragraphs */
+.highlight {
+  color: #4397f7;
+  font-weight: 700;
+}
+
+/* Placeholder Icons */
+.icon-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+
+/* Button Overrides */
+.btn {
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 0;
+}
+
+.btn:hover {
+  background-color: #4397f7;
+  border-color: #4397f7;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  .icon-img {
+    width: 60px;
+    height: 60px;
+  }
+}

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eli Slothower</title>
+
+  <!-- Montserrat (headings) + Karla (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Karla:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* RESET & GLOBALS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background-color: #0e100f;
+      color: #ffffff;
+      font-family: "Karla", sans-serif;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: transparent;
+      padding: 0.8rem 1rem;
+      display: flex;
+      align-items: center;
+      position: relative;
+      border-bottom: none;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .navbar-brand {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #fff !important;
+      text-decoration: none;
+    }
+
+    /* HAMBURGER (MOBILE) */
+    .navbar-toggler {
+      display: none; /* hidden by default (desktop) */
+      border: none;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+    }
+    .navbar-toggler-icon {
+      width: 30px;
+      height: 3px;
+      background-color: #fff;
+      margin: 5px 0;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .navbar-toggler.active .navbar-toggler-icon:first-child {
+      transform: translateY(8px) rotate(45deg);
+    }
+    .navbar-toggler.active .navbar-toggler-icon:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar-toggler.active .navbar-toggler-icon:last-child {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* DESKTOP NAV LINKS */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      margin: 0 auto;
+      border: 3px solid white;
+      border-radius: 100px;
+      padding-left: 15px;
+      padding-right: 15px;
+      padding-bottom: 3px;
+      padding-top: 3px;
+    }
+    .nav-link {
+      color: #fff !important;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .nav-link:hover {
+      text-decoration: none;
+    }
+
+    /* LIGHT-MODE BUTTON */
+    .light-mode-btn {
+      border: 3px solid #fff;
+      background: transparent;
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      text-transform: capitalize;
+      cursor: pointer;
+      border-radius: 100px;
+      padding-bottom: 3px;
+      padding-top: 3px;
+    }
+    .light-mode-btn:hover {
+      background-color: #fff;
+      color: #0e100f;
+    }
+
+    /* HERO SECTION */
+    .hero-section {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 8rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .hero-content {
+      max-width: 680px;
+      margin: auto 0; /* vertical centering in the hero */
+      padding-top: 30px;
+    }
+    .hero-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.3rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title span {
+      display: block;
+    }
+    .white-text { color: #ffffff; }
+    .blue-text  { color: #0099FF; }
+    .green-text { color: #5CE24F; }
+    .cyan-text  { color: #00FFFF; }
+
+    /* PROJECTS SECTION */
+    .projects-section {
+      max-width: 1300px;     /* same as navbar for alignment */
+      margin: 0 auto;        /* center horizontally */
+      padding: 2rem 1rem;    /* spacing above/below */
+    }
+
+    /*
+      This tight wrapper around the heading has bottom & right borders.
+      "display: inline-block" ensures the border only fits around the text.
+    */
+    .projects-heading-wrapper {
+      display: inline-block;
+      border-bottom: 3px solid #fff;
+      border-right: 3px solid #fff;
+      padding: 0rem 1rem 0rem 0;
+      line-height: 10%;
+    }
+
+    .projects-header {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin: 0; /* so no extra gap extends the border */
+    }
+
+    /* BLOCKS SECTION (DEFAULT) */
+    .blocks {
+      /* Start with a simple grid or block layout; will override in media queries */
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .block {
+      width: clamp(100px, 14vw, 150px);
+      height: clamp(100px, 14vw, 150px);
+      border: 3px solid #ffffff;
+      border-radius: 8px;
+    }
+
+    .description-section {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .description-content {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .description-content p {
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
+      line-height: 1.6;
+      color: #ffffff;
+      font-family: "Karla", sans-serif;
+      font-weight: 400;
+    }
+
+    .description-content p span {
+      font-weight: 800;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 0.35rem .8rem;;
+      border-radius: 12px;
+      border: 3px solid;
+      text-align: center;
+      transition: background-color 0.3s, color 0.3s;
+        border-radius: 15px;
+    }
+      
+      .icon-in-button{
+              padding-top: 7px;
+      }
+
+    .github {
+      color: white;
+      border-color: white;
+    }
+
+    .github:hover {
+      background-color: black;
+      color: white;
+    }
+
+   .resume {
+  color: white;
+  border-color: white;
+  font-family: "Karla", sans-serif;
+  font-size: 22px;
+  text-align: center;
+  padding: 0 30px;
+  height: 50px; /* Adjust height as needed */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Centers both icon and text */
+  gap: 8px; /* Adds spacing between icon and text */
+  border-radius: 15px;
+}
+
+.resume img {
+    padding-top: 
+  padding-bottom: 5px;
+}
+
+.resume:hover {
+  background-color: green;
+  color: white;
+}
+
+
+    .linkedin {
+      color: white;
+      border-color: white;
+    }
+
+    .linkedin:hover {
+      background-color: blue;
+      color: white;
+    }
+
+    .projects-section {
+      margin-top: 2rem;
+      padding: 1rem;
+    }
+
+    .projects-header {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin: 2rem 0;
+    }
+
+    .divider {
+      width: 100%;
+      height: 3px;
+      background-color: #fff;
+      margin: 2rem 0;
+    }
+
+    /* Simple stacked blocks in all screen sizes */
+    .project-block {
+      border: 3px solid #fff;      /* White border, as in screenshot */
+      border-radius: 8px;
+      margin: 2rem 0;              /* Vertical spacing between blocks */
+      padding: 1rem;
+      display: flex;
+      gap: 1rem;                   /* Space between image & text */
+      flex-direction: column;      /* Stack image/text in a column by default */
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;          /* slightly round corners if desired */
+    }
+
+    .project-details h3 {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-size: 1.25rem;
+    }
+
+    .project-details ul {
+      list-style-type: disc;
+      margin-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .read-more-btn {
+      background: transparent;
+      border: 2px solid #fff;
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    .read-more-btn:hover {
+      background-color: #fff;
+      color: #0e100f;
+    }
+      
+    .about-section {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    .about-header {
+      display: inline-block;
+      border-right: 3px solid white;
+      border-bottom: 3px solid white;
+      padding: 0.5rem 1rem;
+      font-family: "Montserrat", sans-serif;
+      font-size: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .row {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+
+    .tile-container {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .top-row .tile-container {
+      grid-template-columns: repeat(4, auto);
+    }
+      
+    .top-row {
+      margin-top: 100px;
+    }
+
+    .second-row .tile-container,
+    .third-row .tile-container {
+      grid-template-columns: repeat(5, auto);
+    }
+
+    .tile {
+      background-color: transparent;
+      border: 3px solid white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 150px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .tile.rectangle {
+      width: 310px;
+      height: 150px;
+      transition: all 0.2s ease-in-out;
+    }
+      
+    /* FOOTER */
+    .footer {
+      width: 100%;
+      max-width: 1300px;
+      border: 3px solid white;
+      border-radius: 8px;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 2rem;
+      position: relative;
+      margin: auto;
+    }
+
+    /* 
+      Use clamp() so the text scales down for smaller screens.
+      3rem is the original "large" size, 
+      1.8rem is the minimum you want to allow on very small screens,
+      6vw (or 5vw) controls how quickly it adapts based on viewport width.
+    */
+    .footer-title {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      text-transform: uppercase;
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e100f;
+      padding: 0 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 5rem; /* Increased gap for more spacing */
+      margin: 2rem 0;
+    }
+
+    .footer-link {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 700;
+      font-size: clamp(1rem, 3.5vw, 1.5rem);
+      color: white;
+      text-decoration: none;
+      transition: color 0.3s ease-in-out;
+    }
+
+    .footer-link.contact {
+      color: #0099FF;
+    }
+
+    .footer-link.resume {
+      color: #5CE24F;
+    }
+
+    .footer-link.linkedin {
+      color: #00FFFF;
+    }
+
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+
+    .footer-name {
+      font-family: "Montserrat", sans-serif;
+      font-weight: 900;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      text-transform: uppercase;
+      position: absolute;
+      bottom: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #0e100f;
+      padding: 0 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .tile {
+        width: 135px;
+        height: 135px;
+      }
+
+      .tile.rectangle {
+        width: 280px;
+        height: 135px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tile-container {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .top-row .tile-container,
+      .second-row .tile-container,
+      .third-row .tile-container {
+        grid-template-columns: repeat(2, auto);
+      }
+
+      .tile {
+        width: 120px;
+        height: 120px;
+      }
+
+      .tile.rectangle {
+        grid-column: span 2;
+        width: 250px;
+        height: 120px;
+      }
+    }
+
+    /* DESKTOP (>= 768px) */
+    @media (min-width: 768px) {
+      .blocks {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+          "block1 block1"
+          "block2 block3";
+      }
+      .block[style*="block1"] {
+        grid-area: block1;
+        align-self: center;   /* optional to center vertically */
+        justify-self: center; /* optional to center horizontally */
+      }
+      .block[style*="block2"] {
+        grid-area: block2;
+        align-self: center;
+        justify-self: end;    /* place it to the right if you wish */
+      }
+      .block[style*="block3"] {
+        grid-area: block3;
+        align-self: center;
+        justify-self: start;  /* place it to the left if you wish */
+      }
+    }
+
+    /* MOBILE (< 768px):  */
+    @media (max-width: 768px) {
+      .navbar-toggler {
+        display: inline-block;
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+      }
+      .nav-links,
+      .light-mode-btn {
+        display: none;
+      }
+      .navbar.collapsed .nav-links,
+      .navbar.collapsed .light-mode-btn {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .hero-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .blocks {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        margin-top: 2rem;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a class="navbar-brand" href="#">Eli Slothower</a>
+
+    <!-- Hamburger Toggler -->
+    <button class="navbar-toggler" onclick="toggleMenu(this)">
+      <div class="navbar-toggler-icon"></div>
+      <div class="navbar-toggler-icon"></div>
+      <div class="navbar-toggler-icon"></div>
+    </button>
+
+    <!-- Desktop Nav Links -->
+    <div class="nav-links">
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#about">About Me</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </div>
+
+    <button class="light-mode-btn">Light mode</button>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="white-text">Hi, I'm Eli. I create things.</span>
+        <span class="blue-text">SOFTWARE ENGINEER,</span>
+        <span class="green-text">PROBLEM SOLVER,</span>
+        <span class="cyan-text">COLLABORATOR</span>
+      </h1>
+    </div>
+
+    <!-- 3 Blocks with "grid-area" attributes to match the desktop template -->
+    <div class="blocks">
+      <div class="block" style="grid-area: block1;"></div>
+      <div class="block" style="grid-area: block2;"></div>
+      <div class="block" style="grid-area: block3;"></div>
+    </div>
+  </section>
+
+  <section class="description-section">
+    <div class="description-content">
+      <p>I build <span class="blue-text">practical tools</span>, tackle <span class="green-text">complex
+          challenges</span>, and enjoy creating things that <span class="cyan-text">matter</span>. In my downtime, you'll
+        find me exploring the outdoors, designing games, or diving into new skills.</p>
+    </div>
+  </section>
+
+  <!-- Buttons Section -->
+  <div class="button-container">
+    <a href="https://github.com/" target="_blank" class="button github"><img src="icons/github.svg" class="icon-in-button"></a>
+    <a href="resume.pdf" target="_blank" class="button resume"><img src="icons/file.svg" class="icon-in-button">Résumé</a>
+    <a href="https://linkedin.com/" target="_blank" class="button linkedin"><img src="icons/linkedin.svg" class="icon-in-button"></a>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS SECTION -->
+  <section class="projects-section" id="projects">
+    <!-- The tight heading wrapper with right & bottom border (unchanged) -->
+    <div class="projects-heading-wrapper">
+      <h2 class="projects-header">Projects</h2>
+    </div>
+
+    <!-- First Project Block -->
+    <div class="project-block">
+      <div class="project-image">
+        <!-- Placeholder image (e.g. 16:9 ratio, 640x360) -->
+        <img src="https://via.placeholder.com/640x360" alt="Algorithm Word Cloud" />
+      </div>
+      <div class="project-details">
+        <h3>Are You Smarter Than a Senior?</h3>
+        <ul>
+          <li>A famous CMU professor once said, “99% of graduating seniors in computer science can’t even write QuickSort!”</li>
+          <li>The purpose of this project is to prove I'm not part of that 99%—I implement several core CS algorithms.</li>
+        </ul>
+        <button class="read-more-btn">Read More...</button>
+      </div>
+    </div>
+
+    <!-- Second Project Block -->
+    <div class="project-block">
+      <div class="project-image">
+        <!-- Another placeholder, e.g. 640x360 -->
+        <img src="https://via.placeholder.com/640x360" alt="Beat Bridge Screenshot" />
+      </div>
+      <div class="project-details">
+        <h3>Beat Bridge</h3>
+        <ul>
+          <li>Send a song, no matter the service—instantly convert music links to your friend’s preferred streaming platform.</li>
+          <li>A lightweight iOS app that operates fully from the share sheet.</li>
+        </ul>
+        <button class="read-more-btn">Read More...</button>
+      </div>
+    </div>
+
+    <!-- Third Project Block -->
+    <div class="project-block">
+      <div class="project-image">
+        <!-- Another placeholder, e.g. 640x360 -->
+        <img src="https://via.placeholder.com/640x360" alt="Power Method Document" />
+      </div>
+      <div class="project-details">
+        <h3>The Power Method, QR Method, and Deflation</h3>
+        <ul>
+          <li>Implemented efficient numerical algorithms for computing eigenvalues, eigenvectors, and singular values.</li>
+          <li>Built a high-performance matrix computation tool.</li>
+        </ul>
+        <button class="read-more-btn">Read More...</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ABOUT ME section -->
+  <section class="projects-section">
+    <div class="projects-heading-wrapper">
+      <h2 class="projects-header">About Me</h2>
+    </div>
+
+    <!-- TOP ROW -->
+    <div class="row top-row">
+      <div class="tile-container">
+        <div class="tile rectangle"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </div>
+    </div>
+
+    <!-- SECOND ROW -->
+    <div class="row second-row">
+      <div class="tile-container">
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile rectangle"></div>
+        <div class="tile"></div>
+      </div>
+    </div>
+
+    <!-- THIRD ROW -->
+    <div class="row third-row">
+      <div class="tile-container">
+        <div class="tile rectangle"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+        <div class="tile"></div>
+      </div>
+    </div>
+  </section>
+    
+  <div class="divider"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-title">Let’s Chat</div>
+    <div class="footer-links">
+      <a href="#" class="footer-link contact">Contact</a>
+      <a href="#" class="footer-link resume">Résumé</a>
+      <a href="#" class="footer-link linkedin">LinkedIn</a>
+    </div>
+    <div class="footer-name">Eli Slothower</div>
+  </footer>
+
+  <script>
+    function toggleMenu(button) {
+      const navbar = document.querySelector('.navbar');
+      navbar.classList.toggle('collapsed');
+      button.classList.toggle('active');
+    }
+
+    // Optionally reset nav when resizing to desktop
+    window.addEventListener('resize', () => {
+      const navbar = document.querySelector('.navbar');
+      if (window.innerWidth > 768) {
+        navbar.classList.remove('collapsed');
+      }
+    });
+  </script>
+</body>
+</html>
