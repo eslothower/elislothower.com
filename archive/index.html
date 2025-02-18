@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8"/>
+      <link href="favicon.png" rel="shortcut icon" type="image/x-icon"/>
+      <meta content="width=device-width, initial-scale=1" name="viewport"/>
+      <title>Eli Slothower</title>
+      <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com" rel="preconnect"/>
+      <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+      <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap" rel="stylesheet"/>
+      <link href="main.css" rel="stylesheet"/>
+<!--       <meta http-equiv="refresh" content="0;url=maintenance.html">-->
+   </head>
+   <body>
+      <script crossorigin="anonymous" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<!--
+       <script>
+        setTimeout(function() {
+          window.location.href = "maintenance.html";
+        }, 0); 
+      </script>
+-->
+       <div id="announcement-banner">
+        <b>News:</b> A complete redesign of my portfolio website is coming soon! Stay tuned for updates.
+    </div>
+
+       <nav class="navbar navbar-expand-lg">
+         <div class="container">
+            <a class="navbar-brand logo" href="http://www.elislothower.com">Eli Slothower</a>
+            <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ms-auto right" id="ul-override">
+                  <li class="nav-item">
+                     <a class="nav-link" href="#about-header">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#experience-header">Experience</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#projects-container">Projects</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#community-container">Community</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="assets/assets/files/resume.pdf" target="_blank">Resume</a>
+                  </li>
+                  <button class="btn btn-primary" id="btn-cta-override" onclick="window.location.href='#footer-container';" type="button"></button>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <div class="container" id="home-container">
+         <div class="row">
+            <h1 id="heading-phrase">Hi, I'm Eli. I create things.</h1>
+         </div>
+         <div class="row">
+            <p id="home-container-p">I’m currently a Senior at <a href="https://cbd.cmu.edu/news/2022/scs-remains-top-ranking-for-computer-science-from-us-news-and-world-report.html#:~:text=1%20overall%20position%20for%20undergraduate,programming%20languages%20and%20software%20engineering." id="cmuLink" target="_blank">Carnegie Mellon University</a> earning a Bachelor of Science degree in Computer Science with a minor in Software Engineering. I hope to use my skills to fight for societal improvement, such as for equal rights, climate change, mental health, access to health care and education, and much more. No matter what work I do, I hope it positively impacts the lives of others.</p>
+         </div>
+         <div class="row">
+            <div id="facts">
+               <ul id="first-fact-col">
+                  <li id="school">
+                     <p>Carnegie Mellon University</p>
+                  </li>
+                  <li id="location">
+                     <p>Pittsburgh, Pennsylvania</p>
+                  </li>
+                  <li id="languages">
+                     <p>Python, C, JavaScript, SML, HTML, more</p>
+                  </li>
+                  <li id="job-search">
+                     <p class="attention"><a class="attention" href="assets/assets/files/resume.pdf" target="_blank">Exploring 2025 post-graduation <br>career opportunities</a></p>
+                  </li>
+               </ul>
+               <ul id="second-fact-col">
+                  <li id="email">
+                     <p><a href="mailto:elislothower@gmail.com">elislothower@gmail.com</a></p>
+                  </li>
+                  <li id="linkedin">
+                     <p><a href="https://www.linkedin.com/in/eli-slothower" target="_blank">eli-slothower</a></p>
+                  </li>
+                  <li id="github">
+                     <p><a href="https://github.com/eslothower" target="_blank">GitHub</a></p>
+                  </li>
+                  <li id="resume">
+                     <p><a href="assets/assets/files/resume.pdf" target="_blank">Resume</a></p>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </div>
+      <div class="container" id="about-container">
+         <div class="row">
+            <h3 id="about-header">About</h3>
+         </div>
+         <div class="row" id="bio">
+            <div id="about-words">
+               <p class="about-p">I'm deeply invested in computer science and software development, a journey that began in my early years and has grown alongside my academic and personal development. Now at Carnegie Mellon University, I'm not only advancing my technical skills, but also engaging in initiatives that reflect my dedication to societal betterment. This is shown through my roles with Habitat for Humanity, my experience as a Teaching Assistant at CMU, my previous work experience in the fields of education and saftey/security, and more.</p>
+               <p class="about-p">Beyond academics, I recently completed a Summer internship with Lockheed Martin Space working on a classified outer space program. Through this internship, I was able to use my skills for national security, as well as learn others that will help me in my future endeavors. This opportunity was not just a professional milestone for me; it represented my commitment to contribute meaningfully to global issues through technology. I also occasionally contribute to CMU’s Planetary Robotics Lab research by acting as an Embedded Systems Researcher/Engineer for their upcoming rover that will be sent to the moon, PitMAGIC. This is groudbreaking technology that will help scientists and researchers in the future analyze craters on the moon.</p>
+               <p class="about-p">In all my endeavors, from education to career, I aim to not only gain an advanced understanding of the technical aspects of things, but to also make a real difference in important areas of society. Advancements in outer space, equality, the environment, and more, are all very important areas of society that I hope to make a positive difference in. I mean it when I say that these goals are my first priority, and I hope my work shows this.</p>
+               <p class="about-p">Here are some things that I'm currently spending time on:</p>
+               <ul id="about-learning-left">
+                  <li class="bullet">Distributed Systems</li>
+                  <li class="bullet">Proving Safety in Code</li>
+                  <li class="bullet">Calculus in Three Dimensions   </li>
+               </ul>
+               <ul id="about-learning-right" style="padding-left: 0px !important;">
+                  <li class="bullet">Learning Swift</li>
+                  <li class="bullet">Advanced Python</li>
+                  <li class="bullet">Learning Video Game Design</li>
+               </ul>
+            </div>
+            <div id="bioPicContainer">
+               <img alt="Biography picture of Eli Slothower in a button down shirt and glasses, standing up against a stone wall." id="bioPic" src="assets/assets/images/eli.png"/>
+            </div>
+         </div>
+      </div>
+      <div class="container" id="experience-container">
+         <div class="row">
+            <h3 id="experience-header">Relevant Experience</h3>
+         </div>
+         <div class="row" id="jobs-container">
+            <ul id="jobs">
+                <div class="job">
+                  <p class="employer">Lockheed Martin Space</p>
+                  <div class="job-details-container">
+                     <p class="job-position">Embedded Software Engineer</p>
+                     <p class="job-dates">May 2024 - Aug. 2024</p>
+                  </div>
+                  <li class="bullet">Solo-Developed a classified testing suite on evaluation boards in C for the United States Sentinel program, integrating over 10 different embedded systems and accelerating the upgrade process of a 50+ year-old national security system meant to defend all 50 U.S. states and allied nations from world war</li>
+                  <li class="bullet">Mastered complex system interoperations under strict national security regulations, ensuring compliance, safeguarding sensitive nuclear defense projects, and achieving 100% compliance with national security regulations for the project’s codebase</li>
+               </div>
+               <div class="job">
+                  <p class="employer">Carnegie Mellon University</p>
+                  <div class="job-details-container">
+                     <p class="job-position">Teaching Assistant for 80-101, Dangerous Ideas in Science and Society</p>
+                     <p class="job-dates">Aug. 2023 - Dec. 2023</p>
+                  </div>
+                  <li class="bullet">Teaching students how to articulate personal beliefs effectively and create argument visualization maps, increasing LSAT scores by 71%</li>
+                  <li class="bullet">Engaging students in thoughtful, critical discussion about difficult societal topics</li>
+                  <li class="bullet">Grading argument visualization maps</li>
+               </div>
+               <div class="job">
+                  <p class="employer">MIDL Technology</p>
+                  <div class="job-details-container">
+                     <p class="job-position">Software Engineer</p>
+                     <p class="job-dates">Jun. 2023 - Aug. 2023</p>
+                  </div>
+                  <li class="bullet">Engineered a security alert system with ReactFlow and Next.js, enabling 100,000+ event chains that trigger security responses</li>
+                  <li class="bullet">Built a secure check-in application for visitor-kiosks, enhancing 1,000+ kiosks used by universities, companies, and other users</li>
+                  <li class="bullet">Integrated new features into the admin dashboard, like enhanced audit logs, object-filtration charts, and more for 100’s of system admins</li>
+               </div>
+               <div class="job">
+                  <p class="employer">Playspaces</p>
+                  <div class="job-details-container">
+                     <p class="job-position">Software Engineer</p>
+                     <p class="job-dates">Jun. 2022 - Jun. 2023</p>
+                  </div>
+                  <li class="bullet">Aided in reengineering codebase in C#/Unity and backend in Python, helping the company earn $1,250,000 from the IES SBIR grant</li>
+                  <li class="bullet">Designed/built company website used to promote products, helping acquire numerous government grants</li>
+                  <li class="bullet">Ideated STEM-based lessons/puzzles, creating dozens of new activities</li>
+                  <li class="bullet">Collaborated closely with company executives to shape the company</li>
+                  <li class="bullet">Solo-Engineered app prototype for funding using Vue.JS, helping to secure 12 executive board members</li>
+                  <li class="bullet">Created native iOS/Android wrapper of web application, increasing load times by ~200%</li>
+               </div>
+               <div class="job">
+                  <p class="employer">Independent</p>
+                  <div class="job-details-container">
+                     <p class="job-position">Freelance Software Engineer (Part-Time)</p>
+                     <p class="job-dates">Sep. 2020 - May 2021</p>
+                  </div>
+                  <li class="bullet">Designed, developed, and managed an iPadOS app, Dover PROUD, for Dover Area School District (see Projects)</li>
+                  <div class="job-details-container second">
+                     <p class="job-position">Freelance Web Developer/Designer (Part-Time)</p>
+                     <p class="job-dates">Nov. 2016 - Feb. 2017</p>
+                  </div>
+                  <li class="bullet">Designed, developed, and managed a portfolio website for a vehical salesman</li>
+               </div>
+               <div class="job">
+                  <p class="employer">Dover Area School District</p>
+                  <div class="job-details-container">
+                     <p class="job-position">Head Student Technician (Full-Time)</p>
+                     <p class="job-dates">Jun. 2020 - Sep. 2020</p>
+                  </div>
+                  <li class="bullet">Oversaw a group of seven student interns</li>
+                  <li class="bullet">Helped design, manage, and implement network plans, computer setup plans, and 	project organization plans for the brand-new high school that was being built at the time</li>
+                  <li class="bullet">Continued to improve the DHS Help Desk System (see Projects)</li>
+                  <li class="bullet">Held leadership meetings with administration and staff</li>
+                  <div class="job-details-container second">
+                     <p class="job-position">I.T. Technician Intern (Part-Time)</p>
+                     <p class="job-dates">Jun. 2019 - Aug. 2019</p>
+                  </div>
+                  <li class="bullet">Responded to help desk tickets and summer school device requests</li>
+               </div>
+            </ul>
+         </div>
+      </div>
+      <div class="container" id="projects-container">
+         <div class="row">
+            <h3 id="experience-header">Projects</h3>
+            <p id="projects-p">Take a look at my previous projects I’ve done throughout the years! This gallery includes commissioned products, personal side projects, hackathon projects, and projects I’ve completed for school.</p>
+         </div>
+         <div class="row" id="projects-tiles">
+             <a class="tile-link">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header" style="font-size: 1.2em; width: 220px;">Analog Horror<br/>Video Game</p>
+                     <img class="tile-img" src="/assets/assets/icons/pixel_apple.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px; padding-top: 20px;">An analog horror video game. Innocent on the surface, terrifying below. <span style="color: white;">Lasciate ogne speranza, voi ch'entrate</span><strong><br/>This game is in the very early stages of solo-development. Details are currently witheld.</strong></p>
+                  <p class="tile-tags">Unity Engine | C#</p>
+               </div> 
+             </a>
+            <a class="tile-link right-tile" href="https://github.com/eslothower/elislothower.com" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">Personal Website</p>
+                     <img class="tile-img" src="/assets/assets/icons/internet.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">The first iteration of my personal website. Custom designed using Sketch, hand built with HTML and CSS. </p>
+                  <p class="tile-tags">HTML | CSS | Sketch</p>
+               </div>
+            </a>
+<!--            <a class="tile-link right-tile" href="/technical_paper.html" target="_blank">-->
+             <a class="tile-link" href="assets/assets/files/technical_paper.pdf" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header"> Technical Paper</p>
+                     <img class="tile-img" src="/assets/assets/icons/infinity.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">A technical paper discussing the Power Method, the QR Method, Deflation, and other advanced Linear Algebra and Matrices concepts. Includes proofs, examples, and code that I wrote.</p>
+                  <p class="tile-tags">Julia | Linear Algebra | Matrices</p>
+               </div>
+            </a>
+            <a class="tile-link right-tile" href="/playspaces.html"  >
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">Tinker Machines</p>
+                     <img class="tile-img" src="/assets/assets/images/playspaces_logo.png" style="width: auto; height: 50px;"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">A game-based learning tool that allows children to build puzzles and complete challenges to supercharge STEM literacy, computational thinking, and social emotional learning.</p>
+                  <p class="tile-tags">C# | Python | Django | Unity</p>
+               </div>
+            </a>
+            <a class="tile-link" href="https://github.com/eslothower/Audentify" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">Audentify</p>
+                     <img class="tile-img" src="/assets/assets/icons/musical-note.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 155px;">A song recognition system/game that detects songs based off of the lyrics you sing, created in 24 hours in a group of 4 during Carnegie Mellon University’s Hack112 Hackathon.</p>
+                  <p class="tile-tags">Python | Speech Recognition | YouTube API | Genius Lyrics API</p>
+               </div>
+            </a>
+            <a class="tile-link right-tile" href="https://github.com/eslothower/EcoSim" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">EcoSim</p>
+                     <img class="tile-img" src="/assets/assets/icons/white_sheep.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">An ecosystem simulator that involves randomized terrain generation, different species, mutations, user-input to alter the simulation, a custom-built graphing system, and much more.</p>
+                  <p class="tile-tags">Python</p>
+               </div>
+            </a>
+            <a class="tile-link" href="https://www.doversd.org" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">Dover PROUD</p>
+                     <img class="tile-img" src="/assets/assets/icons/eagle.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">An iPadOS app used to give, track, and spend student points for displaying the traits of a proud student. Uses a custom Google Sheets app script and various other Google APIs. Distributed on over 4,000 devices and growing.</p>
+                  <p class="tile-tags">Swift | Xcode | Commissioned </p>
+               </div>
+            </a>
+            <a class="tile-link right-tile" href="https://www.doversd.org" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">DASD Help Desk</p>
+                     <img class="tile-img" src="/assets/assets/icons/eagle.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">A district-wide help desk system used to submit and manage support tickets. This system was  crucial to the operation of the school district during the COVID-19 pandemic. Over 5,000 support tickets were managed within one year with this sytem.</p>
+                  <p class="tile-tags">FileMaker Pro | Databases </p>
+               </div>
+            </a>
+            <a class="tile-link" href="https://github.com/eslothower/CM-Omar" target="_blank">
+               <div class="tile" id="website-tile">
+                  <div class="tile-details">
+                     <p class="tile-header">Omar</p>
+                     <img class="tile-img" src="/assets/assets/icons/musical-note.png"/>
+                  </div>
+                  <p class="tile-description" style="height: 180px;">An optical music recognition (OMR) software that reads and plays back sheet music to the user. Uses MIDI, a vast array of instruments, and external hardware to complete this task.</p>
+                  <p class="tile-tags">OpenCV | MIDI | Raspberry Pi</p>
+               </div>
+            </a>
+         </div>
+         <div class="center-button">
+            <a href="https://github.com/eslothower" target="_blank"><button class="btn btn-nonprimary" id="btn-github-override" type="button"></button></a>
+         </div>
+      </div>
+      <div class="container" id="community-container">
+         <div class="row">
+            <h3 id="experience-header">Community</h3>
+            <p id="projects-p">I believe community engagement is essential to a happy, healthy, meaningful life. Here are some ways that I spend some time in my community. </p>
+         </div>
+         <div class="row" id="community-tiles">
+            <a class="community-tile-link" href="spain.html"  >
+               <div class="community-tile" id="spain-tile">
+                  <div class="community-tile-details">
+                     <p class="community-tile-header">Study Abroad Student - Madrid, Spain</p>
+                     <p class="community-tile-description">In the Summer of 2023, I had the amazing opportunity to study abroad in Madrid, Spain for one month. During this trip I was fortunate enough to immerse myself in the culture, meet amazing new people, travel to new places, and learn the Spanish language. I believe that for there to be equity for all, it is crucial to learn about others' cultures. This is especially important in Computer Science, and I am committed to helping create a fair, unbiased future that we all benefit from. </p>
+                     <img class="community-img" id="spain-img" height="160px" src="/assets/assets/images/spain_flag.png" style="margin: 30px 20px 0px 0px;" width="225px"/>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="row" id="community-tiles">
+            <a class="community-tile-link" href="habitat.html"  >
+               <div class="community-tile" id="habitat-tile">
+                  <div class="community-tile-details">
+                     <p class="community-tile-header">Trip Coordinator Executive Board Position, Former Secretary, and Former Texas Trip Leader</p>
+                     <p class="community-tile-description">Habitat for Humanity partners with people in your community, and all over the world, to help them build or improve a place they can call home. Habitat homeowners help build their own homes alongside volunteers and pay an affordable mortgage. As Secretary for Carnegie Mellon University’s chapter of Habitat for Humanity, I help run our local chapter, as well as have the privlidge of building homes for people all over the world.<br><br></p>
+                     <img class="community-img" id="habitat-img" height="225px" src="/assets/assets/images/habitat.jpg" style="padding-bottom: 15px;" width="225px"/>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="row" id="community-tiles">
+            <a class="community-tile-link" href="https://suds-cmu.org/" target="_blank">
+               <div class="community-tile" id="habitat-tile">
+                  <div class="community-tile-details">
+                     <p class="community-tile-header">Data Project Member</p>
+                     <p class="community-tile-description">Students Using Data for Social Good (SUDS) is a student group that brings together the vast array of disciplines that contribute to the conversation on how cities are adapting new methods of “big data” collection and analysis to improve society. SUDS focuses on tackling societal issues such as predicting fire risk, revolutioning education, improving access to fresh food for those downtown, visualizing water treatment data, and much more.</p>
+                     <img class="community-img" height="100px" src="/assets/assets/images/suds.png" style="margin-top: 60px;" width="250px"/>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="row" id="community-tiles">
+            <a class="community-tile-link" href="https://www.cmu.edu/student-success/programs/tartan-scholars.html" target="_blank">
+               <div class="community-tile" id="habitat-tile">
+                  <div class="community-tile-details">
+                     <p class="community-tile-header">Tartan Scholar</p>
+                     <p class="community-tile-description">Tartan Scholars is an invite-only organization that believes that everyone, no matter race, religion, economic background, sexual orientation, or else, deserves to benefit from higher education at Carnegie Mellon University and achieve their full potential. To accomplish this, Tartan Scholars strives to provide financial, academic, and social support to those who come from limited-resource and underrepresented backgrounds, such as myself.<br></p>
+                     <img class="community-img" height="100px" src="/assets/assets/images/tartan-scholars-logo.png" style="margin-top: 65px;" width="250px"/>
+                  </div>
+               </div>
+            </a>
+         </div>
+         <div class="row" id="community-tiles">
+            <a class="community-tile-link" href="https://www.cmu.edu/cfa/about/facts-and-figures/index.html" target="_blank">
+               <div class="community-tile" id="habitat-tile">
+                  <div class="community-tile-details">
+                     <p class="community-tile-header">Musician in Training</p>
+                     <p class="community-tile-description">Music is an essential part of my life. I have been playing instruments since the fourth grade where I first learned how to play the snare drum. Since then, I have learned how to play a large array of percussion instruments, notably the bass drum, snare drum, and more. Today I continue my journey with music by learning how to play the piano via private lessons at Carnegie Mellon University.</p>
+                     <img class="community-img" height="150px" id="piano-img" src="/assets/assets/images/piano.png" width="150px"/>
+                  </div>
+               </div>
+            </a>
+         </div>
+      </div>
+        <iframe src="footer.html" id="footer-container" frameborder="0" scrolling="no" width="100%"></iframe>
+    <script src="mobile_safari.js"></script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 20px;
+  color: #333;
+}
+
+.bento-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 columns */
+  gap: 20px; /* Spacing between items */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bento-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Sizes */
+.large {
+  grid-column: span 4; /* Spans 4 columns */
+  grid-row: span 2; /* Spans 2 rows */
+  background: linear-gradient(135deg, #8ec5fc, #e0c3fc);
+  color: white;
+}
+
+.medium {
+  grid-column: span 2; /* Spans 2 columns */
+}
+
+.small {
+  grid-column: span 1; /* Spans 1 column */
+}
+
+.wide {
+  grid-column: span 3; /* Spans 3 columns */
+}
+
+.tall {
+  grid-row: span 2; /* Spans 2 rows */
+}
+
+/* Centered content */
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  text-align: center;
+  padding: 30px;
+  color: #fff;
+}

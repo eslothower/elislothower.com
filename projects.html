@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKQM78L61Q"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-VKQM78L61Q');
+      </script>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>All Projects</title>
+      <!-- Montserrat (headings) + Karla (body) -->
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Karla:wght@400;700&display=swap"
+         rel="stylesheet"
+         />
+      <link rel="icon" href="assets/icons/favicon.png"/>
+      <style>
+         /* FOOTER */
+         .footer {
+         width: 100%;
+         max-width: 1300px;
+         border: 3px solid white;
+         border-radius: 8px;
+         text-align: center;
+         padding: 2rem;
+         margin-top: 2rem;
+         position: relative;
+         margin: auto;
+         }
+         .footer-title {
+         font-family: "Montserrat", sans-serif;
+         font-weight: 900;
+         font-size: clamp(1.8rem, 5vw, 3rem);
+         text-transform: uppercase;
+         position: absolute;
+         top: -1.5rem;
+         left: 50%;
+         transform: translateX(-50%);
+         background-color: #0e100f;
+         padding: 0 1rem;
+         }
+         .footer-links {
+         display: flex;
+         justify-content: center;
+         gap: 2rem;
+         margin: 2rem 0;
+         }
+         .footer-link {
+         font-family: "Montserrat", sans-serif;
+         font-weight: 700;
+         font-size: clamp(1rem, 3.5vw, 1.5rem);
+         color: white;
+         text-decoration: none;
+         transition: color 0.3s ease-in-out;
+         }
+         .footer-link.contact { color: #0099FF; }
+         .footer-link.resume { color: #5CE24F; }
+         .footer-link.linkedin { color: #00FFFF; }
+         .footer-link:hover {
+         text-decoration: underline;
+         }
+         .footer-name {
+         font-family: "Montserrat", sans-serif;
+         font-weight: 900;
+         font-size: clamp(1.8rem, 5vw, 3rem);
+         text-transform: uppercase;
+         position: absolute;
+         bottom: -1.5rem;
+         left: 50%;
+         transform: translateX(-50%);
+         background-color: #0e100f;
+         padding: 0 1rem;
+         }
+         /* RESET & GLOBALS */
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         html, body {
+         width: 100%;
+         height: 100%;
+         background-color: #0e100f;
+         color: #ffffff;
+         font-family: "Karla", sans-serif;
+         }
+         .container {
+         max-width: 1200px;
+         margin: 0 auto;
+         padding: 0 1rem;
+         }
+         /* NAVBAR (from main page) */
+         .navbar {
+         background-color: transparent;
+         padding: 0.8rem 1rem;
+         max-width: 1300px;
+         margin: auto;
+         }
+         .navbar-inner {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         position: relative;
+         }
+         .navbar-left,
+         .navbar-center,
+         .navbar-right {
+         display: flex;
+         align-items: center;
+         }
+         .navbar-center {
+         position: relative;
+         right: 23px;
+         }
+         .navbar-left  { flex: 0 0 auto; }
+         .navbar-center { flex: 1 1 auto; justify-content: center; }
+         .navbar-right  { flex: 0 0 auto; }
+         .navbar-brand {
+         font-family: "Montserrat", sans-serif;
+         font-weight: 900;
+         font-size: 1.5rem;
+         color: #fff !important;
+         text-decoration: none;
+         white-space: nowrap;
+         }
+         .nav-links {
+         display: flex;
+         gap: 2rem;
+         border: 3px solid #fff;
+         border-radius: 100px;
+         padding: 6px 15px;
+         }
+         .nav-link {
+         color: #fff !important;
+         font-family: "Montserrat", sans-serif;
+         font-weight: 500;
+         text-decoration: none;
+         transition: color 0.3s ease;
+         }
+         .nav-link:hover {
+         text-decoration: none;
+         color: #4397f7 !important;
+         }
+         .nav-icon {
+         width: 16px;
+         height: 16px;
+         margin-right: 5px;
+         vertical-align: middle;
+         }
+         .light-mode-btn {
+         border: 3px solid #fff;
+         background: transparent;
+         color: #fff;
+         padding: 0.4rem 0.8rem;
+         font-family: "Montserrat", sans-serif;
+         font-size: 16px;
+         text-transform: capitalize;
+         cursor: pointer;
+         border-radius: 100px !important;
+         padding-top: 6px;
+         padding-bottom: 6px;
+         }
+         .navbar-toggler {
+         border: none;
+         background: transparent;
+         color: #fff;
+         cursor: pointer;
+         display: none;
+         }
+         .navbar-toggler-icon {
+         width: 30px;
+         height: 3px;
+         background-color: #fff;
+         margin: 5px 0;
+         transition: transform 0.3s ease, opacity 0.3s ease;
+         }
+         .navbar-toggler.active .navbar-toggler-icon:first-child {
+         transform: translateY(8px) rotate(45deg);
+         }
+         .navbar-toggler.active .navbar-toggler-icon:nth-child(2) {
+         opacity: 0;
+         }
+         .navbar-toggler.active .navbar-toggler-icon:last-child {
+         transform: translateY(-8px) rotate(-45deg);
+         }
+         .mobile-menu {
+         display: none;
+         flex-direction: column;
+         align-items: center;
+         gap: 1rem;
+         background-color: #0e100f;
+         padding: 1rem;
+         }
+         .mobile-menu.open {
+         display: flex;
+         }
+         .all-projects-title{
+         text-align: center;
+         margin-top: 50px;
+         font-family: "Montserrat", sans-serif;
+         }
+         /* PROJECTS SECTION */
+         .projects-section {
+         max-width: 1300px;
+         margin: 0 auto;
+         padding: 2rem 1rem;
+         }
+         .project-block {
+         display: flex;
+         flex-direction: row;
+         align-items: stretch;
+         gap: 1rem;
+         border: 3px solid #fff;
+         border-radius: 23px;
+         margin: 2rem 0;
+         padding: 1rem;
+         transition: all 0.2s ease-in-out;
+         background: #0e100f;
+         }
+         .project-image {
+         flex: 2;
+         }
+         .project-image img {
+         width: 100%;
+         height: auto;
+         display: block;
+         border-radius: 4px;
+         }
+         /* Outer container for details – set as flex column */
+         .project-details {
+         flex: 2;
+         display: flex;
+         flex-direction: column;
+         padding-left: 5%;
+         }
+         /* This container grows to push the button to the bottom */
+         .project-content {
+         flex: 1;
+         }
+         .project-details h3 {
+         font-family: "Montserrat", sans-serif;
+         font-weight: 700;
+         font-size: 1.75rem;
+         margin-bottom: 1rem;
+         }
+         .project-details ul {
+         list-style-type: disc;
+         margin-left: 2rem;
+         margin-bottom: 1rem;
+         }
+         .project-details li {
+         font-size: 1.15rem;
+         margin: 10px 0;
+         }
+         /* READ MORE BUTTON – same as main page */
+         .read-more-btn {
+         background: transparent;
+         border: 2px solid #fff;
+         color: #fff;
+         padding: 0.5rem 1rem;
+         border-radius: 8px;
+         cursor: pointer;
+         font-family: "Montserrat", sans-serif;
+         width: 100%;
+         margin-top: auto;
+         }
+         /* GRADIENT BORDER */
+         .gradient-border {
+         border: 3px solid #fff;
+         border-radius: 8px;
+         background: #0e100f;
+         transition: background 0.3s ease, border-color 0.3s ease;
+         box-sizing: border-box;
+         }
+         .gradient-border:hover {
+         border-color: transparent;
+         background: 
+         linear-gradient(#0e100f, #0e100f) padding-box,
+         linear-gradient(90deg, #0099FF, #5CE24F, #00FFFF) border-box;
+         background-clip: padding-box, border-box;
+         }
+         /* Modal Styles */
+         .modal {
+         display: none; /* Hidden by default */
+         position: fixed; 
+         z-index: 1000;
+         left: 0;
+         top: 0;
+         width: 100%;
+         height: 100%;
+         overflow: auto;
+         background-color: rgba(0,0,0,0.8);
+         }
+         .modal-content {
+         background-color: #0e100f;
+         margin: 15% auto;
+         padding: 20px;
+         border: 3px solid #fff;
+         border-radius: 8px;
+         max-width: 600px;
+         text-align: center;
+         font-family: "Montserrat", sans-serif;
+         color: #fff;
+         }
+         .modal-close {
+         color: #fff;
+         float: right;
+         font-size: 28px;
+         font-weight: bold;
+         cursor: pointer;
+         }
+         /* MOBILE STYLES */
+         @media (max-width: 768px) {
+         .navbar-center,
+         .navbar-right {
+         display: none;
+         }
+         .navbar-toggler {
+         display: block;
+         }
+         .project-block {
+         flex-direction: column;
+         }
+         .project-details {
+         padding-left: 0;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <!-- NAVBAR (from main page) -->
+      <nav class="navbar">
+         <div class="navbar-inner">
+            <div class="navbar-left">
+               <a class="navbar-brand" href="index.html">Eli Slothower</a>
+            </div>
+            <div class="navbar-center">
+               <div class="nav-links">
+                  <a class="nav-link" href="index.html">
+                  <img src="assets/icons/house.png" alt="Home Icon" class="nav-icon"/>
+                  Home
+                  </a>
+               </div>
+            </div>
+            <div class="navbar-right">
+               <a class="nav-link" href="mailto:elislothower@gmail.com">
+               <button class="light-mode-btn gradient-border">
+               <img src="assets/icons/mail.png" alt="Light Mode Icon" class="nav-icon"/>
+               Contact
+               </button>
+               </a>
+            </div>
+            <button class="navbar-toggler" onclick="toggleMenu(this)">
+               <div class="navbar-toggler-icon"></div>
+               <div class="navbar-toggler-icon"></div>
+               <div class="navbar-toggler-icon"></div>
+            </button>
+         </div>
+      </nav>
+      <!-- Mobile Menu -->
+      <div class="mobile-menu">
+         <a class="nav-link" href="index.html" onclick="closeMobileMenu()">Home</a>
+         <a class="nav-link" href="mailto:elislothower@gmail.com" onclick="closeMobileMenu()"><button class="light-mode-btn gradient-border" onclick="closeMobileMenu()">Contact</button></a>
+      </div>
+      <!-- TITLE -->
+      <h1 class="all-projects-title">ALL PROJECTS</h1>
+      <!-- PROJECTS SECTION -->
+      <section class="projects-section container" id="projects">
+         <!-- 1. Are You Smarter Than a Senior? (starred from main page) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/algorithms_project_banner.png" alt="Algorithm Word Cloud" />
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Are You Smarter Than a Senior?</h3>
+                  <ul>
+                     <li>A Carnegie Mellon professor once told me, “99% of graduating seniors in computer science can’t even write QuickSort. What are we doing?”</li>
+                     <li>This project showcases my robust implementations of common CS algorithms.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> Jupyter Notebook</li>
+                  </ul>
+               </div>
+               <a href="algorithms.html" style="color: white; text-decoration: none;">
+               <button class="read-more-btn gradient-border">Read More...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 2. Analog Horror Video Game (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/analog_project_banner.png" alt="Analog Horror Game Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Analog Horror Video Game</h3>
+                  <ul>
+                     <li>An analog horror game that seems innocent on the surface but is terrifying beneath.</li>
+                     <li>In early solo-development; details are currently withheld.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> Unity Engine, C#</li>
+                  </ul>
+               </div>
+               <!-- Instead of following the normal Read More... link, this button triggers the modal -->
+               <button id="analogModalBtn" class="read-more-btn gradient-border">Read More...</button>
+            </div>
+         </div>
+         <!-- 3. Personal Website (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/site_project_banner.png" alt="Personal Website Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Personal Website V1</h3>
+                  <ul>
+                     <li>The first iteration of my personal website.</li>
+                     <li>Designed in Sketch, hand-coded in HTML and CSS.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> HTML, CSS, Sketch</li>
+                  </ul>
+               </div>
+               <a href="https://github.com/eslothower/elislothower.com" style="color: white; text-decoration: none;" target="_blank">
+               <button class="read-more-btn gradient-border">Visit GitHub Repo...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 4. Technical Paper* (from main page) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/linear_algebra_project_banner.png" alt="Power Method Document" />
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>The Power Method, QR Method, and Deflation</h3>
+                  <ul>
+                     <li>Implemented efficient numerical algorithms for eigenvalues, eigenvectors, and singular values.</li>
+                     <li>Developed a high-performance matrix computation tool.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> Python, Linear Algebra Libraries</li>
+                  </ul>
+               </div>
+               <a href="matrices.html" style="color: white; text-decoration: none;">
+               <button class="read-more-btn gradient-border">Read More...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 5. Tinker Machines (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/playspaces_project_banner.png" alt="Tinker Machines Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Tinker Machines</h3>
+                  <ul>
+                     <li>A game-based learning tool for building puzzles and completing challenges.</li>
+                     <li>Promotes STEM literacy, computational thinking, and social emotional learning.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> C#, Python, Django, Unity</li>
+                  </ul>
+               </div>
+               <a href="https://playspaces.co" style="color: white; text-decoration: none;" target="_blank">
+               <button class="read-more-btn gradient-border">Visit Playspaces' Website...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 6. Audentify (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/audentify_project_banner.png" alt="Audentify Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Audentify</h3>
+                  <ul>
+                     <li>A song recognition system/game based on the lyrics you sing.</li>
+                     <li>Created in 24 hours by a group of 4 during CMU's Hack112 Hackathon.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> Python, Speech Recognition, YouTube API, Genius Lyrics API</li>
+                  </ul>
+               </div>
+               <a href="https://youtu.be/u27xfoqkwGY?si=WXjS3rB_zQNsWVeY" style="color: white; text-decoration: none;" target="_blank">
+               <button class="read-more-btn gradient-border">Watch Demo...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 7. EcoSim* (from main page) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/ecosim_project_banner.png" alt="EcoSim Screenshot" />
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>EcoSim</h3>
+                  <ul>
+                     <li>Simulated dynamic ecosystems with randomized terrain and animal populations.</li>
+                     <li>Integrated interactive, real-time graphs to track population trends.</li>
+                     <li>Implemented random mutations for enhanced realism.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> Python</li>
+                  </ul>
+               </div>
+               <a href="ecosim.html" style="color: white; text-decoration: none;">
+               <button class="read-more-btn gradient-border">Read More...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 8. Dover PROUD (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/proud_project_banner.png" alt="Dover PROUD Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Dover PROUD</h3>
+                  <ul>
+                     <li>An iPadOS app for giving, tracking, and spending student points.</li>
+                     <li>Uses Google Sheets scripts and various other Google APIs.</li>
+                     <li>Distributed on over 4,000 devices.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> Swift, Xcode, Commissioned</li>
+                  </ul>
+               </div>
+               <a href="https://www.doversd.org" style="color: white; text-decoration: none;" target="_blank">
+               <button class="read-more-btn gradient-border">Visit Dover's website...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 9. DASD Help Desk (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/help_project_banner.png" alt="DASD Help Desk Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>DASD Help Desk</h3>
+                  <ul>
+                     <li>A district-wide help desk system to submit/manage support tickets.</li>
+                     <li>Essential during COVID-19, handling 5,000+ tickets in one year.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> FileMaker Pro, Databases</li>
+                  </ul>
+               </div>
+               <a href="https://www.doversd.org" style="color: white; text-decoration: none;" target="_blank">
+               <button class="read-more-btn gradient-border">Visit Dover's Website...</button>
+               </a>
+            </div>
+         </div>
+         <!-- 10. Omar (misc) -->
+         <div class="project-block">
+            <div class="project-image">
+               <img src="assets/images/omar_project_banner.png" alt="Omar Banner">
+            </div>
+            <div class="project-details">
+               <div class="project-content">
+                  <h3>Omar</h3>
+                  <ul>
+                     <li>Optical Music Recognition (OMR) software that reads and plays back sheet music.</li>
+                     <li>Uses MIDI, a vast array of instruments, and external hardware to complete the task.</li>
+                  </ul>
+                  <ul>
+                     <li><strong>Tech Stack:</strong> OpenCV, MIDI, Raspberry Pi</li>
+                  </ul>
+               </div>
+               <a href="https://github.com/eslothower/CM-Omar" style="color: white; text-decoration: none;" target="_blank">
+               <button class="read-more-btn gradient-border">Visit GitHub Repo...</button>
+               </a>
+            </div>
+         </div>
+      </section>
+      <!-- FOOTER -->
+      <footer class="footer">
+         <div class="footer-title">Let’s Chat</div>
+         <div class="footer-links">
+            <a href="mailto:elislothower@gmail.com" class="footer-link contact">Contact</a>
+            <a href="assets/files/resume.pdf" class="footer-link resume" target="_blank">Résumé</a>
+            <a href="https://www.linkedin.com/in/eli-slothower/" class="footer-link linkedin" target="_blank">LinkedIn</a>
+         </div>
+         <div class="footer-name">Eli Slothower</div>
+      </footer>
+      <!-- Modal for Analog Horror Video Game -->
+      <div id="analogModal" class="modal">
+         <div class="modal-content">
+            <span class="modal-close" id="modalCloseBtn" style="position: relative; bottom: 20px;">&times;</span>
+            <p>Lasciate ogne speranza, voi ch'entrate</p>
+         </div>
+      </div>
+      <!-- SCRIPTS -->
+      <script>
+         // Navbar toggle
+         function toggleMenu(button) {
+           const mobileMenu = document.querySelector('.mobile-menu');
+           mobileMenu.classList.toggle('open');
+           button.classList.toggle('active');
+         }
+         function closeMobileMenu() {
+           const mobileMenu = document.querySelector('.mobile-menu');
+           if (mobileMenu.classList.contains('open')) {
+             mobileMenu.classList.remove('open');
+             document.querySelector('.navbar-toggler').classList.remove('active');
+           }
+         }
+         window.addEventListener('resize', () => {
+           const mobileMenu = document.querySelector('.mobile-menu');
+           if (window.innerWidth > 768) {
+             mobileMenu.classList.remove('open');
+             const toggler = document.querySelector('.navbar-toggler');
+             if (toggler && toggler.classList.contains('active')) {
+               toggler.classList.remove('active');
+             }
+           }
+         });
+         
+         // Modal logic for Analog Horror Video Game
+         const analogModalBtn = document.getElementById('analogModalBtn');
+         const analogModal = document.getElementById('analogModal');
+         const modalCloseBtn = document.getElementById('modalCloseBtn');
+         
+         analogModalBtn.addEventListener('click', function(event) {
+           event.preventDefault();
+           analogModal.style.display = "block";
+         });
+         
+         modalCloseBtn.addEventListener('click', function() {
+           analogModal.style.display = "none";
+         });
+         
+         // Close modal if user clicks outside the modal content
+         window.addEventListener('click', function(event) {
+           if (event.target === analogModal) {
+             analogModal.style.display = "none";
+           }
+         });
+      </script>
+   </body>
+</html>
