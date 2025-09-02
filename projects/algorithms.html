@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Are You Smarter Than a Senior? — Eli Slothower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="project.css" />
+
+  <!-- MathJax -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="container">
+  <header class="project-topbar" aria-label="Project navigation">
+    <div class="topbar-left">
+      <button class="topbar-theme" type="button" aria-label="Toggle color theme">
+        <img
+          src="../assets/icons/moon.png"
+          alt=""
+          data-src-light="../assets/icons/moon.png"
+          data-src-dark="../assets/icons/sun.png"
+        />
+      </button>
+    </div>
+    <nav class="topbar-right">
+      <a class="project-back" href="../index.html#work" aria-label="Back to projects">← Back</a>
+    </nav>
+  </header>
+
+  <main id="content" class="article">
+    <h1 class="article-title">Are You Smarter Than a Senior?</h1>
+
+    <div class="hero-buttons" style="margin-bottom:1rem">
+      <a class="cta" href="https://colab.research.google.com/drive/1OEjAgb3qlF1OumZHFbNLHvCihu77Qs24?usp=sharing" target="_blank" rel="noopener">View Notebook</a>
+    </div>
+
+    <figure>
+      <img src="../assets/images/algorithms_project_banner.png" alt="Are You Smarter Than a Senior?">
+    </figure>
+
+    <!-- ===== Verbatim body from your source ===== -->
+    <h2>Introduction</h2>
+    <p>"Are You Smarter Than a Senior?" is a project inspired by a challenge posed by one of my professors at Carnegie Mellon University: “99% of graduating seniors in computer science can’t even write QuickSort. What are we doing?”</p>
+    <p>To prove my capabilities, I implemented several fundamental algorithms from scratch in Python, including <strong>QuickSort</strong>, <strong>InsertionSort</strong>, <strong>BubbleSort</strong>, <strong>MergeSort</strong>, <strong>Breadth-First Search (BFS)</strong>, <strong>Depth-First Search (DFS)</strong>, and <strong>Dijkstra's Algorithm</strong>. For each algorithm, I provided detailed problem definitions, input/output descriptions, and a formal cost analysis under the <strong>Word-RAM model</strong>.</p>
+
+    <h2>What is the Word-RAM Model?</h2>
+    <p>In theoretical computer science, the Word-RAM model is a computational framework used to analyze the time complexity of algorithms. It assumes:</p>
+    <ul>
+      <li>Words (data units) are of a fixed size, typically matching the architecture of the machine (e.g., 32-bit or 64-bit).</li>
+      <li>Basic operations (e.g., addition, subtraction, comparisons) on these words take constant time, \( O(1) \).</li>
+      <li>Memory access is also performed in constant time.</li>
+    </ul>
+    <p>This model allows us to evaluate the efficiency of algorithms while abstracting away machine-specific details, focusing instead on logical operations and memory access patterns.</p>
+
+    <h2 style="width: 100%;">Algorithms Implemented</h2>
+
+    <h3>1. QuickSort</h3>
+    <p><strong>Input:</strong> An unsorted array.</p>
+    <p><strong>Output:</strong> A sorted array.</p>
+    <p><strong>Goal:</strong> Divide the array into partitions around a pivot, then recursively sort each partition.</p>
+    <p><strong>Complexity:</strong> Average-case \( O(n \log n) \), worst-case \( O(n^2) \) (though often mitigated by choosing a random pivot).</p>
+
+    <h3>2. InsertionSort</h3>
+    <p><strong>Input:</strong> An unsorted array.</p>
+    <p><strong>Output:</strong> A sorted array.</p>
+    <p><strong>Goal:</strong> Insert elements into their correct position, shifting larger elements to the right.</p>
+    <p><strong>Complexity:</strong> Worst-case \( O(n^2) \).</p>
+
+    <h3>3. BubbleSort</h3>
+    <p><strong>Input:</strong> An unsorted array.</p>
+    <p><strong>Output:</strong> A sorted array.</p>
+    <p><strong>Goal:</strong> Repeatedly swap adjacent elements if they are in the wrong order.</p>
+    <p><strong>Complexity:</strong> Worst-case \( O(n^2) \).</p>
+
+    <h3>4. MergeSort</h3>
+    <p><strong>Input:</strong> An unsorted array.</p>
+    <p><strong>Output:</strong> A sorted array.</p>
+    <p><strong>Goal:</strong> Recursively divide the array into halves, sort each half, then merge them back together.</p>
+    <p><strong>Complexity:</strong> \( O(n \log n) \) in the average and worst case.</p>
+
+    <h3>5. BFS and DFS</h3>
+    <p><strong>Input:</strong> A graph represented as an adjacency list.</p>
+    <p><strong>Output:</strong> A traversal or search order of the graph nodes.</p>
+    <p><strong>Goal:</strong> BFS explores nodes level by level, while DFS explores as deep as possible before backtracking.</p>
+    <p><strong>Complexity:</strong> \( O(V + E) \), where \( V \) is the number of vertices and \( E \) is the number of edges.</p>
+
+    <h3>6. Dijkstra's Algorithm</h3>
+    <p><strong>Input:</strong> A weighted graph and a source node.</p>
+    <p><strong>Output:</strong> The shortest path from the source to all other nodes.</p>
+    <p><strong>Goal:</strong> Repeatedly select the unvisited node with the smallest known distance, updating distances of its neighbors.</p>
+    <p><strong>Complexity:</strong> \( O((V + E) \log V) \), assuming a binary heap or priority queue.</p>
+
+    <h2>Reflection</h2>
+    <p>Implementing these algorithms strengthened my understanding of computational complexity, data structures, and algorithmic design. By analyzing each under the Word-RAM model, I gained deeper insight into how seemingly simple operations can impact runtime at scale.</p>
+    <p>Beyond the theory, this project reminds me of my early enthusiasm for problem-solving and my commitment to mastering the fundamentals. It's a proud milestone in my academic journey—one that continues to shape my passion for computer science and software development.</p>
+  </main>
+    
+    <!-- NEW: Let’s Chat -->
+  <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Let’s Chat.</h2>
+    <div class="contact-actions">
+      <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
+        <img
+          src="../assets/icons/github-light.png"
+          alt=""
+          data-src-light="../assets/icons/github-light.png"
+          data-src-dark="../assets/icons/github-dark.png"
+        />
+      </a>
+      <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img
+          src="../assets/icons/linkedin-light.png"
+          alt=""
+          data-src-light="../assets/icons/linkedin-light.png"
+          data-src-dark="../assets/icons/linkedin-dark.png"
+        />
+      </a>
+      <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
+        <img
+          src="../assets/icons/mail-light.png"
+          alt=""
+          data-src-light="../assets/icons/mail-light.png"
+          data-src-dark="../assets/icons/mail-dark.png"
+        />
+      </a>
+      <a class="pill pill--outline" href="../assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+        <span>Résumé</span>
+      </a>
+    </div>
+  </section>
+  <!-- END Let's Chat -->
+
+   
+</div>
+
+<script src="../script.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Emotional Stimuli and Beyond: Prompt Engineering Strategies for LLM Performance — Eli Slothower</title>
+
+    <!-- Fonts (same as site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Site styles + project add-ons -->
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="./project.css" />
+
+    <!-- MathJax (LaTeX support) -->
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="container">
+      <!-- Minimal top bar with theme toggle + back -->
+      <header class="project-topbar" aria-label="Project navigation">
+        <div class="topbar-left">
+          <button class="topbar-theme" type="button" aria-label="Toggle color theme">
+            <img
+              src="../assets/icons/moon.png"
+              alt=""
+              data-src-light="../assets/icons/moon.png"
+              data-src-dark="../assets/icons/sun.png"
+            />
+          </button>
+        </div>
+        <nav class="topbar-right">
+          <a class="project-back" href="../index.html#work" aria-label="Back to projects">← Back</a>
+        </nav>
+      </header>
+
+      <main id="content" class="article">
+        <h1 class="article-title">Emotional Stimuli and Beyond: Prompt Engineering Strategies for LLM Performance</h1>
+
+        <div class="hero-buttons">
+          <!-- Update hrefs when ready -->
+          <a class="cta" href="../assets/files/prompt_engineering.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
+          <!-- <a class="cta" href="https://github.com/..." target="_blank" rel="noopener">Code</a> -->
+        </div>
+
+        <figure>
+          <img src="../assets/images/llm_project_banner.png" alt="Prompt engineering research banner">
+          <figcaption>A lightweight summary page; see the paper for all experimental details.</figcaption>
+        </figure>
+
+        <h2>Overview</h2>
+        <p>
+          Large Language Models (LLMs) are extremely sensitive to <em>how</em> they’re prompted. This project studies
+          a family of prompt engineering strategies—from neutral baselines to emotionally charged framings—to understand
+          how subtle language choices influence task performance. We emphasize practical techniques developers can use
+          without model training or fine-tuning.
+        </p>
+
+        <h2>Prompting Strategies Studied</h2>
+        <ul>
+          <li><strong>Neutral Baseline</strong> — plain task instructions.</li>
+          <li><strong>Emotional Stimuli</strong> — positive/negative affect and urgency modifiers (“This is critical…”, “Please be careful…”).</li>
+          <li><strong>Role/Persona</strong> — “You are a meticulous data scientist…”.</li>
+          <li><strong>Context Priming</strong> — brief domain setup and constraints before the task.</li>
+          <li><strong>Few‑shot</strong> — 1–3 short, curated examples that match the task distribution.</li>
+          <li><strong>Reasoning Scaffolds</strong> — structured steps, e.g., “think then answer”, self‑check rubrics.</li>
+          <li><strong>Critique &amp; Revise</strong> — generate, critique, then rewrite.</li>
+          <li><strong>Calibration</strong> — ask for confidence, abstain options, or uncertainty highlights.</li>
+        </ul>
+
+        <h2>Tasks &amp; Metrics (High Level)</h2>
+        <p>
+          We evaluate across representative task types (classification, extraction, and short‑form reasoning). Primary
+          metrics include accuracy and F1—particularly useful when label imbalance or partial extraction correctness
+          matters. For generative answers, we apply rubric‑style checks, and when applicable, automatic exact/partial matches.
+        </p>
+
+        <h2>Key Findings (at a glance)</h2>
+        <ul>
+          <li><strong>Emotional framings</strong> can improve adherence to instructions and reduce “casual” mistakes on constrained tasks.</li>
+          <li><strong>Combining persona + context</strong> often yields more stable outputs than either alone.</li>
+          <li><strong>Few‑shot</strong> helps most when examples tightly match the evaluation distribution; otherwise it can add noise.</li>
+          <li><strong>Lightweight reasoning scaffolds</strong> (self‑checks, step hints) produce gains similar to long chain‑of‑thought, with lower verbosity.</li>
+          <li><strong>Calibration prompts</strong> reduce over‑confident wrong answers and make abstentions more principled.</li>
+        </ul>
+
+        <h2>Failure Modes &amp; Risks</h2>
+        <ul>
+          <li><strong>Sentiment drift</strong> — emotional prompts can bias tone or lead the model.</li>
+          <li><strong>Over‑constrained formats</strong> — too rigid schemas increase refusals or truncation.</li>
+          <li><strong>Prompt overfitting</strong> — few‑shot with unrepresentative examples hurts generalization.</li>
+          <li><strong>Spurious explanations</strong> — scaffolds may sound “confident” even when wrong; prefer verifiable checks.</li>
+        </ul>
+
+        <h2>What We’d Do Next</h2>
+        <ul>
+          <li>Automated prompt selection based on dev‑set telemetry (bandit‑style routing).</li>
+          <li>Systematic ablation of each component (persona vs context vs emotions) across models.</li>
+          <li>Task‑aware calibration targets (e.g., precision‑first vs recall‑first regimes).</li>
+        </ul>
+
+        <p class="article-subtle">
+          This page is a concise summary. For the full methodology, ablations, and complete results, see the paper.
+        </p>
+      </main>
+        
+      <!-- NEW: Let’s Chat -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Let’s Chat.</h2>
+        <div class="contact-actions">
+          <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
+            <img
+              src="../assets/icons/github-light.png"
+              alt=""
+              data-src-light="../assets/icons/github-light.png"
+              data-src-dark="../assets/icons/github-dark.png"
+            />
+          </a>
+          <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img
+              src="../assets/icons/linkedin-light.png"
+              alt=""
+              data-src-light="../assets/icons/linkedin-light.png"
+              data-src-dark="../assets/icons/linkedin-dark.png"
+            />
+          </a>
+          <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
+            <img
+              src="../assets/icons/mail-light.png"
+              alt=""
+              data-src-light="../assets/icons/mail-light.png"
+              data-src-dark="../assets/icons/mail-dark.png"
+            />
+          </a>
+          <a class="pill pill--outline" href="../assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+            <span>Résumé</span>
+          </a>
+        </div>
+      </section>
+      <!-- END Let's Chat -->
+
+       
+    </div>
+
+    <!-- Reuse site JS (theme swap, etc.) -->
+    <script src="../script.js" defer></script>
+  </body>
+</html>

@@ -1,30 +1,24 @@
 /* =========================================
-   script.js — full file (v6)
+   script.js — v14 (dynamic projects)
    ========================================= */
 
 /* Smooth in-page scrolling (respect reduced motion) */
 (() => {
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', (e) => {
       const targetId = a.getAttribute('href').slice(1);
       const el = document.getElementById(targetId);
       if (!el) return;
-
       e.preventDefault();
       el.setAttribute('tabindex', '-1');
-      if (prefersReduced) {
-        el.scrollIntoView({ behavior: 'auto', block: 'start' });
-      } else {
-        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+      el.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'start' });
       el.focus({ preventScroll: true });
     });
   });
 })();
 
-/* Scroll-spy with IntersectionObserver + bottom-of-page guard */
+/* Monotonic scroll-spy using scroll position (no IO jitter) */
 (() => {
   const spyLinks = Array.from(document.querySelectorAll('[data-spy]'));
   if (!spyLinks.length) return;
@@ -33,68 +27,45 @@
     .map(link => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
 
-  const idFromEl = (el) => el && el.id;
-  const CONTACT_ID = 'contact';
+  let sectionTops = [];
+  let activeIndex = -1;
 
-  const setActive = (id) => {
+  function recalc() {
+    sectionTops = sections.map(sec => Math.round(sec.getBoundingClientRect().top + window.scrollY));
+  }
+
+  function setActiveByIndex(i) {
+    if (i === activeIndex || i < 0 || i >= sections.length) return;
+    activeIndex = i;
+    const id = sections[i].id;
     spyLinks.forEach(link => {
       const match = link.getAttribute('href').slice(1) === id;
       link.classList.toggle('is-active', match);
     });
-  };
+  }
 
-  /* 1) Observer highlights earlier (top third of viewport) */
-  const observer = new IntersectionObserver((entries) => {
-    // Track which entries are currently intersecting; prefer the one nearest the viewport top
-    const vpTop = 0; // use boundingClientRect.top proximity to 0
-    let candidate = null;
-    let bestDistance = Infinity;
+  function onScroll() {
+    const doc = document.documentElement;
+    const atBottom = Math.ceil(window.scrollY + window.innerHeight) >= doc.scrollHeight - 1;
+    if (atBottom) { setActiveByIndex(sections.length - 1); return; }
 
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const dist = Math.abs(entry.boundingClientRect.top - vpTop);
-        if (dist < bestDistance) {
-          bestDistance = dist;
-          candidate = entry.target;
-        }
-      }
-    });
+    const activationY = window.scrollY + window.innerHeight * 0.35;
 
-    if (candidate) setActive(idFromEl(candidate));
-  }, {
-    // Activate when the section is anywhere in the top ~40% to ~100% of viewport
-    root: null,
-    rootMargin: '-40% 0px -10% 0px',
-    threshold: [0, 0.01, 0.1, 0.25, 0.5, 0.75, 1]
-  });
+    let i = sectionTops.findIndex(top => top > activationY);
+    if (i === -1) i = sections.length;
+    setActiveByIndex(Math.max(0, i - 1));
+  }
 
-  sections.forEach(sec => observer.observe(sec));
-
-  /* 2) Bottom-of-page guard: if we're at the end, force Contact active */
-  let ticking = false;
-  const onScroll = () => {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      ticking = false;
-
-      const doc = document.documentElement;
-      const atBottom = Math.ceil(window.scrollY + window.innerHeight) >= doc.scrollHeight - 1;
-      if (atBottom) {
-        // Only force if the Contact section exists
-        const contactEl = document.getElementById(CONTACT_ID);
-        if (contactEl) setActive(CONTACT_ID);
-      }
-    });
-  };
-
+  window.addEventListener('load', () => { recalc(); onScroll(); });
+  window.addEventListener('resize', () => { recalc(); onScroll(); });
+  setTimeout(() => { recalc(); onScroll(); }, 300);
+  setTimeout(() => { recalc(); onScroll(); }, 1000);
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-  // Run once on load (in case the first view is already bottom on tiny screens)
-  onScroll();
+
+  window.__recalcScrollSpy = () => { recalc(); onScroll(); };
 })();
 
-// Put this helper above or inside your theme toggle IIFE:
+/* Swap themed images when the theme changes */
 function updateThemeImages(theme) {
   const attr = theme === 'dark' ? 'data-src-dark' : 'data-src-light';
   document.querySelectorAll('img[data-src-light][data-src-dark]').forEach(img => {
@@ -105,36 +76,29 @@ function updateThemeImages(theme) {
   });
 }
 
-
-/* Theme toggle: DEFAULT = light (ignores system pref unless user saved),
-   persists choice, overrides via [data-theme] */
+/* Theme toggle: DEFAULT = light (ignores system pref unless user saved) */
 (() => {
   const root = document.documentElement;
-  const btn = document.querySelector('.theme-toggle');
-  if (!btn) return;
+  const desktopBtn = document.querySelector('.theme-toggle');     // desktop rail button (text+icon)
+  const topbarIconBtn = document.querySelector('.topbar-theme');  // top-left icon on mobile
 
   const stored = localStorage.getItem('theme');
-  const initial = stored || 'light';  // default to LIGHT
+  const initial = stored || 'light';
   applyTheme(initial);
 
-  btn.addEventListener('click', () => {
-    const current = root.getAttribute('data-theme') || initial;
-    const next = current === 'dark' ? 'light' : 'dark';
-    applyTheme(next);
-  });
-
   function applyTheme(theme) {
-    const root = document.documentElement;
     root.classList.add('theme-animating');
-
     root.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
 
     const isDark = theme === 'dark';
-    btn.setAttribute('aria-pressed', String(isDark));
-    btn.textContent = isDark ? 'Light mode' : 'Dark mode';
+    const label = isDark ? 'Light mode' : 'Dark mode';
 
-    // NEW: swap themed images
+    // Update desktop button label + aria state
+    desktopBtn?.setAttribute('aria-pressed', String(isDark));
+    desktopBtn?.querySelector('.theme-label')?.replaceChildren(document.createTextNode(label));
+
+    // Swap icons globally (including sun/moon)
     updateThemeImages(theme);
 
     window.clearTimeout(applyTheme._t);
@@ -143,34 +107,117 @@ function updateThemeImages(theme) {
     }, 400);
   }
 
+  function toggleTheme() {
+    const current = root.getAttribute('data-theme') || initial;
+    const next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  }
 
+  desktopBtn?.addEventListener('click', toggleTheme);
+  topbarIconBtn?.addEventListener('click', toggleTheme);
 })();
 
-/* Swap résumé file icon to opposite theme on hover/focus */
+/* LOAD MORE — reveal up to 3 per click; when all shown, switch to SHOW LESS
+   Robust to any number of <article> nodes and missing .project class. */
 (() => {
-  const root = document.documentElement;
-  const currentTheme = () => root.getAttribute('data-theme') || 'light';
+  const list = document.getElementById('project-list');
+  const btn = document.querySelector('.section-work .load-more');
+  if (!list || !btn) return;
 
-  function pickSrc(img, theme) {
-    return theme === 'dark' ? img.getAttribute('data-src-dark')
-                            : img.getAttribute('data-src-light');
+  const INITIAL_VISIBLE = 3;
+  const BATCH = 3;
+
+  // Return a normalized array of project <article> nodes (adds .project if missing)
+  function getProjects() {
+    const articles = Array.from(list.querySelectorAll(':scope > article'));
+    articles.forEach(el => el.classList.add('project')); // ensure class for CSS specificity
+    return articles;
   }
-  function swapTo(img, theme) {
-    const next = pickSrc(img, theme);
-    if (next) img.src = next;
+
+  function enforceInitial() {
+    const projects = getProjects();
+    projects.forEach((el, idx) => {
+      if (idx < INITIAL_VISIBLE) el.classList.remove('is-hidden');
+      else el.classList.add('is-hidden');
+    });
+    updateButtonState();
+    recalcSpy();
   }
 
-  document.querySelectorAll('.pill--outline .pill-icon').forEach(img => {
-    const pill = img.closest('.pill--outline');
-    if (!pill) return;
+  function revealNextBatch() {
+    const hidden = Array.from(list.querySelectorAll('.project.is-hidden'));
+    const toShow = hidden.slice(0, BATCH);
+    toShow.forEach(el => {
+      el.classList.remove('is-hidden');
+      el.classList.add('revealed');
+      setTimeout(() => el.classList.remove('revealed'), 300);
+    });
+    updateButtonState();
+    recalcSpy();
+  }
 
-    const onEnter = () => swapTo(img, currentTheme() === 'dark' ? 'light' : 'dark');
-    const onLeave = () => swapTo(img, currentTheme());
+  function collapseToInitial() {
+    const projects = getProjects();
+    projects.forEach((el, idx) => {
+      if (idx >= INITIAL_VISIBLE) el.classList.add('is-hidden');
+    });
+    updateButtonState();
+    recalcSpy();
+  }
 
-    pill.addEventListener('mouseenter', onEnter);
-    pill.addEventListener('focusin', onEnter);
-    pill.addEventListener('mouseleave', onLeave);
-    pill.addEventListener('focusout', onLeave);
+  function updateButtonState() {
+    const total = getProjects().length;
+    const remaining = list.querySelectorAll('.project.is-hidden').length;
+    if (remaining === 0 && total > INITIAL_VISIBLE) {
+      btn.textContent = 'SHOW LESS';
+      btn.dataset.mode = 'collapse';
+      btn.removeAttribute('disabled');
+      btn.removeAttribute('aria-disabled');
+    } else {
+      btn.textContent = 'LOAD MORE';
+      btn.dataset.mode = 'expand';
+      btn.removeAttribute('disabled');
+      btn.removeAttribute('aria-disabled');
+    }
+  }
+
+  function handleClick() {
+    if (btn.dataset.mode === 'collapse') collapseToInitial();
+    else revealNextBatch();
+  }
+
+  function recalcSpy() {
+    if (typeof window.__recalcScrollSpy === 'function') {
+      window.__recalcScrollSpy();
+    } else {
+      window.dispatchEvent(new Event('resize'));
+    }
+  }
+
+  // Init: normalize and show only the first 3
+  enforceInitial();
+  btn.addEventListener('click', handleClick);
+})();
+
+/* MOBILE HAMBURGER — open/close drawer */
+(() => {
+  const burger = document.querySelector('.hamburger');
+  const drawer = document.getElementById('mobile-drawer');
+  const scrim  = document.querySelector('.mobile-scrim');
+  if (!burger || !drawer || !scrim) return;
+
+  function setOpen(open) {
+    drawer.classList.toggle('is-open', open);
+    scrim.hidden = !open;
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.classList.toggle('no-scroll', open);
+    if (typeof window.__recalcScrollSpy === 'function') window.__recalcScrollSpy();
+  }
+
+  burger.addEventListener('click', () => setOpen(!drawer.classList.contains('is-open')));
+  scrim.addEventListener('click', () => setOpen(false));
+  drawer.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', () => setOpen(false));
   });
 })();
 
