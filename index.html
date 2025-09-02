@@ -1,1261 +1,427 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-   <head>
-      <!-- Google tag (gtag.js) -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKQM78L61Q"></script>
-      <script>
-         window.dataLayer = window.dataLayer || [];
-         function gtag(){dataLayer.push(arguments);}
-         gtag('js', new Date());
-         
-         gtag('config', 'G-VKQM78L61Q');
-      </script>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <title>Eli Slothower</title>
-      <!-- Montserrat (headings) + Karla (body) -->
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link
-         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Karla:wght@400;700&display=swap"
-         rel="stylesheet"
-         />
-      <link rel="icon" href="assets/icons/favicon.png"/>
-      <meta property="og:image" content="assets/images/main_img.png">
-      <style>
-         html {
-         scroll-behavior: smooth;
-         }
-         /* RESET & GLOBALS */
-         * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-         }
-         html, body {
-         width: 100%;
-         height: 100%;
-         background-color: #0e100f;
-         color: #ffffff;
-         font-family: "Karla", sans-serif;
-         }
-         /*
-         body {
-         transform: scale(0.95);
-         }
-         */
-         .container {
-         max-width: 1200px;
-         margin: 0 auto;
-         padding: 0 1rem;
-         }
-         /* GRADIENT BORDER USING BACKGROUND-CLIP */
-         .gradient-border {
-         border: 3px solid #fff;
-         border-radius: 8px;  /* adjust as needed */
-         background: #0e100f;
-         transition: background 0.3s ease, border-color 0.3s ease;
-         box-sizing: border-box;
-         }
-         .gradient-border:hover {
-         border-color: transparent;
-         background: 
-         linear-gradient(#0e100f, #0e100f) padding-box,
-         linear-gradient(90deg, #0099FF, #5CE24F, #00FFFF) border-box;
-         background-clip: padding-box, border-box;
-         }
-         /* NAVBAR */
-         .navbar {
-         background-color: transparent;
-         padding: 0.8rem 1rem;
-         max-width: 1300px;
-         margin: auto;
-         }
-         .navbar-inner {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         position: relative;
-         }
-         .navbar-left,
-         .navbar-center,
-         .navbar-right {
-         display: flex;
-         align-items: center;
-         }
-         .navbar-left  { flex: 0 0 auto; }
-         .navbar-center { flex: 1 1 auto; justify-content: center; }
-         .navbar-right  { flex: 0 0 auto; }
-         .navbar-brand {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 900;
-         font-size: 1.5rem;
-         color: #fff !important;
-         text-decoration: none;
-         white-space: nowrap;
-         }
-         .nav-links {
-         display: flex;
-         gap: 2rem;
-         border: 3px solid white;
-         border-radius: 100px;
-         padding: 6px 15px;
-         }
-         .nav-link {
-         color: #fff !important;
-         font-family: "Montserrat", sans-serif;
-         font-weight: 500;
-         text-decoration: none;
-         transition: color 0.3s ease;
-         }
-         .nav-link:hover {
-         text-decoration: none;
-         color: #4397f7 !important;
-         }
-         .nav-icon {
-         width: 16px;
-         height: 16px;
-         margin-right: 5px;
-         vertical-align: middle;
-         }
-         .light-mode-btn {
-         border: 3px solid #fff;
-         background: transparent;
-         color: #fff;
-         padding: 0.4rem 0.8rem;
-         font-family: "Montserrat", sans-serif;
-         font-size: 16px;
-         text-transform: capitalize;
-         cursor: pointer;
-         border-radius: 100px;
-         padding-top: 6px;
-         padding-bottom: 6px;
-         }
-         .navbar-toggler {
-         border: none;
-         background: transparent;
-         color: #fff;
-         cursor: pointer;
-         display: none;
-         }
-         .navbar-toggler-icon {
-         width: 30px;
-         height: 3px;
-         background-color: #fff;
-         margin: 5px 0;
-         transition: transform 0.3s ease, opacity 0.3s ease;
-         }
-         .navbar-toggler.active .navbar-toggler-icon:first-child {
-         transform: translateY(8px) rotate(45deg);
-         }
-         .navbar-toggler.active .navbar-toggler-icon:nth-child(2) {
-         opacity: 0;
-         }
-         .navbar-toggler.active .navbar-toggler-icon:last-child {
-         transform: translateY(-8px) rotate(-45deg);
-         }
-         .mobile-menu {
-         display: none;
-         flex-direction: column;
-         align-items: center;
-         gap: 1rem;
-         background-color: #0e100f;
-         padding: 1rem;
-         }
-         .mobile-menu.open {
-         display: flex;
-         }
-         /* HERO SECTION */
-         .hero-section {
-         display: flex;
-         justify-content: space-between;
-         align-items: flex-start;
-         padding: 8rem 2rem;
-         max-width: 1200px;
-         margin: 0 auto;
-         }
-         .hero-content {
-         max-width: 680px;
-         margin: auto 0;
-         padding-top: 30px;
-         }
-         .hero-title {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 900;
-         font-size: clamp(1.8rem, 3.5vw, 3rem);
-         line-height: 1.2;
-         margin-bottom: 1.5rem;
-         }
-         .hero-title span {
-         display: block;
-         }
-         .white-text { color: #ffffff; }
-         .blue-text  { color: #0099FF; }
-         .green-text { color: #5CE24F; }
-         .cyan-text  { color: #00FFFF; }
-         .blocks {
-         display: grid;
-         gap: 1rem;
-         align-items: center;
-         justify-content: center;
-         }
-         .block {
-         border: 3px solid #fff;
-         border-radius: 8px;
-         width: clamp(100px, 14vw, 150px);
-         height: clamp(100px, 14vw, 150px);
-         transition: all 0.2s ease-in-out;
-         background: #0e100f;
-         cursor: pointer;
-         }
-         /* PROJECTS SECTION */
-         .projects-section {
-         max-width: 1300px;
-         margin: 0 auto;
-         padding: 2rem 1rem;
-         }
-         .projects-heading-wrapper {
-         display: inline-block;
-         border-bottom: 3px solid #fff;
-         border-right: 3px solid #fff;
-         padding: 0 1rem 0 0;
-         }
-         .projects-header {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 900;
-         font-size: 2rem;
-         text-transform: uppercase;
-         margin: 0;
-         }
-         .description-section {
-         text-align: center;
-         padding: 2rem 1rem;
-         }
-         .description-content {
-         max-width: 1000px;
-         margin: 0 auto;
-         }
-         .description-content p {
-         font-size: clamp(1.125rem, 2vw, 1.375rem);
-         line-height: 1.6;
-         color: #fff;
-         font-family: "Karla", sans-serif;
-         font-weight: 400;
-         }
-         .description-content p span {
-         font-weight: 800;
-         }
-         .button-container {
-         display: flex;
-         justify-content: center;
-         gap: 2rem;
-         margin-top: 2rem;
-         }
-         .button {
-         text-decoration: none;
-         font-size: 1rem;
-         font-weight: bold;
-         padding: 0.35rem 0.8rem;
-         border: 3px solid;
-         border-radius: 15px;
-         text-align: center;
-         transition: background-color 0.3s, color 0.3s;
-         background: #0e100f;
-         }
-         .icon-in-button {
-         padding-top: 7px;
-         }
-         .github {
-         color: white;
-         border-color: white;
-         }
-         .github:hover {
-         background-color: black;
-         color: white;
-         }
-         .resume {
-         color: white;
-         border-color: white;
-         font-family: "Karla", sans-serif;
-         font-size: 22px;
-         text-align: center;
-         padding: 0 30px;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-         gap: 8px;
-         border-radius: 15px;
-         background: #0e100f;
-         }
-         .linkedin {
-         color: white;
-         border-color: white;
-         background: #0e100f;
-         }
-         .divider {
-         width: 100%;
-         height: 3px;
-         background-color: #fff;
-         margin: 2rem 0;
-         }
-         .block img.block-img {
-         width: 70%;
-         height: 70%;
-         display: block;
-         margin: auto;
-         position: relative;
-         top: 15%;
-         }
-         /* PROJECT BLOCKS */
-         .project-image {
-         flex: 2;
-         }
-         .project-block {
-         display: flex;
-         flex-direction: row;
-         align-items: stretch;
-         gap: 1rem;
-         border: 3px solid #fff;
-         border-radius: 23px;
-         margin: 2rem 0;
-         padding: 1rem;
-         transition: all 0.2s ease-in-out;
-         background: #0e100f;
-         }
-         .project-details {
-         flex: 2;
-         text-align: left;
-         display: flex;
-         flex-direction: column;
-         padding-left: 5%;
-         }
-         .read-more-btn {
-         background: transparent;
-         border: 2px solid #fff;
-         color: #fff;
-         padding: 0.5rem 1rem;
-         border-radius: 8px;
-         cursor: pointer;
-         font-family: "Montserrat", sans-serif;
-         width: 100%;
-         margin-top: auto;
-         }
-         .project-image img {
-         width: 100%;
-         height: auto;
-         display: block;
-         border-radius: 4px;
-         }
-         .project-details h3 {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 700;
-         margin-bottom: 1rem;
-         font-size: 1.75rem;
-         }
-         .project-details ul {
-         list-style-type: disc;
-         margin-bottom: auto;
-         }
-         .project-details li {
-         font-size: 1.15rem;
-         margin: 20px;
-         margin-bottom: 30px;
-         }
-         /* ABOUT ME SECTION */
-         .about-section {
-         width: 100%;
-         max-width: 1200px;
-         }
-         .about-header {
-         display: inline-block;
-         border-right: 3px solid white;
-         border-bottom: 3px solid white;
-         padding: 0.5rem 1rem;
-         font-family: "Montserrat", sans-serif;
-         font-size: 2rem;
-         font-weight: 900;
-         text-transform: uppercase;
-         margin-bottom: 2rem;
-         }
-         .row {
-         display: flex;
-         justify-content: center;
-         margin-bottom: 1rem;
-         }
-         .tile-container {
-         display: grid;
-         gap: 1rem;
-         }
-         .top-row .tile-container {
-         grid-template-columns: repeat(4, auto);
-         }
-         .second-row .tile-container,
-         .third-row .tile-container {
-         grid-template-columns: repeat(5, auto);
-         }
-         .tile {
-         border: 3px solid #fff;
-         border-radius: 8px;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         width: 150px;
-         height: 150px;
-         transition: all 0.2s ease-in-out;
-         background: #0e100f;
-         cursor: pointer;
-         }
-         .tile.rectangle {
-         width: 310px;
-         height: 150px;
-         }
-         /* Rectangular tile split layout */
-         .tile.rectangle {
-         display: flex;
-         padding: 0;
-         overflow: hidden;
-         }
-         .tile.rectangle .tile-left,
-         .tile.rectangle .tile-right {
-         width: 50%;
-         display: flex;
-         align-items: center;
-         justify-content: center;
-         }
-         .tile.rectangle .tile-left img.tile-img {
-         max-width: 100%;
-         height: auto;
-         display: block;
-         object-fit: contain;
-         }
-         .tile.rectangle .tile-right p {
-         margin: 0;
-         text-align: left;
-         font-family: "Karla", sans-serif;
-         font-weight: 400;
-         font-size: 1rem;
-         }
-         .tile[data-modal-text]:before {
-         content: attr(data-modal-text);
-         display: none;
-         }
-         /* Ensure square tiles’ images have the correct size */
-         .tile img.tile-img {
-         width: 70% !important;
-         height: 70% !important;
-         display: block;
-         margin: auto;
-         }
-         /* This additional rule targets non-rectangle tiles specifically */
-         .tile:not(.rectangle) img.tile-img {
-         width: 70% !important;
-         height: 70% !important;
-         }
-         /* FOOTER */
-         .footer {
-         width: 100%;
-         max-width: 1300px;
-         border: 3px solid white;
-         border-radius: 8px;
-         text-align: center;
-         padding: 2rem;
-         margin-top: 2rem;
-         position: relative;
-         margin: auto;
-         }
-         .footer-title {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 900;
-         font-size: clamp(1.8rem, 5vw, 3rem);
-         text-transform: uppercase;
-         position: absolute;
-         top: -1.5rem;
-         left: 50%;
-         transform: translateX(-50%);
-         background-color: #0e100f;
-         padding: 0 1rem;
-         }
-         .footer-links {
-         display: flex;
-         justify-content: center;
-         gap: 2rem;
-         margin: 2rem 0;
-         }
-         .footer-link {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 700;
-         font-size: clamp(1rem, 3.5vw, 1.5rem);
-         color: white;
-         text-decoration: none;
-         transition: color 0.3s ease-in-out;
-         }
-         .footer-link.contact { color: #0099FF; }
-         .footer-link.resume { color: #5CE24F; }
-         .footer-link.linkedin { color: #00FFFF; }
-         .footer-link:hover {
-         text-decoration: underline;
-         }
-         .footer-name {
-         font-family: "Montserrat", sans-serif;
-         font-weight: 900;
-         font-size: clamp(1.8rem, 5vw, 3rem);
-         text-transform: uppercase;
-         position: absolute;
-         bottom: -1.5rem;
-         left: 50%;
-         transform: translateX(-50%);
-         background-color: #0e100f;
-         padding: 0 1rem;
-         }
-         .about-desktop {
-         margin-top: 40px !important;
-         }
-         /* MOBILE STYLES */
-         @media (max-width: 450px) {
-         .button-container {
-         flex-direction: column;
-         gap: 1rem;
-         align-items: center;
-         }
-         .button {
-         width: auto;
-         max-width: 300px;
-         font-size: 0.9rem;
-         padding: 0.3rem 0.5rem;
-         margin: auto;
-         }
-         .button-container .button {
-         width: 100%;
-         max-width: 250px;
-         }
-         #resumeButton {
-         padding-top: 10px;
-         padding-bottom: 10px;
-         }
-         }
-         @media (max-width: 768px) {
-         .resume {
-         font-size: 18px;
-         padding: 0 20px;
-         }
-         .project-block {
-         flex-direction: column;
-         }
-         .project-details {
-         padding-left: 0;
-         }
-         .navbar-center,
-         .navbar-right {
-         display: none;
-         }
-         .navbar-toggler {
-         display: block;
-         }
-         .mobile-menu .light-mode-btn {
-         margin-left: 0;
-         }
-         .hero-section {
-         flex-direction: column;
-         align-items: center;
-         padding: 2rem 2rem;
-         }
-         .blocks {
-         display: flex;
-         flex-direction: row;
-         gap: 1rem;
-         margin-top: 2rem;
-         justify-content: center;
-         }
-         .about-desktop {
-         display: none;
-         }
-         .about-mobile {
-         display: block;
-         margin-top: 70px;
-         }
-         .about-mobile .mobile-row {
-         display: flex;
-         justify-content: center;
-         gap: 1rem;
-         margin-bottom: 1rem;
-         }
-         .tile {
-         width: 120px;
-         height: 120px;
-         }
-         .tile.rectangle {
-         width: 250px;
-         height: 120px;
-         }
-         }
-         @media (min-width: 769px) {
-         .mobile-menu {
-         display: none !important;
-         }
-         .about-mobile {
-         display: none;
-         }
-         .hero-section {
-         flex-direction: row;
-         align-items: flex-start;
-         }
-         .blocks {
-         display: grid;
-         grid-template-columns: 1fr 1fr;
-         grid-template-rows: auto;
-         grid-template-areas:
-         "block1 block1"
-         "block2 block3";
-         }
-         .block[style*="block1"] {
-         grid-area: block1;
-         align-self: center;
-         justify-self: center;
-         }
-         .block[style*="block2"] {
-         grid-area: block2;
-         align-self: center;
-         justify-self: end;
-         }
-         .block[style*="block3"] {
-         grid-area: block3;
-         align-self: center;
-         justify-self: start;
-         }
-         }
-         /* MODAL STYLES */
-         #modalOverlay {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0,0,0,0.7);
-         display: none;
-         align-items: center;
-         justify-content: center;
-         z-index: 1000;
-         padding: 1rem;
-         }
-         #modalContent {
-         background: #1c1d1c;
-         padding: 1rem;
-         border-radius: 8px;
-         max-width: 600px;
-         width: 100%;
-         position: relative;
-         }
-         #modalContent img {
-         display: block;
-         margin: 0 auto;
-         max-width: 20%;
-         border-radius: 4px;
-         }
-         #modalContent p {
-         margin-top: 1rem;
-         font-size: 1rem;
-         line-height: 1.5;
-         }
-         #modalClose {
-         position: absolute;
-         top: 0.5rem;
-         right: 0.5rem;
-         background: transparent;
-         border: none;
-         font-size: 1.5rem;
-         color: #fff;
-         cursor: pointer;
-         }
-         /* Animated word feature */
-         @keyframes fadeSlide {
-         0% { opacity: 1; transform: translateY(0); }
-         40% { opacity: 0; transform: translateY(-20px); }
-         60% { opacity: 0; transform: translateY(20px); }
-         100% { opacity: 1; transform: translateY(0); }
-         }
-         .fade-slide {
-         animation: fadeSlide 1s ease-in-out;
-         }
-         /* Sway animation for hero tiles */
-         @keyframes sway {
-         0% { transform: translateY(0) rotate(0deg); }
-         25% { transform: translateY(-6.5px) rotate(1deg); }
-         50% { transform: translateY(0) rotate(0deg); }
-         75% { transform: translateY(6.5px) rotate(-1deg); }
-         100% { transform: translateY(0) rotate(0deg); }
-         }
-         /* Jiggle animation for the CMU About Me rectangle tile */
-         @keyframes jiggle {
-         0% { transform: translate(0, 0); }
-         20% { transform: translate(-2px, 2px); }
-         40% { transform: translate(2px, -2px); }
-         60% { transform: translate(-2px, 2px); }
-         80% { transform: translate(2px, -2px); }
-         100% { transform: translate(0, 0); }
-         }
-         .jiggle {
-         animation: jiggle 0.5s ease-in-out;
-         }
-      </style>
-   </head>
-   <!-- Google tag (gtag.js) -->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VKQM78L61Q"></script>
-   <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      
-      gtag('config', 'G-VKQM78L61Q');
-   </script>
-   <body>
-      <!-- NAVBAR -->
-      <nav class="navbar">
-         <div class="navbar-inner">
-            <div class="navbar-left">
-               <a class="navbar-brand" href="#">Eli Slothower</a>
-            </div>
-            <div class="navbar-center">
-               <div class="nav-links">
-                  <a class="nav-link" href="index.html">
-                  <img src="assets/icons/house.png" alt="Home Icon" class="nav-icon"/>
-                  Home
-                  </a>
-                  <a class="nav-link" href="#projects">
-                  <img src="assets/icons/keyboard.png" alt="Projects Icon" class="nav-icon" />
-                  Projects
-                  </a>
-                  <a class="nav-link" href="#about-me">
-                  <img src="assets/icons/info.png" alt="About Me Icon" class="nav-icon" />
-                  About Me
-                  </a>
-               </div>
-            </div>
-            <div class="navbar-right">
-               <a class="nav-link" href="mailto:elislothower@gmail.com">
-               <button class="light-mode-btn gradient-border">
-               <img src="assets/icons/mail.png" alt="Light Mode Icon" class="nav-icon"/>
-               Contact
-               </button>
-               </a>
-            </div>
-            <button class="navbar-toggler" onclick="toggleMenu(this)">
-               <div class="navbar-toggler-icon"></div>
-               <div class="navbar-toggler-icon"></div>
-               <div class="navbar-toggler-icon"></div>
-            </button>
-         </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Eli Slothower</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Preload theme icons -->
+    <link rel="preload" as="image" href="assets/icons/moon.png">
+    <link rel="preload" as="image" href="assets/icons/sun.png">
+
+    <!-- Preload social icons (optional, already in your project) -->
+    <link rel="preload" as="image" href="assets/icons/github-dark.png">
+    <link rel="preload" as="image" href="assets/icons/linkedin-dark.png">
+    <link rel="preload" as="image" href="assets/icons/mail-dark.png">
+    <link rel="preload" as="image" href="assets/icons/file-dark.png">
+    <link rel="preload" as="image" href="assets/icons/github-light.png">
+    <link rel="preload" as="image" href="assets/icons/linkedin-light.png">
+    <link rel="preload" as="image" href="assets/icons/mail-light.png">
+    <link rel="preload" as="image" href="assets/icons/file-light.png">
+
+    <link rel="stylesheet" href="main.css" />
+    
+    <!-- Open Graph (used by LinkedIn, Slack, iMessage, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elislothower.com/">
+    <meta property="og:title" content="Eli Slothower">
+    <meta property="og:description" content="Software Engineer. Papers & projects.">
+    <meta property="og:image" content="https://elislothower.com/assets/images/main_img.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Preview of Eli Slothower’s portfolio">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Eli Slothower">
+    <meta name="twitter:description" content="Software Engineer. Papers & projects.">
+    <meta name="twitter:image" content="https://elislothower.com/assets/images/main_img.png">
+
+  </head>
+  <body>
+  <a class="skip-link" href="#intro">Skip to content</a>
+
+  <div class="container">
+
+    <!-- MOBILE TOP BAR -->
+    <header class="mobile-topbar" aria-label="Mobile navigation">
+      <!-- Theme icon only (no text) -->
+      <button class="topbar-theme" type="button" aria-label="Toggle color theme">
+        <img
+          src="assets/icons/moon.png"
+          alt=""
+          data-src-light="assets/icons/moon.png"
+          data-src-dark="assets/icons/sun.png"
+        />
+      </button>
+
+      <!-- Hamburger (opens right-side drawer) -->
+      <button class="hamburger" type="button" aria-label="Open menu" aria-controls="mobile-drawer" aria-expanded="false">
+        <span class="hamburger-lines"></span>
+      </button>
+    </header>
+
+    <!-- MOBILE DRAWER -->
+    <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile menu">
+      <ul class="mobile-menu">
+        <li><a href="#intro" data-spy>Intro</a></li>
+        <li><a href="#work" data-spy>Papers & Projects</a></li>
+        <li><a href="#about" data-spy>About</a></li>
+        <li><a href="#contact" data-spy>Contact</a></li>
+        <!-- Theme toggle removed from hamburger per request -->
+      </ul>
+    </nav>
+    <div class="mobile-scrim" hidden></div>
+
+    <!-- DESKTOP LEFT RAIL -->
+    <header class="site-frame" role="banner" aria-label="Persistent section navigation">
+      <nav class="rail" aria-label="Section navigation">
+        <ul class="rail-nav" id="rail-nav">
+          <li><a href="#intro" data-spy>Intro</a></li>
+          <li><a href="#work" data-spy>Papers & Projects</a></li>
+          <li><a href="#about" data-spy>About</a></li>
+          <li><a href="#contact" data-spy>Contact</a></li>
+        </ul>
+
+        <!-- DESKTOP THEME TOGGLE (text + icon, minimalist) -->
+        <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle color theme">
+          <img class="theme-icon-img"
+               src="assets/icons/moon.png"
+               alt=""
+               data-src-light="assets/icons/moon.png"
+               data-src-dark="assets/icons/sun.png" />
+          <span class="theme-label">Dark mode</span>
+        </button>
       </nav>
-      <!-- Mobile Menu -->
-      <div class="mobile-menu">
-         <a class="nav-link" href="#projects" onclick="closeMobileMenu()">Projects</a>
-         <a class="nav-link" href="#about-me" onclick="closeMobileMenu()">About Me</a>
-         <a class="nav-link" href="mailto:elislothower@gmail.com" onclick="closeMobileMenu()">
-         <button class="light-mode-btn gradient-border" onclick="closeMobileMenu()">Contact</button></a>
-      </div>
-      <!-- HERO SECTION -->
-      <section class="hero-section">
-         <div class="hero-content">
-            <h1 class="hero-title">
-               <span class="white-text">Hi, I'm Eli. I create things.</span>
-               <span class="blue-text">SOFTWARE ENGINEER,</span>
-               <span class="green-text">PROBLEM SOLVER,</span>
-               <span id="animated-word" class="cyan-text">COLLABORATOR</span>
-            </h1>
-         </div>
-         <div class="blocks">
-            <div class="block gradient-border" style="grid-area: block1;">
-               <img src="assets/images/HFH.png" alt="Hero Image 1" class="block-img" />
-            </div>
-            <div class="block gradient-border" style="grid-area: block2;">
-               <img src="assets/images/CMU.png" alt="Hero Image 2" class="block-img" />
-            </div>
-            <div class="block gradient-border" style="grid-area: block3;">
-               <img src="assets/images/LM.png" alt="Hero Image 3" class="block-img" />
-            </div>
-         </div>
+    </header>
+
+    <main id="main" class="page">
+      <!-- Intro -->
+      <section id="intro" class="section section-intro" aria-labelledby="intro-title">
+        <div class="intro-media">
+          <img src="assets/images/eli.jpg" alt="Portrait of Eli Slothower" class="avatar" />
+        </div>
+        <div class="intro-copy">
+          <h1 id="intro-title">Hi, I’m Eli.</h1>
+          <p class="lede">
+            I’m a Software Engineer at Lockheed Martin Space working on a classified program under the National Security Space division. I have my Bachelor of Science in Computer Science from Carnegie Mellon University. I aim to advance science, tackle complex challenges, and constantly learn. I plan on pursuing a PhD in Computer Science/Machine Learning in the near future.
+          </p>
+
+          <div class="intro-actions">
+            <!-- GitHub -->
+            <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
+              <img
+                src="assets/icons/github-light.png"
+                alt=""
+                data-src-light="assets/icons/github-light.png"
+                data-src-dark="assets/icons/github-dark.png"
+              />
+            </a>
+
+            <!-- LinkedIn -->
+            <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <img
+                src="assets/icons/linkedin-light.png"
+                alt=""
+                data-src-light="assets/icons/linkedin-light.png"
+                data-src-dark="assets/icons/linkedin-dark.png"
+              />
+            </a>
+
+            <!-- Email -->
+            <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
+              <img
+                src="assets/icons/mail-light.png"
+                alt=""
+                data-src-light="assets/icons/mail-light.png"
+                data-src-dark="assets/icons/mail-dark.png"
+              />
+            </a>
+
+            <!-- Résumé -->
+            <a class="pill pill--outline" href="assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+              <span>Résumé</span>
+            </a>
+          </div>
+        </div>
       </section>
-      <section class="description-section">
-         <div class="description-content">
+
+      <!-- Papers & Projects -->
+      <section id="work" class="section section-work" aria-labelledby="work-title">
+        <h2 id="work-title">Papers <br/> and Projects.</h2>
+
+        <div class="project-list" id="project-list">
+          <!-- 1 — INTERNAL -->
+          <article class="project">
+            <a class="project-thumb" href="projects/matrices.html" aria-label="Open project: The Power Method, QR Method, and Deflation">
+              <img src="assets/images/linear_algebra_project_banner.png" alt="Preview of The Power Method, QR Method, and Deflation" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="projects/matrices.html">The Power Method, QR Method, and Deflation</a>
+              </h3>
+              <p class="project-desc">
+                A detailed exploration of the Power Method, QR decomposition, and deflation in Julia, complete with step-by-step proofs and implementations for computing eigenvalues, eigenvectors, and singular values.
+              </p>
+            </div>
+          </article>
+
+          <!-- 2 — INTERNAL -->
+          <article class="project">
+            <a class="project-thumb" href="projects/prompt_engineering.html" aria-label="Open project: Emotional Stimuli and Beyond">
+              <img src="assets/images/llm_project_banner.png" alt="Emotional Stimuli and Beyond" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="projects/prompt_engineering.html">Emotional Stimuli and Beyond: Exploring Prompt Engineering Strategies for LLM Performance</a>
+              </h3>
+              <p class="project-desc">
+                How emotional and contextual prompts shape LLM behavior—practical patterns (persona, context, few-shot, self-checks) and where each helps.
+              </p>
+            </div>
+          </article>
+
+          <!-- 3 — INTERNAL -->
+          <article class="project">
+            <a class="project-thumb" href="projects/algorithms.html" aria-label="Open project: Are You Smarter Than a Senior?">
+              <img src="assets/images/algorithms_project_banner.png" alt="Are You Smarter Than a Senior?" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="projects/algorithms.html">Are You Smarter Than a Senior?</a>
+              </h3>
+              <p class="project-desc">
+                A Carnegie Mellon professor once told me, “99% of graduating seniors in computer science can’t even write QuickSort. What are we doing?” This project showcases my robust implementations of common CS algorithms.
+              </p>
+            </div>
+          </article>
+
+          <!-- Hidden initially: 4–N -->
+          <!-- 4 — EXTERNAL (Playspaces) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="https://www.playspaces.co/" target="_blank" rel="noopener" aria-label="Visit Playspaces (Tinker Machines)">
+              <img src="assets/images/playspaces_project_banner.png" alt="Tinker Machines" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="https://www.playspaces.co/" target="_blank" rel="noopener">Tinker Machines</a>
+              </h3>
+              <p class="project-desc">A game-based learning platform built in Unity and Django that challenges users with puzzle creation and reinforces STEM literacy, computational thinking, and social-emotional learning.</p>
+            </div>
+          </article>
+
+          <!-- 5 — INTERNAL (EcoSim) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="projects/ecosim.html" aria-label="Open project: EcoSim">
+              <img src="assets/images/ecosim_project_banner.png" alt="EcoSim" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="projects/ecosim.html">EcoSim</a>
+              </h3>
+              <p class="project-desc">A dynamic ecosystem simulator in Python that generates randomized terrains, evolving animal populations, real-time graphs, and random mutations to model ecological complexity.</p>
+            </div>
+          </article>
+
+          <!-- 6 — EXTERNAL (YouTube) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="https://youtu.be/u27xfoqkwGY?si=WXjS3rB_zQNsWVeY" target="_blank" rel="noopener" aria-label="Watch Audentify demo on YouTube">
+              <img src="assets/images/audentify_project_banner.png" alt="Audentify" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="https://youtu.be/u27xfoqkwGY?si=WXjS3rB_zQNsWVeY" target="_blank" rel="noopener">Audentify</a>
+              </h3>
+              <p class="project-desc">A fast-paced song-recognition game built in a 24-hour hackathon using speech recognition, YouTube and Genius Lyrics APIs—guess the song from the lyrics you sing.</p>
+            </div>
+          </article>
+
+          <!-- 7 — EXTERNAL (GitHub) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="https://github.com/eslothower/elislothower.com" target="_blank" rel="noopener" aria-label="Visit GitHub repo for personal website">
+              <img src="assets/images/site_project_banner.png" alt="Personal Website V1 & V2" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="https://github.com/eslothower/elislothower.com" target="_blank" rel="noopener">Personal Website V1 & V2</a>
+              </h3>
+              <p class="project-desc">Two hand-crafted personal websites built with Sketch design, then coded in HTML and CSS.</p>
+            </div>
+          </article>
+
+          <!-- 8 — EXTERNAL (Dover Help Desk) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="https://www.doversd.org/" target="_blank" rel="noopener" aria-label="Visit Dover (Help Desk)">
+              <img src="assets/images/help_project_banner.png" alt="DASD Help Desk" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="https://www.doversd.org/" target="_blank" rel="noopener">DASD Help Desk</a>
+              </h3>
+              <p class="project-desc">A FileMaker Pro–based help desk system deployed across a school district to manage over 5,000 support tickets during COVID-19, enabling efficient problem resolution under emergency conditions.</p>
+            </div>
+          </article>
+
+          <!-- 9 — EXTERNAL (Dover PROUD) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="https://www.doversd.org/" target="_blank" rel="noopener" aria-label="Visit Dover (Dover PROUD)">
+              <img src="assets/images/proud_project_banner.png" alt="Dover PROUD" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="https://www.doversd.org/" target="_blank" rel="noopener">Dover PROUD</a>
+              </h3>
+              <p class="project-desc">An iPadOS app designed to manage and spend student points for thousands of users, integrating Google Sheets scripts and Google APIs to streamline point tracking across 4,000+ devices.</p>
+            </div>
+          </article>
+
+          <!-- 10 — EXTERNAL (GitHub: Omar) -->
+          <article class="project is-hidden">
+            <a class="project-thumb" href="https://github.com/eslothower/CM-Omar" target="_blank" rel="noopener" aria-label="Visit Omar on GitHub">
+              <img src="assets/images/omar_project_banner.png" alt="Omar" />
+            </a>
+            <div class="project-body">
+              <h3 class="project-title">
+                <a href="https://github.com/eslothower/CM-Omar" target="_blank" rel="noopener">Omar</a>
+              </h3>
+              <p class="project-desc">An Optical Music Recognition tool using OpenCV, MIDI, and Raspberry Pi to read sheet music and play it back—bridging physical music notation with digital audio.</p>
+            </div>
+          </article>
+
+          <!-- 11 — NO LINK (Analog Horror) -->
+          <article class="project is-hidden">
+            <div class="project-thumb" aria-hidden="true">
+              <img src="assets/images/analog_project_banner.png" alt="Analog Horror Video Game" />
+            </div>
+            <div class="project-body">
+              <h3 class="project-title">Analog Horror Video Game</h3>
+              <p class="project-desc">A deceptively innocent analog horror game crafted in Unity, now in early solo development—designed to conceal its terrifying depth beneath a familiar surface.</p>
+            </div>
+          </article>
+        </div>
+
+        <button class="load-more" type="button" aria-controls="project-list">LOAD MORE</button>
+      </section>
+
+      <!-- About -->
+      <section id="about" class="section section-about" aria-labelledby="about-title">
+        <h2 id="about-title">About Me.</h2>
+
+        <!-- Mobile icon strip -->
+        <div class="about-images" aria-hidden="true">
+          <img class="about-logo" src="assets/icons/CMU.png" alt="">
+          <img class="about-logo" src="assets/icons/midl.png" alt="">
+          <img class="about-logo" src="assets/icons/RA.png" alt="">
+          <img class="about-logo" src="assets/icons/habitat.png" alt="">
+          <img class="about-logo" src="assets/icons/LM.png" alt="">
+          <img class="about-logo" src="assets/icons/file-light.png" alt="">
+        </div>
+
+        <!-- Desktop rows -->
+        <div class="about-list">
+          <div class="about-item">
+            <img class="about-logo" src="assets/icons/CMU.png" alt="Carnegie Mellon University">
             <p>
-               I build <span class="blue-text">practical tools</span>, tackle <span class="green-text">complex challenges</span>,
-               and enjoy creating things that <span class="cyan-text">matter</span>.
-               In my downtime, you'll find me exploring the outdoors, socializing, or diving into new skills.
+              I graduated from
+              <a href="https://www.cmu.edu/" target="_blank" rel="noopener"><strong>Carnegie Mellon University</strong></a>
+              with a Bachelor of Science in Computer Science and a minor in Software Engineering.
+              Today, I continue my relationship with the university by conducting research with
+              <a href="https://perer.org/" target="_blank" rel="noopener"><strong>Professor Adam Perer</strong></a>
+              on visualizing and auditing generative AI image models.
             </p>
-         </div>
+          </div>
+
+          <div class="about-item">
+            <img class="about-logo" src="assets/icons/midl.png" alt="MIDL Technology">
+            <p>
+              I thrive in fast-paced, experimental environments. I love coding, and I love learning even more. I’m not afraid when things break — that’s just a learning opportunity presenting itself.
+              That’s why I’ve worked for multiple startups in the past as Software Engineer, including
+              <a href="https://www.gomidl.com/" target="_blank" rel="noopener"><strong>MIDL Technology</strong></a>
+              and
+              <a href="https://www.playspaces.co/" target="_blank" rel="noopener"><strong>Playspaces Studios</strong></a>.
+            </p>
+          </div>
+
+          <div class="about-item">
+            <img class="about-logo" src="assets/icons/RA.png" alt="Rewiring America">
+            <p>
+              I love working with nonprofit organizations. In the past, I worked with
+              <a href="https://www.rewiringamerica.org/" target="_blank" rel="noopener"><strong>Rewiring America</strong></a>
+              to help build their incentives visualizer — an interactive map of the United States
+              that allows users to see where electrification tax incentives are available in the country. This tool saves users thousands of dollars a year in tax relief.
+            </p>
+          </div>
+
+          <div class="about-item">
+            <img class="about-logo" src="assets/icons/habitat.png" alt="Habitat for Humanity">
+            <p>
+              I’ve held three positions on the executive board of
+              <a href="https://www.habitat.org/" target="_blank" rel="noopener"><strong>Habitat for Humanity</strong></a>,
+              including one that involved building homes for those in need in Houston, Texas.
+              Other community involvement activities include studying abroad in Spain, participating in Students Using Data for Social Good, and more.
+            </p>
+          </div>
+
+          <div class="about-item">
+            <img class="about-logo" src="assets/icons/LM.png" alt="Lockheed Martin Space">
+            <p>
+              I currently work at
+              <a href="https://www.lockheedmartin.com/en-us/who-we-are/business-areas/space.html" target="_blank" rel="noopener"><strong>Lockheed Martin Space</strong></a>
+              as Software Engineer. The classified program is under the National Security Space division.
+              I take deep pride in the work I contribute to.
+            </p>
+          </div>
+
+          <div class="about-item">
+            <img class="about-logo" src="assets/icons/file-light.png" alt="Graduate studies (placeholder)">
+            <p>
+              Looking ahead, I hope to conduct <strong>graduate studies</strong> for Computer Science.
+            </p>
+          </div>
+        </div>
       </section>
-      <!-- Buttons Section -->
-      <div class="button-container">
-         <a href="https://github.com/eslothower" target="_blank" class="button github gradient-border">
-         <img src="assets/icons/github.svg" class="icon-in-button">
-         </a>
-         <a href="assets/files/resume.pdf" target="_blank" class="button resume gradient-border">
-         <img src="assets/icons/file.svg" id="resumeButton" class="icon-in-button" style="padding-top:0px !important; padding-bottom: 2.5px !important;">Résumé
-         </a>
-         <a href="https://www.linkedin.com/in/eli-slothower/" target="_blank" class="button linkedin gradient-border">
-         <img src="assets/icons/linkedin.svg" class="icon-in-button">
-         </a>
-      </div>
-      <div class="divider"></div>
-      <!-- PROJECTS SECTION -->
-      <section class="projects-section" id="projects">
-         <div class="projects-heading-wrapper">
-            <h2 class="projects-header">Projects</h2>
-         </div>
-         <div class="project-block">
-            <div class="project-image">
-               <img src="assets/images/algorithms_project_banner.png" alt="Algorithm Word Cloud" />
-            </div>
-            <div class="project-details">
-               <h3>Are You Smarter Than a Senior?</h3>
-               <ul>
-                  <li>A Carnegie Mellon professor once told me, “99% of graduating seniors in computer science can’t even write QuickSort. What are we doing?”</li>
-                  <li>This project showcases my robust implementations of common CS algorithms.</li>
-               </ul>
-               <a href="algorithms.html" style="color: white; text-decoration: none;"> <button class="read-more-btn gradient-border">Read More...</button></a>
-            </div>
-         </div>
-         <div class="project-block">
-            <div class="project-image">
-               <img src="assets/images/ecosim_project_banner.png" alt="Beat Bridge Screenshot" />
-            </div>
-            <div class="project-details">
-               <h3>EcoSim</h3>
-               <ul>
-                  <li>Simulated dynamic ecosystems with randomized terrain and animal populations.</li>
-                  <li>Integrated interactive, real-time graphs to track population trends.</li>
-                  <li>Implemented random mutations for enhanced realism.</li>
-               </ul>
-               <a href="ecosim.html" style="color: white; text-decoration: none;"> <button class="read-more-btn gradient-border">Read More...</button></a>
-            </div>
-         </div>
-         <div class="project-block">
-            <div class="project-image">
-               <img src="assets/images/linear_algebra_project_banner.png" alt="Power Method Document" />
-            </div>
-            <div class="project-details">
-               <h3>The Power Method, QR Method, and Deflation</h3>
-               <ul>
-                  <li>Implemented efficient numerical algorithms for eigenvalues, eigenvectors, and singular values.</li>
-                  <li>Developed a high-performance matrix computation tool.</li>
-               </ul>
-               <a href="matrices.html" style="color: white; text-decoration: none;"><button class="read-more-btn gradient-border">Read More...</button></a>
-            </div>
-         </div>
-         <a href="projects.html" class="button resume gradient-border" style="max-width: 240px !important; margin: auto;">
-         <img src="assets/icons/hammer.png" id="resumeButton" class="icon-in-button" style="padding-top:0px !important; padding-bottom: 2.5px !important; width: 30px;margin-top: 5px; margin-bottom: 5px; margin-right: 10px;">All Projects
-         </a>
+
+      <!-- Contact -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Let’s Chat.</h2>
+        <div class="contact-actions">
+          <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
+            <img
+              src="assets/icons/github-light.png"
+              alt=""
+              data-src-light="assets/icons/github-light.png"
+              data-src-dark="assets/icons/github-dark.png"
+            />
+          </a>
+          <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img
+              src="assets/icons/linkedin-light.png"
+              alt=""
+              data-src-light="assets/icons/linkedin-light.png"
+              data-src-dark="assets/icons/linkedin-dark.png"
+            />
+          </a>
+          <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
+            <img
+              src="assets/icons/mail-light.png"
+              alt=""
+              data-src-light="assets/icons/mail-light.png"
+              data-src-dark="assets/icons/mail-dark.png"
+            />
+          </a>
+          <a class="pill pill--outline" href="assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+            <span>Résumé</span>
+          </a>
+        </div>
       </section>
-      <div class="divider"></div>
-      <!-- ABOUT ME SECTION -->
-      <section class="projects-section" id="about-me">
-         <div class="projects-heading-wrapper">
-            <h2 class="projects-header">About Me</h2>
-         </div>
-         <!-- Desktop About Me Version -->
-         <div class="about-desktop">
-            <div class="row top-row">
-               <div class="tile-container">
-                  <!-- Rectangular Tile (CMU) -->
-                  <div class="tile rectangle gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Bachelor of Science in Computer Science</h2>
-                     <p style="font-size:1rem;"><strong>Minoring in Software Engineering</strong>, graduating May 2025.</p>
-                     <p style="font-size:0.9rem;">At Carnegie Mellon University, I have:</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Served as a Teaching Assistant for <em>80-101 Dangerous Ideas in Science and Society</em></li>
-                     <li>Contributed to a Lunar Rover project in collaboration with NASA</li>
-                     <li>Studied abroad and engaged with multiple organizations and executive boards</li>
-                     <li>Pursued innovative research projects</li>
-                     </ul>'>
-                     <div class="tile-left">
-                        <img src="assets/images/CMU.png" alt="About Me Rectangular Image 1" class="tile-img" />
-                     </div>
-                     <div class="tile-right">
-                        <p>B.S. Computer Science, 2025</p>
-                     </div>
-                  </div>
-                  <!-- Square Tile (Habitat for Humanity) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Habitat for Humanity</h2>
-                     <p style="font-size:0.95rem;"><strong>Trip Coordinator, Secretary, Texas Trip Leader</strong></p>
-                     <p style="font-size:0.9rem;">"At Habitat for Humanity, we don&apos;t just build houses – we build homes." This organization is dedicated to affordable housing and community development. I have been a volunteer and executive board member since my Sophomore year. Highlights include:</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Leading a spring break trip in Houston for demolition and salvage work</li>
-                     <li>Coordinating painting and yard projects</li>
-                     <li>Active contributions as part of the executive board</li>
-                     </ul>'>
-                     <img src="assets/images/HFH.png" alt="About Me Image 1" class="tile-img" />
-                  </div>
-                  <!-- Square Tile (Lockheed Martin Space) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Lockheed Martin Space</h2>
-                     <p style="font-size:0.95rem;">I solo-developed a classified testing suite in C for the United States Sentinel program.</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Integrated over 10 embedded systems</li>
-                     <li>Streamlined the upgrade process for a 50+ year-old national security system</li>
-                     <li>Ensured 100% compliance with national security regulations</li>
-                     <li>Maintains an active TS/SCI clearance with the DoD</li>
-                     </ul>'>
-                     <img src="assets/images/LM.png" alt="About Me Image 2" class="tile-img" />
-                  </div>
-               </div>
-            </div>
-            <div class="row second-row">
-               <div class="tile-container">
-                  <!-- Square Tile (Handwave) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Open to New Opportunities</h2>
-                     <p style="font-size:0.95rem;">I am always eager to explore new professional ventures, personal growth opportunities, and collaborative projects. Let&apos;s connect!</p>'>
-                     <img src="assets/images/hand_wave.png" alt="About Me Image 3" class="tile-img" />
-                  </div>
-                  <!-- Square Tile (Python) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Python Expertise</h2>
-                     <p style="font-size:0.95rem;">Python is my main programming language. I have applied it to projects such as:</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>EcoSim – simulating dynamic ecosystems</li>
-                     <li>Are You Smarter Than a Senior? – robust algorithm implementations</li>
-                     <li>A technical paper on Natural Language Processing and Generative AI</li>
-                     </ul>'>
-                     <img src="assets/images/python.png" alt="About Me Image 4" class="tile-img" />
-                  </div>
-                  <!-- Rectangular Tile (Tree - Current Learning) -->
-                  <div class="tile rectangle gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Current Learning &amp; Development</h2>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Advanced algorithm design</li>
-                     <li>Rigorous proof techniques</li>
-                     <li>Contributing to an open source project with Rewiring America</li>
-                     <li>Exploring video game design</li>
-                     <li>Learning Spanish</li>
-                     <li>And more...</li>
-                     </ul>'>
-                     <div class="tile-left">
-                        <img src="assets/images/tree.png" alt="About Me Rectangular Image 2" class="tile-img" />
-                     </div>
-                     <div class="tile-right">
-                        <p>What I'm currently learning...</p>
-                     </div>
-                  </div>
-                  <!-- Square Tile (C) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">C Programming</h2>
-                     <p style="font-size:0.95rem;">I am proficient in C and have applied it to performance-critical projects and embedded systems.</p>'>
-                     <img src="assets/images/C.png" alt="About Me Image 5" class="tile-img" />
-                  </div>
-               </div>
-            </div>
-            <div class="row third-row">
-               <div class="tile-container">
-                  <!-- Rectangular Tile (Spain) -->
-                  <div class="tile rectangle gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Study Abroad - Madrid, Spain</h2>
-                     <p style="font-size:0.95rem;">I immersed myself in Spanish language and culture during the summer of 2023 at Estudio Sampere.</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Lived with a local Spanish family</li>
-                     <li>Engaged in daily Spanish conversations</li>
-                     <li>Built lasting friendships and cultural insights</li>
-                     <li>Deepened my passion for global understanding</li>
-                     </ul>'>
-                     <div class="tile-left">
-                        <img src="assets/images/spain_flag.png" alt="About Me Rectangular Image 3" class="tile-img" />
-                     </div>
-                     <div class="tile-right">
-                        <p>Study Abroad Student - Madrid, Spain</p>
-                     </div>
-                  </div>
-                  <!-- Square Tile (HTML/CSS) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">HTML &amp; CSS</h2>
-                     <p style="font-size:0.95rem;">I am fluent in HTML and CSS, enabling me to craft responsive and engaging web designs.</p>'>
-                     <img src="assets/images/html_css.png" alt="About Me Image 6" class="tile-img" />
-                  </div>
-                  <!-- Square Tile (SUDS) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Students Using Data for Social Good (SUDS)</h2>
-                     <p style="font-size:0.95rem;">SUDS at CMU leverages data analytics to drive meaningful social change. Their mission is to:</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Analyze data for informed decision-making</li>
-                     <li>Develop projects that address societal challenges</li>
-                     <li>Foster interdisciplinary collaboration for community benefit</li>
-                     </ul>'>
-                     <img src="assets/images/suds.png" alt="About Me Image 7" class="tile-img" />
-                  </div>
-                  <!-- Square Tile (Tartan Scholars) -->
-                  <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Tartan Scholars</h2>
-                     <p style="font-size:0.95rem;">A prestigious program at CMU that I have proudly been a member of for all four years. Key benefits include:</p>
-                     <ul style="font-size:0.9rem; margin-left:1rem;">
-                     <li>Exclusive academic and career resources</li>
-                     <li>Valuable networking opportunities</li>
-                     <li>Leadership and community engagement initiatives</li>
-                     </ul>'>
-                     <img src="assets/images/TS.png" alt="About Me Image 8" class="tile-img" />
-                  </div>
-               </div>
-            </div>
-         </div>
-         <!-- Mobile About Me Version -->
-         <div class="about-mobile">
-            <div class="mobile-row">
-               <!-- Rectangular Tile (CMU) -->
-               <div class="tile rectangle gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Bachelor of Science in Computer Science</h2>
-                  <p style="font-size:0.95rem;"><strong>Minoring in Software Engineering</strong>, graduating May 2025.</p>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Teaching Assistant for <em>80-101 Dangerous Ideas in Science and Society</em></li>
-                  <li>Collaborated on a Lunar Rover project with NASA</li>
-                  <li>Studied abroad and participated in various organizations and boards</li>
-                  </ul>'>
-                  <div class="tile-left">
-                     <img src="assets/images/CMU.png" alt="Mobile About Me Rectangular Image 1" class="tile-img" />
-                  </div>
-                  <div class="tile-right">
-                     <p>B.S. Computer Science, 2025</p>
-                  </div>
-               </div>
-            </div>
-            <div class="mobile-row">
-               <!-- Square Tile (Habitat for Humanity) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Habitat for Humanity</h2>
-                  <p style="font-size:0.95rem;"><strong>Trip Coordinator, Secretary, Texas Trip Leader</strong></p>
-                  <p style="font-size:0.9rem;">"At Habitat for Humanity, we don&apos;t only build houses – we build homes." I have been a dedicated volunteer since my Sophomore year, leading projects such as a spring break trip in Houston focused on demolition, painting, and yard work.</p>'>
-                  <img src="assets/images/HFH.png" alt="Mobile About Me Image 1" class="tile-img" />
-               </div>
-               <!-- Square Tile (Lockheed Martin Space) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Lockheed Martin Space</h2>
-                  <p style="font-size:0.95rem;">Developed a classified testing suite in C for the United States Sentinel program.</p>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Integrated over 10 embedded systems</li>
-                  <li>Streamlined upgrades for a 50+ year-old security system</li>
-                  <li>Ensured complete compliance with strict national security standards</li>
-                  <li>Holds an active TS/SCI clearance with the DoD</li>
-                  </ul>'>
-                  <img src="assets/images/LM.png" alt="Mobile About Me Image 2" class="tile-img" />
-               </div>
-            </div>
-            <div class="mobile-row">
-               <!-- Square Tile (Handwave) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Open to New Opportunities</h2>
-                  <p style="font-size:0.95rem;">I am eager to explore fresh professional and personal ventures, as well as collaborative projects. Let&apos;s connect!</p>'>
-                  <img src="assets/images/hand_wave.png" alt="Mobile About Me Image 3" class="tile-img" />
-               </div>
-               <!-- Square Tile (Python) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Python Expertise</h2>
-                  <p style="font-size:0.95rem;">Python is my primary language, used extensively in projects such as EcoSim and Are You Smarter Than a Senior. I have also authored a technical paper on Natural Language Processing and Generative AI.</p>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Dynamic ecosystem simulations</li>
-                  <li>Advanced algorithm implementations</li>
-                  <li>Research in NLP and Generative AI</li>
-                  </ul>'>
-                  <img src="assets/images/python.png" alt="Mobile About Me Image 4" class="tile-img" />
-               </div>
-            </div>
-            <div class="mobile-row">
-               <!-- Rectangular Tile (Tree - Current Learning) -->
-               <div class="tile rectangle gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Current Learning &amp; Development</h2>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Advanced algorithm design</li>
-                  <li>Rigorous proof techniques</li>
-                  <li>Contributing to an open source project with Rewiring America</li>
-                  <li>Exploring video game design</li>
-                  <li>Learning Spanish</li>
-                  <li>And more...</li>
-                  </ul>'>
-                  <div class="tile-left">
-                     <img src="assets/images/tree.png" alt="Mobile About Me Rectangular Image 2" class="tile-img" />
-                  </div>
-                  <div class="tile-right">
-                     <p>What I'm currently learning...</p>
-                  </div>
-               </div>
-            </div>
-            <div class="mobile-row">
-               <!-- Square Tile (C) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">C Programming</h2>
-                  <p style="font-size:0.95rem;">I am fluent in C and have applied it to performance-critical systems and embedded projects.</p>'>
-                  <img src="assets/images/C.png" alt="Mobile About Me Image 5" class="tile-img" />
-               </div>
-               <!-- Square Tile (HTML/CSS) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">HTML &amp; CSS</h2>
-                  <p style="font-size:0.95rem;">I am proficient in HTML and CSS, which allows me to build responsive and visually appealing web designs.</p>'>
-                  <img src="assets/images/html_css.png" alt="Mobile About Me Image 6" class="tile-img" />
-               </div>
-            </div>
-            <div class="mobile-row">
-               <!-- Rectangular Tile (Spain) -->
-               <div class="tile rectangle gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Study Abroad - Madrid, Spain</h2>
-                  <p style="font-size:0.95rem;">During the summer of 2023, I immersed myself in Spanish language and culture at Estudio Sampere.</p>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Lived with a local Spanish family</li>
-                  <li>Engaged fully in Spanish conversations</li>
-                  <li>Built lasting friendships and cultural insights</li>
-                  <li>Deepened my passion for global understanding</li>
-                  </ul>'>
-                  <div class="tile-left">
-                     <img src="assets/images/spain_flag.png" alt="Mobile About Me Rectangular Image 3" class="tile-img" />
-                  </div>
-                  <div class="tile-right">
-                     <p>Study Abroad Student - Madrid, Spain</p>
-                  </div>
-               </div>
-            </div>
-            <div class="mobile-row">
-               <!-- Square Tile (SUDS) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Students Using Data for Social Good (SUDS)</h2>
-                  <p style="font-size:0.95rem;">SUDS at CMU harnesses data analytics to drive positive societal change through:</p>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Data-driven decision-making</li>
-                  <li>Projects addressing social challenges</li>
-                  <li>Interdisciplinary collaboration</li>
-                  </ul>'>
-                  <img src="assets/images/suds.png" alt="Mobile About Me Image 7" class="tile-img" />
-               </div>
-               <!-- Square Tile (Tartan Scholars) -->
-               <div class="tile gradient-border" data-modal-text='<h2 style="font-family:Montserrat; font-weight:700;">Tartan Scholars</h2>
-                  <p style="font-size:0.95rem;">A prestigious CMU program I have proudly been a member of for all four years, offering:</p>
-                  <ul style="font-size:0.9rem; margin-left:1rem;">
-                  <li>Exclusive academic and career resources</li>
-                  <li>Valuable networking opportunities</li>
-                  <li>Leadership and community engagement initiatives</li>
-                  </ul>'>
-                  <img src="assets/images/TS.png" alt="Mobile About Me Image 8" class="tile-img" />
-               </div>
-            </div>
-         </div>
-      </section>
-      <div class="divider"></div>
-      <!-- FOOTER -->
-      <footer class="footer">
-         <div class="footer-title">Let’s Chat</div>
-         <div class="footer-links">
-            <a href="mailto:elislothower@gmail.com" class="footer-link contact">Contact</a>
-            <a href="assets/files/resume.pdf" class="footer-link resume" target="_blank">Résumé</a>
-            <a href="https://www.linkedin.com/in/eli-slothower/" class="footer-link linkedin" target="_blank">LinkedIn</a>
-         </div>
-         <div class="footer-name">Eli Slothower</div>
-      </footer>
-      <!-- MODAL MARKUP -->
-      <div id="modalOverlay">
-         <div id="modalContent">
-            <button id="modalClose">&times;</button>
-            <img id="modalImage" src="" alt="Modal Image" />
-            <p id="modalText">Details about this tile go here.</p>
-         </div>
-      </div>
-      <script>
-         function toggleMenu(button) {
-           const mobileMenu = document.querySelector('.mobile-menu');
-           mobileMenu.classList.toggle('open');
-           button.classList.toggle('active');
-         }
-         function closeMobileMenu() {
-           const mobileMenu = document.querySelector('.mobile-menu');
-           if (mobileMenu.classList.contains('open')) {
-             mobileMenu.classList.remove('open');
-             document.querySelector('.navbar-toggler').classList.remove('active');
-           }
-         }
-         window.addEventListener('resize', () => {
-           const mobileMenu = document.querySelector('.mobile-menu');
-           if (window.innerWidth > 768) {
-             mobileMenu.classList.remove('open');
-             document.querySelector('.navbar-toggler').classList.remove('active');
-           }
-         });
-         
-         // Modal functionality for About Me tiles – using innerHTML for rich formatting.
-         const modalOverlay = document.getElementById('modalOverlay');
-         const modalImage = document.getElementById('modalImage');
-         const modalText = document.getElementById('modalText');
-         const modalClose = document.getElementById('modalClose');
-         
-         function openModal(e) {
-           e.stopPropagation();
-           const tile = this;
-           const img = tile.querySelector('img');
-           if (img) {
-             modalImage.src = img.src;
-           }
-           const details = tile.getAttribute('data-modal-text') || "Details about this tile go here.";
-           modalText.innerHTML = details;
-           modalOverlay.style.display = 'flex';
-         }
-         
-         function closeModal() {
-           modalOverlay.style.display = 'none';
-         }
-         
-         const aboutTiles = document.querySelectorAll('#about-me .tile');
-         aboutTiles.forEach(tile => {
-           tile.addEventListener('click', openModal);
-         });
-         
-         modalClose.addEventListener('click', closeModal);
-         
-         modalOverlay.addEventListener('click', function(e) {
-           if (e.target === modalOverlay) {
-             closeModal();
-           }
-         });
-         
-         // Auto-scroll to About Me section when clicking a hero tile.
-         const heroTiles = document.querySelectorAll('.hero-section .block');
-         heroTiles.forEach(tile => {
-           tile.addEventListener('click', function() {
-             document.getElementById('about-me').scrollIntoView({ behavior: 'smooth' });
-           });
-         });
-      </script>
-      <script>
-         // Animated word feature with a modern fade and slide effect.
-         (function() {
-           const words = ["CREATIVE", "LEADER", "TRAVELLER", "VOLUNTEER", "MUSICIAN", "COMPUTER SCIENTIST"];
-           let currentIndex = 0;
-           const animatedWord = document.getElementById('animated-word');
-           if (!animatedWord) return;
-           
-           setInterval(() => {
-             animatedWord.classList.add('fade-slide');
-             setTimeout(() => {
-               currentIndex = (currentIndex + 1) % words.length;
-               animatedWord.textContent = words[currentIndex];
-             }, 500);
-             setTimeout(() => {
-               animatedWord.classList.remove('fade-slide');
-             }, 1000);
-           }, 3500);
-         })();
-      </script>
-      <script>
-         // Sway animation for hero tiles with independent delays.
-         (function() {
-           const heroBlocks = document.querySelectorAll('.hero-section .block');
-           heroBlocks.forEach(block => {
-             const delay = Math.random() * 3;
-             block.style.animation = `sway 5s ease-in-out infinite`;
-             block.style.animationDelay = `${delay}s`;
-           });
-         })();
-      </script>
-      <script>
-         // Jiggle animation for all CMU About Me rectangle tiles (desktop and mobile).
-         (function() {
-           let cmuTileClicked = false;
-           const jiggleIntervals = [];
-           const cmuTiles = document.querySelectorAll(".tile.rectangle img[src*='CMU.png']");
-           cmuTiles.forEach(img => {
-             const tile = img.closest(".tile.rectangle");
-             if (!tile) return;
-             const interval = setInterval(() => {
-               if (cmuTileClicked) {
-                 clearInterval(interval);
-                 return;
-               }
-               tile.classList.add("jiggle");
-               setTimeout(() => {
-                 tile.classList.remove("jiggle");
-               }, 500);
-             }, 3000);
-             jiggleIntervals.push(interval);
-             tile.addEventListener("click", () => {
-               if (!cmuTileClicked) {
-                 cmuTileClicked = true;
-                 jiggleIntervals.forEach(clearInterval);
-                 cmuTiles.forEach(img => {
-                   const t = img.closest(".tile.rectangle");
-                   if (t) t.classList.remove("jiggle");
-                 });
-               }
-             });
-           });
-         })();
-      </script>
-   </body>
+    </main>
+
+    <script src="script.js" defer></script>
+  </div>
+  </body>
 </html>

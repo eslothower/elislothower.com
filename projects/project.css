@@ -1,0 +1,113 @@
+/* projects/project.css — minimalist article page adjustments */
+
+/* Center project pages (no left rail on these pages) */
+@media (min-width: 992px) {
+  body { padding-left: 0 !important; }
+}
+
+/* Topbar for project pages */
+.project-topbar {
+  position: sticky; top: 0;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 56px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 110;
+  padding-inline: clamp(1rem, 4vw, 1.25rem);
+}
+.project-topbar .topbar-theme {
+  background: none; border: none; padding: 0;
+  width: 40px; height: 40px;
+  display: inline-flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.project-topbar .topbar-theme img { width: 22px; height: 22px; display: block; }
+
+.project-back {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+}
+.project-back:hover, .project-back:focus-visible {
+  text-decoration: underline; text-underline-offset: 3px;
+}
+
+/* Article body */
+.article {
+  /* narrower than the homepage sections for long-form reading */
+  max-width: 72ch;
+  margin: clamp(2rem, 6vh, 4rem) auto;
+}
+
+.article-title {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 2.2rem + 1.5vw, 3rem);
+  line-height: 1.15;
+  margin: 0 0 0.75em;
+}
+
+.article-subtle {
+  color: var(--muted);
+  margin: -0.5rem 0 1.5rem;
+}
+
+/* Smaller body text rhythm for long reads */
+.article p {
+  line-height: 1.85;
+  margin: 0 0 1.1rem;
+}
+
+.article h2, .article h3 {
+  margin: 2rem 0 0.75rem;
+}
+
+/* Figures */
+.article figure {
+  margin: 1.25rem 0 1.5rem;
+}
+.article img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+.article figcaption {
+  color: var(--muted);
+  font-size: var(--step--1);
+  margin-top: 0.5rem;
+}
+
+/* Code blocks */
+.article pre {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.85rem 1rem;
+  overflow: auto;
+}
+.article code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+/* Smaller, quiet CTAs */
+.hero-buttons { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.hero-buttons .cta {
+  background: transparent;
+  border: 1px solid var(--text);
+  padding: 0.4rem 0.7rem;        /* smaller than before */
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: var(--step--1);     /* smaller font */
+  color: var(--text);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform .15s ease;
+}
+.hero-buttons .cta:hover,
+.hero-buttons .cta:focus-visible { transform: scale(1.03); }
+
+@media (max-width: 640px) {
+  .article { margin: clamp(1.25rem, 5vh, 2rem) auto; }
+}

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EcoSim: Dynamic Ecosystem Simulation — Eli Slothower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../main.css" />
+  <link rel="stylesheet" href="project.css" />
+
+  <!-- MathJax (not strictly needed for this page, safe to include) -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#content">Skip to content</a>
+
+<div class="container">
+  <header class="project-topbar" aria-label="Project navigation">
+    <div class="topbar-left">
+      <button class="topbar-theme" type="button" aria-label="Toggle color theme">
+        <img
+          src="../assets/icons/moon.png"
+          alt=""
+          data-src-light="../assets/icons/moon.png"
+          data-src-dark="../assets/icons/sun.png"
+        />
+      </button>
+    </div>
+    <nav class="topbar-right">
+      <a class="project-back" href="../index.html#work" aria-label="Back to projects">← Back</a>
+    </nav>
+  </header>
+
+  <main id="content" class="article">
+    <h1 class="article-title">EcoSim: Dynamic Ecosystem Simulation</h1>
+
+    <div class="hero-buttons" style="margin-bottom:1rem">
+      <a class="cta" href="https://youtu.be/pNI2ecLDfUU" target="_blank" rel="noopener">Watch Demo</a>
+      <a class="cta" href="https://github.com/eslothower/EcoSim" target="_blank" rel="noopener">Visit GitHub Repo</a>
+    </div>
+
+    <figure>
+      <img src="../assets/images/ecosim_project_banner.png" alt="EcoSim Project Banner">
+    </figure>
+
+    <!-- ===== Verbatim body from your source ===== -->
+    <h2>Introduction</h2>
+    <p>EcoSim was my term project for <strong>15-112: Fundamentals of Programming and Computer Science</strong>, the freshman intro course at Carnegie Mellon University. Over one month, I single-handedly ideated, designed, coded, and produced this simulation, including all assets and the demo video. With weekly mentorship meetings to track my progress, I successfully achieved the MVP (Minimum Viable Product) by the deadline, resulting in the version you see today.</p>
+
+    <h2>About the Project</h2>
+    <p>EcoSim is an interactive <strong>ecosystem simulation</strong> that dynamically evolves based on user-controlled parameters. Its features include:</p>
+    <ul>
+      <li><strong>Live Parameter Adjustments:</strong> Modify variables like population size, mutation rates, and terrain features to instantly see their effects on the ecosystem.</li>
+      <li><strong>Genetic Mutations:</strong> Simulated creatures inherit traits with randomized mutations, showcasing evolution-like dynamics over time.</li>
+      <li><strong>Randomized Terrain Generation:</strong> Each simulation generates unique landscapes, adding diversity and unpredictability.</li>
+      <li><strong>Real-Time Visualization:</strong> Watch as populations adapt, grow, or decline based on environmental factors.</li>
+    </ul>
+
+    <h2>Key Features</h2>
+    <p>One of the most engaging aspects of EcoSim is the ability to experiment with different settings and immediately observe how the virtual ecosystem reacts. For example:</p>
+    <ul>
+      <li>Increasing mutation rates might lead to unpredictable population booms or crashes.</li>
+      <li>Adjusting terrain obstacles can force creatures to adapt to new challenges.</li>
+    </ul>
+    <p>This hands-on interactivity makes EcoSim both educational and entertaining, providing insight into concepts like <strong>natural selection</strong> and <strong>ecological dynamics</strong>.</p>
+
+    <h2>Reflection</h2>
+    <p>Although EcoSim is not the most technically advanced project, it holds a special place in my heart as my first major solo project at Carnegie Mellon. It represents the culmination of a month’s worth of effort, creativity, and problem-solving. Looking back now, four years later, EcoSim reminds me of how far I’ve come as a computer scientist and how much I’ve learned since then.</p>
+    <p>One day, I hope to rebuild this project from the ground up using more advanced tools like <strong>Unity</strong> or <strong>Unreal Engine</strong>. Until then, EcoSim remains a cherished milestone in my journey as a software engineer.</p>
+  </main>
+    
+    <!-- NEW: Let’s Chat -->
+  <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+    <h2 id="contact-title">Let’s Chat.</h2>
+    <div class="contact-actions">
+      <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
+        <img
+          src="../assets/icons/github-light.png"
+          alt=""
+          data-src-light="../assets/icons/github-light.png"
+          data-src-dark="../assets/icons/github-dark.png"
+        />
+      </a>
+      <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <img
+          src="../assets/icons/linkedin-light.png"
+          alt=""
+          data-src-light="../assets/icons/linkedin-light.png"
+          data-src-dark="../assets/icons/linkedin-dark.png"
+        />
+      </a>
+      <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
+        <img
+          src="../assets/icons/mail-light.png"
+          alt=""
+          data-src-light="../assets/icons/mail-light.png"
+          data-src-dark="../assets/icons/mail-dark.png"
+        />
+      </a>
+      <a class="pill pill--outline" href="../assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+        <span>Résumé</span>
+      </a>
+    </div>
+  </section>
+  <!-- END Let's Chat -->
+
+   
+</div>
+
+<script src="../script.js" defer></script>
+</body>
+</html>

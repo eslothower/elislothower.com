@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title><!-- Project Title — replace me --></title>
+
+    <!-- Fonts (same as site) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <!-- Site styles + project add-ons -->
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="./project.css" />
+
+    <!-- MathJax (LaTeX support: $...$ or $$...$$) -->
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="container">
+
+      <!-- Top bar for project pages (keeps your theme icon & a quiet back link) -->
+      <header class="project-topbar" aria-label="Project navigation">
+        <div class="topbar-left">
+          <button class="topbar-theme" type="button" aria-label="Toggle color theme">
+            <img
+              src="../assets/sun.png"
+              alt=""
+              data-src-light="../assets/sun.png"
+              data-src-dark="../assets/moon.png"
+            />
+          </button>
+        </div>
+        <nav class="topbar-right">
+          <a class="project-back" href="../index.html#work" aria-label="Back to projects">← Back</a>
+        </nav>
+      </header>
+
+      <main id="content" class="article">
+        <!-- =========
+             PASTE your project’s real content below, 1:1 with the current site.
+             Keep images in ../assets/images/... or an appropriate folder.
+             ========= -->
+
+        <h1 class="article-title"><!-- The Power Method, QR Method, and Deflation --></h1>
+
+        <!-- Optional subtitle / metadata (delete if not needed) -->
+        <!-- <p class="article-subtle">Last updated: 2025 • Julia, Linear Algebra</p> -->
+
+        <p>
+          <!-- Example inline math: $A = Q R$ and $ \lambda_{\max} $ -->
+          <!-- Replace this entire paragraph and all below with your real text -->
+          This is where your exact project write-up goes, including LaTeX like $A = QR$, or
+          block equations:
+        </p>
+
+        <p>
+          $$ \lambda_{\max} = \max_{\|x\|=1} x^{\mathsf T} A x $$
+        </p>
+
+        <figure>
+          <img src="../assets/images/project-thumb-1.png" alt="Illustrative figure (replace with your image)">
+          <figcaption>A concise, optional caption for the figure.</figcaption>
+        </figure>
+
+        <h2>Section heading</h2>
+        <p>
+          More content. You can add code blocks too:
+        </p>
+
+        <pre><code class="language-julia"># Pseudocode (replace with real if you want)
+for k in 1:K
+   y = A * x
+   x = y / norm(y)
+end
+</code></pre>
+
+        <!-- ========= end content ========= -->
+      </main>
+
+
+    </div>
+
+    <!-- Reuse site JS (theme swap, etc.) -->
+    <script src="../script.js" defer></script>
+  </body>
+</html>

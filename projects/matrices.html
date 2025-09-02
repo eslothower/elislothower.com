@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Exploring Eigenvalue Algorithms: Power Method, QR Method, and Deflation — Eli Slothower</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../main.css" />
+    <link rel="stylesheet" href="project.css" />
+
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$','$$'], ['\\[','\\]']] },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+
+    <div class="container">
+      <header class="project-topbar" aria-label="Project navigation">
+        <div class="topbar-left">
+          <button class="topbar-theme" type="button" aria-label="Toggle color theme">
+            <img
+              src="../assets/icons/moon.png"
+              alt=""
+              data-src-light="../assets/icons/moon.png"
+              data-src-dark="../assets/icons/sun.png"
+            />
+          </button>
+        </div>
+        <nav class="topbar-right">
+          <a class="project-back" href="../index.html#work" aria-label="Back to projects">← Back</a>
+        </nav>
+      </header>
+
+      <main id="content" class="article">
+        <h1 class="article-title">Exploring Eigenvalue Algorithms: Power Method, QR Method, and Deflation</h1>
+
+        <div class="hero-buttons" style="margin-bottom:1rem">
+          <a class="cta" href="../assets/files/technical_paper.pdf" target="_blank" rel="noopener">Read Paper</a>
+          <a class="cta" href="https://github.com/eslothower/Iterative-Methods" target="_blank" rel="noopener">Visit GitHub Repo</a>
+        </div>
+
+        <figure>
+          <img src="../assets/images/linear_algebra_project_banner.png" alt="Project Banner">
+        </figure>
+
+        <!-- ===== Verbatim body from your source ===== -->
+        <h2>Introduction</h2>
+        <p>Eigenvalues and eigenvectors are foundational concepts in linear algebra, powering applications from quantum mechanics to machine learning. However, computing them directly via characteristic polynomials becomes computationally infeasible for matrices larger than 4x4. This paper explores iterative methods—<strong>the Power Method</strong>, <strong>QR Method</strong>, and <strong>Deflation</strong>—to efficiently compute eigenvalues, eigenvectors, and singular values for matrices of arbitrary size.</p>
+        <p>The goal of this project was twofold:</p>
+        <ol>
+          <li><strong>Theoretical Rigor</strong>: Prove why these methods converge to the correct eigenvalues.</li>
+          <li><strong>Practical Implementation</strong>: Develop robust software (in Julia) to validate the algorithms across diverse matrix types.</li>
+        </ol>
+
+        <h2>The Power Method: Dominance and Iteration</h2>
+        <p>The Power Method is an iterative algorithm designed to compute the <em>dominant eigenvalue</em> (the eigenvalue with the largest magnitude) and its corresponding eigenvector. At its core, the method leverages repeated matrix-vector multiplication to amplify the component of the dominant eigenvector in an initial guess.</p>
+
+        <h3>Key Proof and Insight</h3>
+        <p><strong>Lemma 1</strong> formalizes why the Power Method converges:</p>
+        <blockquote>
+          If \( A \) is symmetric with distinct eigenvalues \( |\lambda_1| &gt; |\lambda_2| &gt; \dots &gt; |\lambda_n| \), then
+          \[
+          \lim_{p \to \infty} \sum_{i=2}^n c_i \left(\frac{\lambda_i}{\lambda_1}\right)^p e_i = 0,
+          \]
+          leaving \( \lambda_1^p c_1 e_1 \) as the dominant term.
+        </blockquote>
+        <p>This lemma underpins the method’s ability to isolate \( \lambda_1 \). The dominant eigenvalue is then computed via the Rayleigh quotient:</p>
+        <div class="math-block">
+          \[
+          \lambda_1 = \frac{\vec{x}_p^T \vec{x}_{p+1}}{\vec{x}_p^T \vec{x}_p}.
+          \]
+        </div>
+
+        <h2>The QR Method: Capturing All Eigenvalues</h2>
+        <p>While the Power Method excels at finding the dominant eigenvalue, the QR Method computes <em>all</em> eigenvalues by iteratively transforming a matrix into upper-triangular form. The process hinges on QR decomposition—factoring a matrix \( A \) into an orthogonal matrix \( Q \) and upper-triangular matrix \( R \).</p>
+
+        <h3>Why It Works</h3>
+        <p>Each iteration \( A_k = R_k Q_k \) preserves eigenvalues due to similarity transformations:</p>
+        <div class="math-block">
+          \[
+          A_{k} = Q_k^{-1} A_{k-1} Q_k.
+          \]
+        </div>
+        <p>Over iterations, \( A_k \) converges to a near-upper-triangular matrix with eigenvalues on its diagonal. The proof leverages the stability of orthogonal matrices and the convergence properties of QR iterations.</p>
+
+        <h2>Deflation: Extending the Power Method</h2>
+        <p>To compute <em>all</em> eigenvalues using the Power Method, <strong>Deflation</strong> systematically removes the influence of the dominant eigenpair from the matrix. After finding \( \lambda_1 \) and \( v_1 \), we construct:</p>
+        <div class="math-block">
+          \[
+          A_1 = A - \frac{\lambda_1}{\|v_1\|^2} v_1 v_1^T,
+          \]
+        </div>
+        <p>effectively "deflating" \( \lambda_1 \) to zero. Repeating this process yields subsequent eigenvalues.</p>
+
+        <h2>Software Implementation and Validation</h2>
+        <p>The accompanying Julia code demonstrates these algorithms in action:</p>
+        <ul>
+          <li><strong>Power Method</strong>: Computes dominant eigenvalues/vectors and singular values.</li>
+          <li><strong>QR Method</strong>: Returns all eigenvalues and eigenvectors via iterative QR decomposition.</li>
+          <li><strong>Deflation</strong>: Extends the Power Method to find all eigenpairs.</li>
+        </ul>
+
+        <figure>
+          <img src="../assets/images/matrices_article.png" alt="A snapshot of the accompanying Power Method software">
+          <figcaption>A segment of the Power Method code finding the dominant eigenvalue of a large matrix.</figcaption>
+        </figure>
+
+        <h3>Example Validation</h3>
+        <p>For a diagonal matrix \( A = \begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \), the Power Method correctly returns \( \lambda_1 = 2 \), while the QR Method retrieves both eigenvalues \( \{2, 1\} \). Tests on large matrices (e.g., 7x7) confirm scalability, with results matching numerical calculators.</p>
+
+        <h2>Significance and Applications</h2>
+        <p>These methods bridge theory and practice:</p>
+        <ol>
+          <li><strong>Speed</strong>: Iterative methods avoid costly polynomial root-finding.</li>
+          <li><strong>Scalability</strong>: Handle large matrices efficiently, critical for modern data science.</li>
+          <li><strong>Flexibility</strong>: Deflation extends the Power Method’s utility beyond dominant eigenvalues.</li>
+        </ol>
+        <p>The proofs and code emphasize a balance between mathematical rigor (e.g., convergence guarantees) and practical implementation (e.g., overflow prevention via normalization).</p>
+
+        <h2>Conclusion</h2>
+        <p>This project deepened my understanding of numerical linear algebra while honing my ability to translate theory into functional code. The Power Method, QR Method, and Deflation are not just abstract concepts—they are tools that underpin everything from search algorithms to principal component analysis (PCA). For software engineers, these methods exemplify how iterative techniques can solve seemingly intractable problems with elegance and efficiency.</p>
+      </main>
+        
+        <!-- NEW: Let’s Chat -->
+      <section id="contact" class="section section-contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Let’s Chat.</h2>
+        <div class="contact-actions">
+          <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
+            <img
+              src="../assets/icons/github-light.png"
+              alt=""
+              data-src-light="../assets/icons/github-light.png"
+              data-src-dark="../assets/icons/github-dark.png"
+            />
+          </a>
+          <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <img
+              src="../assets/icons/linkedin-light.png"
+              alt=""
+              data-src-light="../assets/icons/linkedin-light.png"
+              data-src-dark="../assets/icons/linkedin-dark.png"
+            />
+          </a>
+          <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
+            <img
+              src="../assets/icons/mail-light.png"
+              alt=""
+              data-src-light="../assets/icons/mail-light.png"
+              data-src-dark="../assets/icons/mail-dark.png"
+            />
+          </a>
+          <a class="pill pill--outline" href="../assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
+            <span>Résumé</span>
+          </a>
+        </div>
+      </section>
+      <!-- END Let's Chat -->
+
+       
+    </div>
+
+    <script src="../script.js" defer></script>
+  </body>
+</html>
