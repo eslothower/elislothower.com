@@ -1,18 +1,20 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-default-theme="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f4f4f1" />
     <title>Emotional Stimuli and Beyond: Prompt Engineering Strategies for LLM Performance — Eli Slothower</title>
 
     <!-- Fonts (same as site) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet">
 
     <!-- Site styles + project add-ons -->
-    <link rel="stylesheet" href="../main.css" />
-    <link rel="stylesheet" href="./project.css" />
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || document.documentElement.dataset.defaultTheme; } catch {}</script>
+    <link rel="stylesheet" href="../main.css?v=20261101-theme" />
+    <link rel="stylesheet" href="./project.css?v=20260713-hero-1" />
 
     <!-- MathJax (LaTeX support) -->
     <script>
@@ -24,39 +26,25 @@
     <script id="MathJax-script" async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   </head>
-  <body>
+  <body class="project-page">
     <a class="skip-link" href="#content">Skip to content</a>
 
     <div class="container">
-      <!-- Minimal top bar with theme toggle + back -->
-      <header class="project-topbar" aria-label="Project navigation">
-        <div class="topbar-left">
-          <button class="topbar-theme" type="button" aria-label="Toggle color theme">
-            <img
-              src="../assets/icons/moon.png"
-              alt=""
-              data-src-light="../assets/icons/moon.png"
-              data-src-dark="../assets/icons/sun.png"
-            />
+      <header class="project-topbar glass-bar" aria-label="Project navigation">
+        <a class="wordmark" href="../index.html">Eli Slothower</a>
+        <div class="project-nav-actions">
+          <a class="project-back" href="../index.html">Home</a>
+          <button class="topbar-theme" type="button" aria-pressed="false" aria-label="Toggle color theme">
+            <span class="theme-icon" aria-hidden="true"></span>
           </button>
         </div>
-        <nav class="topbar-right">
-          <a class="project-back" href="../index.html#work" aria-label="Back to projects">← Back</a>
-        </nav>
       </header>
 
       <main id="content" class="article">
         <h1 class="article-title">Emotional Stimuli and Beyond: Prompt Engineering Strategies for LLM Performance</h1>
 
-        <div class="hero-buttons">
-          <!-- Update hrefs when ready -->
-          <a class="cta" href="../assets/files/prompt_engineering.pdf" target="_blank" rel="noopener">Read Paper (PDF)</a>
-          <!-- <a class="cta" href="https://github.com/..." target="_blank" rel="noopener">Code</a> -->
-        </div>
-
         <figure>
-          <img src="../assets/images/llm_project_banner.png" alt="Prompt engineering research banner">
-          <figcaption>A lightweight summary page; see the paper for all experimental details.</figcaption>
+          <img src="../assets/images/projects-v6-risograph/prompts.jpg" width="1536" height="960" alt="Risograph illustration of researchers testing how different cues change a computer’s responses">
         </figure>
 
         <h2>Overview</h2>
@@ -111,49 +99,22 @@
         </ul>
 
         <p class="article-subtle">
-          This page is a concise summary. For the full methodology, ablations, and complete results, see the paper.
+          This page is a concise summary of the methodology, ablations, and results.
         </p>
       </main>
         
-      <!-- NEW: Let’s Chat -->
-      <section id="contact" class="section section-contact" aria-labelledby="contact-title">
-        <h2 id="contact-title">Let’s Chat.</h2>
-        <div class="contact-actions">
-          <a class="icon-btn icon-btn--img" href="https://github.com/eslothower" target="_blank" rel="noopener" aria-label="GitHub">
-            <img
-              src="../assets/icons/github-light.png"
-              alt=""
-              data-src-light="../assets/icons/github-light.png"
-              data-src-dark="../assets/icons/github-dark.png"
-            />
-          </a>
-          <a class="icon-btn icon-btn--img" href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <img
-              src="../assets/icons/linkedin-light.png"
-              alt=""
-              data-src-light="../assets/icons/linkedin-light.png"
-              data-src-dark="../assets/icons/linkedin-dark.png"
-            />
-          </a>
-          <a class="icon-btn icon-btn--img" href="mailto:elislothower@gmail.com" aria-label="Email">
-            <img
-              src="../assets/icons/mail-light.png"
-              alt=""
-              data-src-light="../assets/icons/mail-light.png"
-              data-src-dark="../assets/icons/mail-dark.png"
-            />
-          </a>
-          <a class="pill pill--outline" href="../assets/files/Eli_Slothower_Resume.pdf" target="_blank" rel="noopener" aria-label="Résumé">
-            <span>Résumé</span>
-          </a>
+      <footer class="site-footer project-footer">
+        <p>© <span data-year>2026</span> Eli Slothower</p>
+        <div class="site-footer-links">
+          <a href="mailto:elislothower@gmail.com">Email</a>
+          <a href="https://github.com/eslothower" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/eli-slothower/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="../index.html#work">Back to work</a>
         </div>
-      </section>
-      <!-- END Let's Chat -->
-
-       
+      </footer>
     </div>
 
-    <!-- Reuse site JS (theme swap, etc.) -->
-    <script src="../script.js" defer></script>
+    <script src="../theme.js" defer></script>
+    <script src="../script.js?v=20261101-theme" defer></script>
   </body>
 </html>
