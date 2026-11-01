@@ -1,0 +1,21 @@
+.theme-icon { position: relative; display: block; width: 18px; height: 18px; }
+.theme-icon::before, .theme-icon::after { content: ""; position: absolute; inset: 0; background: currentColor; }
+.theme-icon::before {
+  -webkit-mask: url("assets/icons/theme-moon.svg?v=20260713") center / contain no-repeat;
+  mask: url("assets/icons/theme-moon.svg?v=20260713") center / contain no-repeat;
+}
+.theme-icon::after {
+  opacity: 0;
+  transform: rotate(35deg) scale(0.7);
+  -webkit-mask: url("assets/icons/theme-sun.svg?v=20260713") center / contain no-repeat;
+  mask: url("assets/icons/theme-sun.svg?v=20260713") center / contain no-repeat;
+}
+:root[data-theme="dark"] .theme-icon::before { opacity: 0; transform: rotate(-35deg) scale(0.7); }
+:root[data-theme="dark"] .theme-icon::after { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .theme-icon::before, .theme-icon::after { transition: opacity 280ms ease, transform 280ms ease; }
+  :root.theme-animating, :root.theme-animating * {
+    transition: background-color 280ms ease, color 280ms ease, border-color 280ms ease, text-decoration-color 280ms ease, fill 280ms ease, stroke 280ms ease;
+  }
+}
